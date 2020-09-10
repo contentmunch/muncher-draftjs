@@ -1,0 +1,64 @@
+@import "src/components/assets/variables";
+.violet {
+  background: $violet;
+}
+
+.indigo {
+  background: $indigo;
+}
+
+.green {
+  background: $green;
+}
+
+.blue {
+  background: $blue;
+}
+
+.yellow {
+  background: $yellow;
+}
+
+.orange {
+  background: $orange;
+}
+
+.red {
+  background: $red;
+}
+
+.black {
+  background: $black;
+}
+
+.brown {
+  background: $brown;
+}
+.color__btn {
+  display: inline-flex;
+  align-items: center;
+  .color__content--item {
+    width: .6rem;
+    height: .6rem;
+    margin: .2rem;
+  }
+}
+.color__content {
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+
+  .color__content--item {
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    margin: .2rem;
+  }
+
+  .color__content--item:hover {
+    opacity: .6;
+  }
+}
+

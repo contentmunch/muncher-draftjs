@@ -1,0 +1,17 @@
+@import "src/components/assets/variables";
+
+.settings__content {
+  .settings__content--item {
+    display: flex;
+    align-items: center;
+    justify-content:  space-between;
+    .settings__content--toggle {
+      cursor: pointer;
+
+    }
+    .settings__content--toggle:hover{
+      opacity: .6;
+    }
+  }
+}
+

@@ -1,0 +1,63 @@
+{
+  "name": "muncher",
+  "version": "0.1.0",
+  "description": "Content editor wysiwyg for contentmunch",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "author": "asikpradhan",
+  "license": "MIT",
+  "proxy": "http://localhost:8080",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@contentmunch"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "node-sass": "^4.14.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "prebuild": "rimraf dist",
+    "build": "NODE_ENV=production babel src/components --out-dir dist --copy-files",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "codemirror": "^5.57.0",
+    "draft-convert": "^2.1.10",
+    "draft-js": "^0.11.7",
+    "js-beautify": "^1.13.0",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
+    "react-codemirror2": "^7.2.1",
+    "react-dom": "^16.13.1",
+    "react-json-tree": "^0.12.1",
+    "react-panelgroup": "^1.0.12",
+    "react-scripts": "3.4.3",
+    "rimraf": "^3.0.2"
+  }
+}

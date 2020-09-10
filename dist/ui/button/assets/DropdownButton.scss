@@ -1,0 +1,38 @@
+@import "src/components/assets/variables";
+
+$dropdown-content-color: $primary-color !default;
+$dropdown-content-background-color: $secondary-background-color !default;
+.muncher__dropdown {
+  position: relative;
+  display: inline-block;
+
+  .muncher__dropdown--content {
+    display: block;
+    position: absolute;
+    white-space: nowrap;
+    background: $dropdown-content-background-color;
+    min-width: 5rem;
+    box-shadow: 0 .25rem 1rem 0 rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    padding: .5rem;
+    color: $dropdown-content-color;
+    font-size: .8rem;
+
+    .muncher__dropdown--close {
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .muncher__dropdown--close:hover {
+      opacity: .8;
+    }
+    div {
+      padding: .1rem;
+    }
+
+  }
+
+  .drop-left {
+    right: 0;
+  }
+}

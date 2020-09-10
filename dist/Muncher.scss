@@ -1,0 +1,83 @@
+@import "src/components/assets/variables";
+
+.muncher {
+  .muncher__main {
+    background: $primary-background-color;
+    border: .01rem solid $border-color;
+    font-family: $main-font;
+    font-size: 1rem;
+    padding: .2rem .5rem;
+  }
+
+  .muncher__toolbar {
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .muncher__toolbar--left {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      flex-wrap: wrap;
+    }
+
+    border-bottom: 1px solid $border-color;
+  }
+
+  .muncher__editor, .muncher__code {
+
+    cursor: text;
+    min-height: 60vh;
+
+  }
+
+  .muncher__code {
+    .CodeMirror {
+      min-height: 60vh;
+    }
+  }
+
+  .muncher__separator {
+
+    color: $border-color;
+  }
+
+  .muncher--small {
+    font-size: 8px;
+  }
+
+  .muncher__structure {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: $primary-background-color;
+  }
+
+  [data-title] {
+    position: relative;
+  }
+
+  [data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+  }
+
+  [data-title]:after {
+    content: attr(data-title);
+    background: $secondary-background-color;
+    color: $primary-color;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -1.6rem;
+    left: 30%;
+    white-space: nowrap;
+    box-shadow: 0 .25rem 1rem 0 rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    z-index: 50;
+    visibility: hidden;
+  }
+
+}
+

@@ -1,0 +1,12 @@
+@import "src/components/assets/variables";
+
+.block__content {
+  .block__content--item {
+    cursor: pointer;
+  }
+
+  .block__content--item:hover {
+    opacity: .6;
+  }
+}
+

@@ -1,0 +1,64 @@
+
+@import "src/components/assets/variables";
+
+html {
+  //so that reactjs scrollIntoView can be smooth
+  scroll-behavior: smooth;
+  font-size: 100%;
+  font-family: $main-font;
+  color: $primary-color;
+
+}
+
+a {
+  text-decoration: none;
+
+}
+
+a:hover {
+
+}
+
+.text-danger {
+  color: $danger-color;
+}
+
+.text-success {
+  color: $success-color;
+}
+
+.mobile {
+  display: block;
+}
+
+.main {
+  display: none;
+}
+
+@media (min-width: $medium-size) {
+  .mobile {
+    display: none;
+  }
+  .main {
+    display: block;
+  }
+  .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 45rem;
+  }
+}
+
+@media (min-width: $large-size) {
+  .container {
+    width: 54rem;
+  }
+}
+
+@media (min-width: $extra-large-size) {
+  .container {
+    width: 70rem;
+  }
+}

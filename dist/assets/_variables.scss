@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap');
+
+$primary-color: #13294b !default;
+$primary-background-color: white !default;
+$secondary-background-color: #e9eeeb !default;
+$tertiary-background-color: #f5f5f5 !default;
+$disabled-color: #959698 !default;
+$danger-color: #a52a2a !default;
+$success-color: green !default;
+$border-color: #d8d8d8 !default;
+$main-font: 'Libre Baskerville', serif !default;
+
+$black: $primary-color !default;
+$violet: rgba(127, 0, 255, 1.0) !default;
+$indigo: rgba(75, 0, 130, 1.0) !default;
+$green: rgba(0, 180, 0, 1.0) !default;
+$blue: rgba(0, 0, 255, 1.0) !default;
+$yellow: rgba(180, 180, 0, 1.0) !default;
+$orange: rgba(255, 127, 0, 1.0) !default;
+$red: rgba(255, 0, 0, 1.0) !default;
+$brown: $danger-color !default;
+
+$extra-small-size: 20rem !default;
+$small-size: 22rem !default;
+$medium-size: 40rem !default;
+$large-size: 62rem !default;
+$extra-large-size: 75rem !default;
+
