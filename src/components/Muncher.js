@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import {CompositeDecorator, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
+import {CompositeDecorator, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import './assets/Muncher.scss';
 import CodeView from "./view/code/CodeView";
@@ -8,7 +8,38 @@ import LinkDecorator from "./decorators/LinkDecorator";
 import StructureView from "./view/code/StructureView";
 import MuncherToolBar from "./toolbar/MuncherToolbar";
 import {colorStyleMap} from "./utilities/draft/DraftUtilities";
+import Editor, {composeDecorators} from "draft-js-plugins-editor";
+import createImagePlugin from 'draft-js-image-plugin';
+import createAlignmentPlugin from 'draft-js-alignment-plugin';
 
+import createFocusPlugin from 'draft-js-focus-plugin';
+
+import createResizeablePlugin from 'draft-js-resizeable-plugin';
+
+import createBlockDndPlugin from 'draft-js-drag-n-drop-plugin';
+
+const focusPlugin = createFocusPlugin();
+const resizeablePlugin = createResizeablePlugin();
+const blockDndPlugin = createBlockDndPlugin();
+const alignmentPlugin = createAlignmentPlugin();
+const {AlignmentTool} = alignmentPlugin;
+
+const composeDecorator = composeDecorators(
+    resizeablePlugin.decorator,
+    alignmentPlugin.decorator,
+    focusPlugin.decorator,
+    blockDndPlugin.decorator,
+    LinkDecorator
+);
+const imagePlugin = createImagePlugin({composeDecorator});
+
+const plugins = [
+    blockDndPlugin,
+    focusPlugin,
+    alignmentPlugin,
+    resizeablePlugin,
+    imagePlugin
+];
 export default function Muncher() {
 
     const intialHtml = "<h1 class=\"text-align--center\">This is heading</h1>\n" +
@@ -16,7 +47,8 @@ export default function Muncher() {
         "<blockquote class=\"text-align--center\">this is it</blockquote>\n" +
         "<ol type=\"a\">\n" +
         "  <li class=\"text-align--center\">This is first</li>\n" +
-        "</ol>";
+        "</ol>\n" +
+        "<img src='http://www.renaissancerentals.com/blog/wp-content/uploads/2020/03/Sarah-Baker-290x300.jpg'/>";
     const decorator = new CompositeDecorator([LinkDecorator()]);
 
     const [editorState, setEditorState] = useState(EditorState.createWithContent(convertHtmlToContent(intialHtml), decorator));
@@ -117,7 +149,9 @@ export default function Muncher() {
                                 customStyleMap={colorStyleMap}
                                 spellCheck={true}
                                 placeholder="Tell a story..."
+                                plugins={plugins}
                             />
+                            <AlignmentTool/>
                         </div>
                 }
 
