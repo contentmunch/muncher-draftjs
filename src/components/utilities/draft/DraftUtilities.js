@@ -35,7 +35,7 @@ export const getBlockAlignment = (editorState) => {
 export const COLORS = [
     {label: 'Red', style: 'red'},
     {label: 'Orange', style: 'orange'},
-    {label: 'Yellow', style: 'yellow'},
+        {label: 'Yellow', style: 'yellow'},
     {label: 'Green', style: 'green'},
     {label: 'Blue', style: 'blue'},
     {label: 'Indigo', style: 'indigo'},

@@ -6,6 +6,7 @@ export default function DropdownButton(props) {
     const {onClick, disabled, title,active, icon, drop, onClose, showContent, setShowContent} = {...props};
     const ref = useRef(null);
     const buttonOnClick = (e) => {
+        e.preventDefault();
         if (onClick) {
             onClick(e);
         }
@@ -51,7 +52,7 @@ export default function DropdownButton(props) {
     };
     return (
         <div className="muncher__dropdown" ref={ref}>
-            <Button onClick={buttonOnClick} title={title} disabled={!!disabled} active={active}>{icon}</Button>
+            <Button onMouseDown={buttonOnClick} title={title} disabled={!!disabled} active={active}>{icon}</Button>
             {
                 showContent ? <div className={dropdownClass()}>
                     {props.children}

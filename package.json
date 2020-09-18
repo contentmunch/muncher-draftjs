@@ -59,5 +59,8 @@
     "react-panelgroup": "^1.0.12",
     "react-scripts": "3.4.3",
     "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "draft-js-export-html": "^1.4.1"
   }
 }

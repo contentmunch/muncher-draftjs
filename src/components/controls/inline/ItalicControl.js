@@ -6,11 +6,12 @@ export default function ItalicControl(props) {
     const {editorState, setEditorState} = {...props};
     const style = "ITALIC";
     const currentStyle = editorState.getCurrentInlineStyle();
-    const onClick = () => {
+    const onMouseDown = (e) => {
+        e.preventDefault();
         setEditorState(RichUtils.toggleInlineStyle(editorState, style));
     };
     return (
-        <Button title="Italic" active={currentStyle.has(style)} onClick={onClick}>
+        <Button title="Italic" active={currentStyle.has(style)} onMouseDown={onMouseDown}>
             <strong><em>I</em></strong>
         </Button>
     );

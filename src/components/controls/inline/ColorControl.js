@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import DropdownButton from "../../ui/button/DropdownButton";
-import './ColorControl.scss';
+import React, {Fragment, useState} from "react";
+import './assets/ColorControl.scss';
 import {EditorState, Modifier, RichUtils} from "draft-js";
 import {COLORS, colorStyleMap} from "../../utilities/draft/DraftUtilities";
+import DropdownButton from "../../ui/button/DropdownButton";
 
 export default function ColorControl(props) {
     const {editorState, setEditorState} = {...props};
@@ -11,12 +11,13 @@ export default function ColorControl(props) {
 
     const colorSpan = (color) => <span key={color.label} title={color.label}
                                        className={"color__content--item " + color.style}/>;
-    const emptyStyleDiv = colorSpan({label: 'Black', style: 'blue'});
+    const emptyStyleDiv = colorSpan({label: 'Black', style: 'black'});
     const currentStyleDiv = () => {
         const styleType = COLORS.find(({style}) => currentStyle.has(style));
         return styleType === undefined ? emptyStyleDiv : colorSpan(styleType);
     };
-    const colorPicked = (style) => {
+    const colorPicked = (e, style) => {
+        e.preventDefault();
         const selection = editorState.getSelection();
 
         // Let's just allow one color at a time. Turn off all active colors.
@@ -48,22 +49,25 @@ export default function ColorControl(props) {
         }
         setEditorState(nextEditorState);
         setShowContent(false);
+
     };
     return (
-        <DropdownButton title="Font color"
-                        showContent={showContent}
-                        active={currentStyleDiv() !== emptyStyleDiv}
-                        setShowContent={setShowContent}
-                        icon={<span className="color__btn">{currentStyleDiv()} <span
-                            className="muncher--small">&#9660;</span></span>}>
-            <div className="color__content">
-                {COLORS.map(color =>
-                    <div key={color.label} title={color.label}
-                         onClick={() => colorPicked(color.style)}
-                         className={"color__content--item " + color.style}/>
-                )}
-            </div>
-        </DropdownButton>
+        <Fragment>
+            <DropdownButton title="Font color"
+                            showContent={showContent}
+                            active={currentStyleDiv() !== emptyStyleDiv}
+                            setShowContent={setShowContent}
+                            icon={<span className="color__btn">{currentStyleDiv()} <span
+                                className="muncher--small">&#9660;</span></span>}>
+                <div className="color__content">
+                    {COLORS.map(color =>
+                        <span key={color.label} title={color.label}
+                             onMouseDown={(e) => colorPicked(e, color.style)}
+                             className={"color__content--item " + color.style}/>
+                    )}
+                </div>
+            </DropdownButton>
 
+        </Fragment>
     );
 }

@@ -12,10 +12,7 @@ import CodeControl from "../controls/inline/CodeControl";
 import ColorControl from "../controls/inline/ColorControl";
 import ImageControl from "../controls/media/ImageControl";
 import YoutubeControl from "../controls/media/YoutubeControl";
-import AlignLeftControl from "../controls/align/AlignLeftControl";
-import AlignCenterControl from "../controls/align/AlignCenterControl";
-import AlignRightControl from "../controls/align/AlignRightControl";
-import AlignJustifyControl from "../controls/align/AlignJustifyControl";
+import AlignControl from "../controls/align/AlignControl";
 import UnorderedListControl from "../controls/list/UnorderedListControl";
 import OrderedListControl from "../controls/list/OrderedListControl";
 import SmileControl from "../controls/media/SmileControl";
@@ -55,10 +52,7 @@ export default function MuncherToolBar(props) {
                     <YoutubeControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <SmileControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <span className="muncher__separator">|</span>
-                    <AlignLeftControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <AlignCenterControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <AlignRightControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <AlignJustifyControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                    <AlignControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <span className="muncher__separator">|</span>
                 </Fragment> : ''}
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {CompositeDecorator, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
-import './Muncher.scss';
+import './assets/Muncher.scss';
 import CodeView from "./view/code/CodeView";
 import {beautifyHtml, convertContentToHtml, convertHtmlToContent} from "./utilities/html/HtmlUtilities";
 import LinkDecorator from "./decorators/LinkDecorator";
@@ -11,7 +11,12 @@ import {colorStyleMap} from "./utilities/draft/DraftUtilities";
 
 export default function Muncher() {
 
-    const intialHtml = "<h1>This is heading</h1>\n<p>This is <a href=\"what\">paragraph</a></p>";
+    const intialHtml = "<h1 class=\"text-align--center\">This is heading</h1>\n" +
+        "<p class=\"text-align--center\">This is <a href=\"http://localhost:3000/what\">paragraph</a></p>\n" +
+        "<blockquote class=\"text-align--center\">this is it</blockquote>\n" +
+        "<ol type=\"a\">\n" +
+        "  <li class=\"text-align--center\">This is first</li>\n" +
+        "</ol>";
     const decorator = new CompositeDecorator([LinkDecorator()]);
 
     const [editorState, setEditorState] = useState(EditorState.createWithContent(convertHtmlToContent(intialHtml), decorator));
@@ -43,12 +48,28 @@ export default function Muncher() {
 
 
     const getBlockStyle = (block) => {
-        switch (block.getType()) {
-            case 'blockquote':
-                return 'RichEditor-blockquote';
+        switch (block.getData().get('textAlign')) {
+            case 'ALIGN_LEFT':
+                return 'text-align--left';
+
+            case 'ALIGN_CENTER':
+                return 'text-align--center';
+
+            case 'ALIGN_RIGHT':
+                return 'text-align--right';
+
+            case 'ALIGN_JUSTIFY':
+                return 'text-align--justify';
+
             default:
-                return block.getType();
+                switch (block.getType()) {
+                    case 'blockquote':
+                        return 'RichEditor-blockquote';
+                    default:
+                        return block.getType();
+                }
         }
+
     };
     const handleKeyCommand = (command, editorState) => {
         const newState = RichUtils.handleKeyCommand(editorState, command);
