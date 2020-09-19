@@ -10,6 +10,7 @@ import MuncherToolBar from "./toolbar/MuncherToolbar";
 import {colorStyleMap} from "./utilities/draft/DraftUtilities";
 import BlockRenderer from "./utilities/BlockRenderer";
 import IframeDecorator from "./decorators/IframeDecorator";
+import SmileyDecorator from "./decorators/SmileyDecorator";
 
 export default function Muncher() {
 
@@ -19,7 +20,7 @@ export default function Muncher() {
         "<ol type=\"a\">\n" +
         "  <li class=\"text-align--center\">This is first</li>\n" +
         "</ol>";
-    const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
+    const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator(), SmileyDecorator()]);
 
     const [editorState, setEditorState] = useState(EditorState.createWithContent(convertHtmlToContent(intialHtml), decorator));
 

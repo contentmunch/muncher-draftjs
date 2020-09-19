@@ -15,6 +15,7 @@ import YoutubeControl from "../controls/media/YoutubeControl";
 import AlignControl from "../controls/align/AlignControl";
 import UnorderedListControl from "../controls/list/UnorderedListControl";
 import OrderedListControl from "../controls/list/OrderedListControl";
+import SmileControl from "../controls/media/SmileControl";
 import SettingsControl from "../controls/setting/SettingsControl";
 
 export default function MuncherToolBar(props) {
@@ -49,7 +50,7 @@ export default function MuncherToolBar(props) {
                     <UnlinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <ImageControl editorState={editorState} setEditorState={onChange}/>
                     <YoutubeControl editorState={editorState} setEditorState={onChange}/>
-
+                    <SmileControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <span className="muncher__separator">|</span>
                     <AlignControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <span className="muncher__separator">|</span>
