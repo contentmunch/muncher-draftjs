@@ -10,7 +10,7 @@ export const convertHtmlToContent = (currentHtml) => {
 
             if (nodeName === 'span' && node.style.color) {
 
-                return currentStyle.add(node.style.color.toUpperCase());
+                return currentStyle.add(node.style.color);
             }
             return currentStyle;
 
