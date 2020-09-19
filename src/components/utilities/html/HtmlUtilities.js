@@ -24,6 +24,17 @@ export const convertHtmlToContent = (currentHtml) => {
                     {url: node.href}
                 )
             }
+            if (nodeName === 'img') {
+                return createEntity('image',
+                    'IMMUTABLE',
+                    {src: node.src})
+            }
+            if (nodeName === 'iframe') {
+                return createEntity('IFRAME',
+                    'IMMUTABLE',
+                    {src: node.src})
+            }
+
         },
         htmlToBlock: (nodeName, node, lastList) => {
             switch (nodeName) {
@@ -81,6 +92,11 @@ export const convertHtmlToContent = (currentHtml) => {
                     }
                     return {
                         type: 'unordered-list-item',
+                        data: textAlignData(node.className)
+                    };
+                case 'figure':
+                    return {
+                        type: 'atomic',
                         data: textAlignData(node.className)
                     };
             }
@@ -151,6 +167,8 @@ export const convertContentToHtml = (currentEditorState) => {
                     return <h6 className={textAlignClass(block)}/>;
                 case 'blockquote':
                     return <blockquote className={textAlignClass(block)}/>;
+                case 'atomic':
+                    return <figure className={textAlignClass(block)}/>;
                 case 'unordered-list-item':
                     return {
                         element: <li className={textAlignClass(block)}/>,
@@ -171,6 +189,12 @@ export const convertContentToHtml = (currentEditorState) => {
         entityToHTML: (entity, originalText) => {
             if (entity.type === 'LINK') {
                 return <a href={entity.data.url}>{originalText}</a>;
+            }
+            if (entity.type === 'image') {
+                return `<img src="${entity.data.src}" />`;
+            }
+            if (entity.type === 'IFRAME') {
+                return `<iframe allowFullScreen frameBorder="0" width="300" height="200" src="${entity.data.src}" controls />`;
             }
             return originalText;
         }

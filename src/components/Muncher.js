@@ -8,6 +8,8 @@ import LinkDecorator from "./decorators/LinkDecorator";
 import StructureView from "./view/code/StructureView";
 import MuncherToolBar from "./toolbar/MuncherToolbar";
 import {colorStyleMap} from "./utilities/draft/DraftUtilities";
+import BlockRenderer from "./utilities/BlockRenderer";
+import IframeDecorator from "./decorators/IframeDecorator";
 
 export default function Muncher() {
 
@@ -17,7 +19,7 @@ export default function Muncher() {
         "<ol type=\"a\">\n" +
         "  <li class=\"text-align--center\">This is first</li>\n" +
         "</ol>";
-    const decorator = new CompositeDecorator([LinkDecorator()]);
+    const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
 
     const [editorState, setEditorState] = useState(EditorState.createWithContent(convertHtmlToContent(intialHtml), decorator));
 
@@ -112,6 +114,7 @@ export default function Muncher() {
                                 editorState={editorState}
                                 onChange={onChange}
                                 blockStyleFn={getBlockStyle}
+                                blockRendererFn={BlockRenderer}
                                 handleKeyCommand={handleKeyCommand}
                                 keyBindingFn={mapKeyToEditorCommand}
                                 customStyleMap={colorStyleMap}

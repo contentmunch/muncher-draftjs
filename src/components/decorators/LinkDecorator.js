@@ -19,8 +19,11 @@ const findLinkEntities = (contentBlock, callback, contentState) => {
 
 const Link = props => {
     const {url} = props.contentState.getEntity(props.entityKey).getData();
+    const linkClicked=()=>{
+        console.log("link clicked")
+    };
     return (
-        <a href={url}>
+        <a href={url} onClick={linkClicked}>
             {props.children}
         </a>
     );

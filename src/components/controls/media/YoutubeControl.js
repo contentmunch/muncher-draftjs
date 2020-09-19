@@ -1,17 +1,14 @@
 import React, {useState} from "react";
-import {EditorState, RichUtils} from 'draft-js';
-import LinkIcon from "../../icons/LinkIcon";
+import {AtomicBlockUtils, EditorState} from 'draft-js';
 import '../../ui/button/assets/DropdownButton.scss';
 import DropdownButton from "../../ui/button/DropdownButton";
-import {entityFromSelection} from "../../utilities/draft/DraftUtilities";
-import ImageIcon from "../../icons/ImageIcon";
 import YoutubeIcon from "../../icons/YoutubeIcon";
 
 export default function YoutubeControl(props) {
     const {editorState, setEditorState} = {...props};
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
-    const selectionState = editorState.getSelection();
+
 
     const showLinkPrompt = () => {
 
@@ -21,15 +18,32 @@ export default function YoutubeControl(props) {
         setShowContent(false);
         setUrlValue('');
     };
-    const confirmLink = () => {
+    const confirmLink = (e) => {
+        e.preventDefault();
+        const contentState = editorState.getCurrentContent();
+        const contentStateWithEntity = contentState.createEntity(
+            'IFRAME',
+            'IMMUTABLE',
+            {src: urlValue},
+        );
+        const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+        const newEditorState = EditorState.set(editorState, {
+            currentContent: contentStateWithEntity,
+        });
 
-        hideLinkPrompt();
+        // The third parameter here is a space string, not an empty string
+        // If you set an empty string, you will get an error: Unknown DraftEntity key: null
+        setEditorState(
+            AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' '),
+        );
+
     };
 
 
     return (
         <div className="muncher__dropdown">
-            <DropdownButton title="Add or Edit Image" onClick={showLinkPrompt} onClose={hideLinkPrompt} showContent={showContent}
+            <DropdownButton title="Add or Edit Video" onClick={showLinkPrompt} onClose={hideLinkPrompt}
+                            showContent={showContent}
                             setShowContent={setShowContent}
                             icon={<YoutubeIcon/>}>
                 <input
