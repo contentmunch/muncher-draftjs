@@ -27,7 +27,12 @@ var Link = function Link(props) {
   var _props$contentState$g = props.contentState.getEntity(props.entityKey).getData(),
       url = _props$contentState$g.url;
 
+  var linkClicked = function linkClicked() {
+    console.log("link clicked");
+  };
+
   return /*#__PURE__*/_react.default.createElement("a", {
-    href: url
+    href: url,
+    onClick: linkClicked
   }, props.children);
 };

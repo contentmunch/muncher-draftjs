@@ -78,6 +78,24 @@
     z-index: 50;
     visibility: hidden;
   }
+  .svg-class svg {
+    stroke: red; // whichever color you want
+  }
+}
 
+.text-align--left .public-DraftStyleDefault-ltr {
+  text-align: left;
+}
+
+.text-align--center .public-DraftStyleDefault-ltr {
+  text-align: center;
+}
+
+.text-align--right .public-DraftStyleDefault-ltr {
+  text-align: right;
+}
+
+.text-align--justify .public-DraftStyleDefault-ltr {
+  text-align: justify;
 }
 

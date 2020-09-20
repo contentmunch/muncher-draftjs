@@ -27,13 +27,14 @@ function UnderlineControl(props) {
   var style = "UNDERLINE";
   var currentStyle = editorState.getCurrentInlineStyle();
 
-  var onClick = function onClick() {
+  var onMouseDown = function onMouseDown(e) {
+    e.preventDefault();
     setEditorState(_draftJs.RichUtils.toggleInlineStyle(editorState, style));
   };
 
   return /*#__PURE__*/_react.default.createElement(_Button.default, {
     title: "Underline",
     active: currentStyle.has(style),
-    onClick: onClick
+    onMouseDown: onMouseDown
   }, /*#__PURE__*/_react.default.createElement("strong", null, /*#__PURE__*/_react.default.createElement("u", null, "U")));
 }

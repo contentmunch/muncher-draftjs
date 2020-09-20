@@ -20,12 +20,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function Button(props) {
   var _props = _objectSpread({}, props),
       onClick = _props.onClick,
+      onMouseDown = _props.onMouseDown,
       disabled = _props.disabled,
       title = _props.title,
       active = _props.active;
 
   return /*#__PURE__*/_react.default.createElement("button", {
     onClick: onClick,
+    onMouseDown: onMouseDown,
     className: active ? "muncher__btn muncher__btn--active" : "muncher__btn",
     "data-title": title,
     type: "submit",

@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Muncher;
+exports.default = MuncherTest;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -15,21 +15,7 @@ require("draft-js/dist/Draft.css");
 
 require("./assets/Muncher.scss");
 
-var _CodeView = _interopRequireDefault(require("./view/code/CodeView"));
-
-var _HtmlUtilities = require("./utilities/html/HtmlUtilities");
-
-var _LinkDecorator = _interopRequireDefault(require("./decorators/LinkDecorator"));
-
-var _StructureView = _interopRequireDefault(require("./view/code/StructureView"));
-
-var _MuncherToolbar = _interopRequireDefault(require("./toolbar/MuncherToolbar"));
-
-var _DraftUtilities = require("./utilities/draft/DraftUtilities");
-
-var _BlockRenderer = _interopRequireDefault(require("./utilities/BlockRenderer"));
-
-var _IframeDecorator = _interopRequireDefault(require("./decorators/IframeDecorator"));
+var _BoldControl = _interopRequireDefault(require("./controls/inline/BoldControl"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49,79 +35,31 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function Muncher() {
-  var intialHtml = "<h1 class=\"text-align--center\">This is heading</h1>\n" + "<p class=\"text-align--center\">This is <a href=\"http://localhost:3000/what\">paragraph</a></p>\n" + "<blockquote class=\"text-align--center\">this is it</blockquote>\n" + "<ol type=\"a\">\n" + "  <li class=\"text-align--center\">This is first</li>\n" + "</ol>";
-  var decorator = new _draftJs.CompositeDecorator([(0, _LinkDecorator.default)(), (0, _IframeDecorator.default)()]);
-
-  var _useState = (0, _react.useState)(_draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(intialHtml), decorator)),
+function MuncherTest() {
+  var _useState = (0, _react.useState)(_draftJs.EditorState.createEmpty()),
       _useState2 = _slicedToArray(_useState, 2),
       editorState = _useState2[0],
       setEditorState = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      showStructure = _useState4[0],
-      setShowStructure = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      codeView = _useState6[0],
-      setCodeView = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(""),
-      _useState8 = _slicedToArray(_useState7, 2),
-      html = _useState8[0],
-      setHtml = _useState8[1];
-
-  var onChange = function onChange(currentEditorState) {
-    setEditorState(currentEditorState);
-    setHtml((0, _HtmlUtilities.beautifyHtml)((0, _HtmlUtilities.convertContentToHtml)(currentEditorState)));
-  };
-
   var editor = (0, _react.useRef)(null);
 
   var focusEditor = function focusEditor() {
-    //wait for focus, causes stack overflow, otherwise.
-    setTimeout(function () {
-      editor.current.focus();
-    }, 100);
+    editor.current.focus();
   };
 
   (0, _react.useEffect)(function () {
     focusEditor();
   }, []);
 
-  var getBlockStyle = function getBlockStyle(block) {
-    switch (block.getData().get('textAlign')) {
-      case 'ALIGN_LEFT':
-        return 'text-align--left';
-
-      case 'ALIGN_CENTER':
-        return 'text-align--center';
-
-      case 'ALIGN_RIGHT':
-        return 'text-align--right';
-
-      case 'ALIGN_JUSTIFY':
-        return 'text-align--justify';
-
-      default:
-        switch (block.getType()) {
-          case 'blockquote':
-            return 'RichEditor-blockquote';
-
-          default:
-            return block.getType();
-        }
-
-    }
+  var toggleInlineStyle = function toggleInlineStyle(inlineStyle) {
+    setEditorState(_draftJs.RichUtils.toggleInlineStyle(editorState, inlineStyle));
   };
 
   var handleKeyCommand = function handleKeyCommand(command, editorState) {
     var newState = _draftJs.RichUtils.handleKeyCommand(editorState, command);
 
     if (newState) {
-      onChange(newState);
+      setEditorState(newState);
       return true;
     }
 
@@ -137,50 +75,34 @@ function Muncher() {
         );
 
         if (newEditorState !== editorState) {
-          onChange(newEditorState);
+          setEditorState(newEditorState);
         }
 
-        return false;
+        return;
       }
 
     return (0, _draftJs.getDefaultKeyBinding)(e);
   };
 
+  var onChange = function onChange(editorState) {
+    return setEditorState(editorState);
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__main"
-  }, /*#__PURE__*/_react.default.createElement(_MuncherToolbar.default, {
+    className: "RichEditor-root"
+  }, /*#__PURE__*/_react.default.createElement(_BoldControl.default, {
     editorState: editorState,
-    onChange: onChange,
-    codeView: codeView,
-    setCodeView: setCodeView,
-    html: html,
-    showStructure: showStructure,
-    setShowStructure: setShowStructure,
-    focusEditor: focusEditor
-  }), codeView ? /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__code"
-  }, /*#__PURE__*/_react.default.createElement(_CodeView.default, {
-    html: html,
-    setHtml: setHtml
-  })) : /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__editor",
+    setEditorState: setEditorState
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "RichEditor-editor",
     onClick: focusEditor
   }, /*#__PURE__*/_react.default.createElement(_draftJs.Editor, {
     ref: editor,
     editorState: editorState,
     onChange: onChange,
-    blockStyleFn: getBlockStyle,
-    blockRendererFn: _BlockRenderer.default,
     handleKeyCommand: handleKeyCommand,
     keyBindingFn: mapKeyToEditorCommand,
-    customStyleMap: _DraftUtilities.colorStyleMap,
     spellCheck: true,
     placeholder: "Tell a story..."
-  }))), showStructure ? /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__structure"
-  }, /*#__PURE__*/_react.default.createElement(_StructureView.default, {
-    editorState: editorState
-  })) : "");
+  })));
 }

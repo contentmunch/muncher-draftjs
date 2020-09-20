@@ -9,13 +9,13 @@ exports.default = ColorControl;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _DropdownButton = _interopRequireDefault(require("../../ui/button/DropdownButton"));
-
-require("./ColorControl.scss");
+require("./assets/ColorControl.scss");
 
 var _draftJs = require("draft-js");
 
 var _DraftUtilities = require("../../utilities/draft/DraftUtilities");
+
+var _DropdownButton = _interopRequireDefault(require("../../ui/button/DropdownButton"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -63,7 +63,7 @@ function ColorControl(props) {
 
   var emptyStyleDiv = colorSpan({
     label: 'Black',
-    style: 'blue'
+    style: 'black'
   });
 
   var currentStyleDiv = function currentStyleDiv() {
@@ -75,7 +75,8 @@ function ColorControl(props) {
     return styleType === undefined ? emptyStyleDiv : colorSpan(styleType);
   };
 
-  var colorPicked = function colorPicked(style) {
+  var colorPicked = function colorPicked(e, style) {
+    e.preventDefault();
     var selection = editorState.getSelection(); // Let's just allow one color at a time. Turn off all active colors.
 
     var nextContentState = Object.keys(_DraftUtilities.colorStyleMap).reduce(function (contentState, color) {
@@ -100,7 +101,7 @@ function ColorControl(props) {
     setShowContent(false);
   };
 
-  return /*#__PURE__*/_react.default.createElement(_DropdownButton.default, {
+  return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_DropdownButton.default, {
     title: "Font color",
     showContent: showContent,
     active: currentStyleDiv() !== emptyStyleDiv,
@@ -113,13 +114,13 @@ function ColorControl(props) {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "color__content"
   }, _DraftUtilities.COLORS.map(function (color) {
-    return /*#__PURE__*/_react.default.createElement("div", {
+    return /*#__PURE__*/_react.default.createElement("span", {
       key: color.label,
       title: color.label,
-      onClick: function onClick() {
-        return colorPicked(color.style);
+      onMouseDown: function onMouseDown(e) {
+        return colorPicked(e, color.style);
       },
       className: "color__content--item " + color.style
     });
-  })));
+  }))));
 }

@@ -11,13 +11,9 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _draftJs = require("draft-js");
 
-var _LinkIcon = _interopRequireDefault(require("../../icons/LinkIcon"));
-
 require("../../ui/button/assets/DropdownButton.scss");
 
 var _DropdownButton2 = _interopRequireDefault(require("../../ui/button/DropdownButton"));
-
-var _DraftUtilities = require("../../utilities/draft/DraftUtilities");
 
 var _ImageIcon = _interopRequireDefault(require("../../icons/ImageIcon"));
 
@@ -60,8 +56,6 @@ function ImageControl(props) {
       urlValue = _useState4[0],
       setUrlValue = _useState4[1];
 
-  var selectionState = editorState.getSelection();
-
   var showLinkPrompt = function showLinkPrompt() {
     setShowContent(true);
   };
@@ -71,8 +65,21 @@ function ImageControl(props) {
     setUrlValue('');
   };
 
-  var confirmLink = function confirmLink() {
-    hideLinkPrompt();
+  var confirmLink = function confirmLink(e) {
+    e.preventDefault();
+    var contentState = editorState.getCurrentContent();
+    var contentStateWithEntity = contentState.createEntity('image', 'IMMUTABLE', {
+      src: urlValue
+    });
+    var entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+
+    var newEditorState = _draftJs.EditorState.set(editorState, {
+      currentContent: contentStateWithEntity
+    }); // The third parameter here is a space string, not an empty string
+    // If you set an empty string, you will get an error: Unknown DraftEntity key: null
+
+
+    setEditorState(_draftJs.AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' '));
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {

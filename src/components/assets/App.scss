@@ -1,4 +1,3 @@
-
 @import "src/components/assets/variables";
 
 html {
@@ -7,7 +6,7 @@ html {
   font-size: 100%;
   font-family: $main-font;
   color: $primary-color;
-
+  background: $tertiary-background-color;
 }
 
 a {

@@ -40,6 +40,8 @@ function DropdownButton(props) {
   var ref = (0, _react.useRef)(null);
 
   var buttonOnClick = function buttonOnClick(e) {
+    e.preventDefault();
+
     if (onClick) {
       onClick(e);
     }
@@ -91,7 +93,7 @@ function DropdownButton(props) {
     className: "muncher__dropdown",
     ref: ref
   }, /*#__PURE__*/_react.default.createElement(_Button.default, {
-    onClick: buttonOnClick,
+    onMouseDown: buttonOnClick,
     title: title,
     disabled: !!disabled,
     active: active

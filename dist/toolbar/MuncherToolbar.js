@@ -35,19 +35,11 @@ var _ImageControl = _interopRequireDefault(require("../controls/media/ImageContr
 
 var _YoutubeControl = _interopRequireDefault(require("../controls/media/YoutubeControl"));
 
-var _AlignLeftControl = _interopRequireDefault(require("../controls/align/AlignLeftControl"));
-
-var _AlignCenterControl = _interopRequireDefault(require("../controls/align/AlignCenterControl"));
-
-var _AlignRightControl = _interopRequireDefault(require("../controls/align/AlignRightControl"));
-
-var _AlignJustifyControl = _interopRequireDefault(require("../controls/align/AlignJustifyControl"));
+var _AlignControl = _interopRequireDefault(require("../controls/align/AlignControl"));
 
 var _UnorderedListControl = _interopRequireDefault(require("../controls/list/UnorderedListControl"));
 
 var _OrderedListControl = _interopRequireDefault(require("../controls/list/OrderedListControl"));
-
-var _SmileControl = _interopRequireDefault(require("../controls/media/SmileControl"));
 
 var _SettingsControl = _interopRequireDefault(require("../controls/setting/SettingsControl"));
 
@@ -135,25 +127,13 @@ function MuncherToolBar(props) {
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement(_ImageControl.default, {
     editorState: editorState,
-    setEditorState: onChangeAndFocus
+    setEditorState: onChange
   }), /*#__PURE__*/_react.default.createElement(_YoutubeControl.default, {
     editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_SmileControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
+    setEditorState: onChange
   }), /*#__PURE__*/_react.default.createElement("span", {
     className: "muncher__separator"
-  }, "|"), /*#__PURE__*/_react.default.createElement(_AlignLeftControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_AlignCenterControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_AlignRightControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_AlignJustifyControl.default, {
+  }, "|"), /*#__PURE__*/_react.default.createElement(_AlignControl.default, {
     editorState: editorState,
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement("span", {
