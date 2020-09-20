@@ -1,6 +1,6 @@
 {
   "name": "muncher",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Content editor wysiwyg for contentmunch",
   "main": "dist/index.js",
   "module": "dist/index.js",
