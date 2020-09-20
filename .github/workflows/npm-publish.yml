@@ -41,7 +41,5 @@ jobs:
       - run: git switch -c master
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
-      - run: npm run version
-      - run: git add .
-      - run: git commit -m "bump revision"
+      - run: npm version patch
       - run: git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
