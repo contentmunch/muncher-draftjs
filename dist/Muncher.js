@@ -49,11 +49,21 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function Muncher() {
-  var intialHtml = "<h1 class=\"text-align--center\">This is heading</h1>\n" + "<p class=\"text-align--center\">This is <a href=\"http://localhost:3000/what\">paragraph</a></p>\n" + "<blockquote class=\"text-align--center\">this is it</blockquote>\n" + "<ol type=\"a\">\n" + "  <li class=\"text-align--center\">This is first</li>\n" + "</ol>";
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function Muncher(props) {
+  var _props = _objectSpread({}, props),
+      content = _props.content,
+      html = _props.html,
+      setHtml = _props.setHtml;
+
   var decorator = new _draftJs.CompositeDecorator([(0, _LinkDecorator.default)(), (0, _IframeDecorator.default)()]);
 
-  var _useState = (0, _react.useState)(_draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(intialHtml), decorator)),
+  var _useState = (0, _react.useState)(content ? _draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(content), decorator) : _draftJs.EditorState.createEmpty(decorator)),
       _useState2 = _slicedToArray(_useState, 2),
       editorState = _useState2[0],
       setEditorState = _useState2[1];
@@ -67,11 +77,6 @@ function Muncher() {
       _useState6 = _slicedToArray(_useState5, 2),
       codeView = _useState6[0],
       setCodeView = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(""),
-      _useState8 = _slicedToArray(_useState7, 2),
-      html = _useState8[0],
-      setHtml = _useState8[1];
 
   var onChange = function onChange(currentEditorState) {
     setEditorState(currentEditorState);
