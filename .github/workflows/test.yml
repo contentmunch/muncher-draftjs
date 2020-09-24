@@ -25,5 +25,5 @@ jobs:
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Test run'
           description: 'Passed'
-          state: 'success'
+          state: '${{ job.status }}'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
