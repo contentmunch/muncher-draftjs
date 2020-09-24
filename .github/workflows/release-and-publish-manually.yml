@@ -19,28 +19,12 @@ jobs:
       - run: git config user.name "$GITHUB_ACTOR"
       - run: npm ci
       - run: npm run build
+      - run: npm test
       - run: npm version patch
       - run: git add .
       - run: git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
-  test:
+  release:
     needs: build-and-bump-revision
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test
-      - uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{secrets.GITHUB_TOKEN}}
-          context: 'Test run'
-          description: 'Passed'
-          state: '${{ job.status }}'
-          sha: ${{github.event.pull_request.head.sha || github.sha}}
-  create-release:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -53,7 +37,7 @@ jobs:
           release_name: Release ${{ steps.package-version.outputs.current-version}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  publish-gpr:
+  publish:
     needs: create-release
     runs-on: ubuntu-latest
     steps:
