@@ -56,9 +56,9 @@ jobs:
       - run: npm version patch
       - run: git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
       - uses: Sibz/github-status-action@v1
-          with:
-            authToken: ${{secrets.GITHUB_TOKEN}}
-            context: 'Test run'
-            description: 'Passed'
-            state: 'success'
-            sha: ${{github.event.pull_request.head.sha || github.sha}}
+        with:
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test run'
+          description: 'Passed'
+          state: 'success'
+          sha: ${{github.event.pull_request.head.sha || github.sha}}
