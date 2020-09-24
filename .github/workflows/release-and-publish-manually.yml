@@ -8,15 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test
   build-and-bump-revision:
     needs: build-and-test
     runs-on: ubuntu-latest
@@ -32,15 +23,25 @@ jobs:
       - run: npm version patch
       - run: git add .
       - run: git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
+  test:
+    needs: build-and-bump-revision
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm test
       - uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Test run'
           description: 'Passed'
-          state: 'success'
+          state: '${{ job.status }}'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
   create-release:
-    needs: build-and-bump-revision
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
