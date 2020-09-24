@@ -32,6 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   publish-gpr:
+    needs: create-release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
