@@ -1,7 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Release and publish](https://github.com/contentmunch/muncher/workflows/Release%20and%20publish/badge.svg)
+# Muncher
+Muncher is a rich text editor focused on content reuse based on [Draftjs](https://draftjs.org/). 
 
-## Available Scripts
+## Coding rules
+We use [GitHub Flow](https://guides.github.com/introduction/flow/) for our project workflow.
+To ensure consistency throughout the source code, keep these rules in mind as you are working:
 
+* Create pull request against develop to merge your code.
+* All features or bug fixes **must be tested** by one or more [specs][unit-testing].
+
+### Pull request format
+
+```
+<subject>
+
+* changes 1
+* changes 2
+
+fixes/closes #<github issue number>
+
+```
+
+### Git commit format
+
+```
+<type>: <subject>
+<BLANK LINE> 
+<body> optional
+```
+* Any line of the commit message cannot be longer 100 characters. This allows the message to be easier to read on GitHub as well as in various git tools.
+* The subject contains succinct description of the change:
+    * use the imperative, present tense: "change" not "changed" nor "changes"
+    * Always capitalize first letter
+    * no dot (.) at the end
+* Commit type:
+    * feat: A new feature
+    * fix: A bug fix
+    * refactor: A code change that neither fixes a bug nor adds a feature
+    * test: Adding missing tests
+    * chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+## Installation guide
 In the project directory, you can run:
 
 ### `npm start`
@@ -36,33 +75,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
