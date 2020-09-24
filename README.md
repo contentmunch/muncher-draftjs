@@ -31,14 +31,13 @@ fixes/closes #<github issue number>
 * Any line of the commit message cannot be longer 100 characters. This allows the message to be easier to read on GitHub as well as in various git tools.
 * The subject contains succinct description of the change:
     * use the imperative, present tense: "change" not "changed" nor "changes"
-    * Always capitalize first letter
     * no dot (.) at the end
 * Commit type:
-    * feat: A new feature
-    * fix: A bug fix
-    * refactor: A code change that neither fixes a bug nor adds a feature
-    * test: Adding missing tests
-    * chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+    * feat: a new feature
+    * fix: a bug fix
+    * refactor: a code change that neither fixes a bug nor adds a feature
+    * test: adding missing tests
+    * chore: changes to the build process or auxiliary tools and libraries such as documentation generation
 
 ## Installation guide
 In the project directory, you can run:
