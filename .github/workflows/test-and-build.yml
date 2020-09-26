@@ -27,3 +27,18 @@ jobs:
           description: 'Passed'
           state: '${{ job.status }}'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - run: git config user.name "$GITHUB_ACTOR"
+      - run: npm ci
+      - run: npm run build
+      - run: git add .
+      - run: git commit -m "update build" --allow-empty
+      - run: git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
