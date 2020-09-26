@@ -2,6 +2,27 @@
 # Muncher  
 Muncher is a rich text editor based on [Draftjs](https://draftjs.org/) with a focus on content reuse. 
 
+## Using Muncher
+To use this component library:
+
+* First create a [github personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token), if you do not already have one.
+* Add it as an environment variable:
+    ```
+    #github personal access token
+    export PACKAGES_AUTH_TOKEN=<personal access token>
+    
+    ``` 
+* create a `.npmrc` file at the root level of your project
+    ```
+    @contentmunch:registry=https://npm.pkg.github.com/
+    //npm.pkg.github.com/:_authToken=${PACKAGES_AUTH_TOKEN}
+    ```
+* add the npm package to your project
+    ```
+    $ npm install @contentmunch/muncher
+    ```
+  
+
 ## Coding rules
 We use [GitHub Flow](https://guides.github.com/introduction/flow/) for our project workflow.
 To ensure consistency throughout the source code, keep these rules in mind as you are working:
