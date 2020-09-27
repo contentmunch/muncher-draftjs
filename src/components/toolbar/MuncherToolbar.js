@@ -12,6 +12,8 @@ import YoutubeControl from "../controls/media/YoutubeControl";
 import AlignControl from "../controls/align/AlignControl";
 import ListControl from "../controls/block/ListControl";
 import SettingsControl from "../controls/setting/SettingsControl";
+import MuncherIcon from "../icons/MuncherIcon";
+import SettingsIcon from "../icons/SettingsIcon";
 
 export default function MuncherToolBar(props) {
 
@@ -29,26 +31,29 @@ export default function MuncherToolBar(props) {
                 <span className="muncher__separator">|</span>
                 <UndoControl editorState={editorState} setEditorState={onChange}/>
                 <RedoControl editorState={editorState} setEditorState={onChange}/>
-                {!codeView ? <Fragment>
-                    <span className="muncher__separator">|</span>
-                    <ListControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <BlockControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <span className="muncher__separator">|</span>
-                    <InlineControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <ColorControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <span className="muncher__separator">|</span>
-                    <LinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <UnlinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <ImageControl editorState={editorState} setEditorState={onChange}/>
-                    <YoutubeControl editorState={editorState} setEditorState={onChange}/>
-                    <span className="muncher__separator">|</span>
-                    <AlignControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <span className="muncher__separator">|</span>
-                </Fragment> : ''}
+                    {!codeView ? <Fragment>
+                        <span className="muncher__separator">|</span>
+                        <ListControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                        <BlockControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                        <span className="muncher__separator">|</span>
+                        <InlineControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                        <ColorControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                        <span className="muncher__separator">|</span>
+                        <LinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                        <UnlinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                        <ImageControl editorState={editorState} setEditorState={onChange}/>
+                        <YoutubeControl editorState={editorState} setEditorState={onChange}/>
+                        <span className="muncher__separator">|</span>
+                        <AlignControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                        <span className="muncher__separator">|</span>
+                    </Fragment> : ''}
 
             </div>
             <div className="muncher__toolbar--right">
-                <SettingsControl showStructure={showStructure} setShowStructure={setShowStructure}/>
+                <SettingsControl showStructure={showStructure}
+                                 setShowStructure={setShowStructure}
+                                 settingsIcon={<SettingsIcon/>}
+                />
             </div>
         </div>
     );

@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 import DropdownButton from "../../ui/button/DropdownButton";
-import SettingsIcon from "../../icons/SettingsIcon";
 import ToggleLeftIcon from "../../icons/ToggleLeftIcon";
 import './SettingsControl.scss';
 import ToggleRightIcon from "../../icons/ToggleRightIcon";
 import PropTypes from "prop-types";
 
 export default function SettingsControl(props) {
-    const {showStructure, setShowStructure} = {...props};
+    const {showStructure, setShowStructure, settingsIcon} = {...props};
     const [showContent, setShowContent] = useState(false);
     const toggleStructure = () => {
         setShowStructure(!showStructure);
@@ -16,8 +15,8 @@ export default function SettingsControl(props) {
         <DropdownButton title="Settings"
                         showContent={showContent}
                         setShowContent={setShowContent}
-                        drop="left"
-                        icon={<SettingsIcon/>}>
+                        drop="right"
+                        icon={settingsIcon}>
 
             <div className="settings__content">
                 <div className="settings__content--item">Show Structure &nbsp;
@@ -34,5 +33,6 @@ export default function SettingsControl(props) {
 }
 SettingsControl.propTypes = {
     showStructure: PropTypes.bool.isRequired,
-    setShowStructure: PropTypes.func.isRequired
+    setShowStructure: PropTypes.func.isRequired,
+    settingsIcon: PropTypes.element.isRequired,
 };

@@ -69,7 +69,7 @@ DropdownButton.propTypes = {
     title: PropTypes.string,
     active: PropTypes.bool,
     icon: PropTypes.element,
-    drop: PropTypes.oneOf(['left']),
+    drop: PropTypes.oneOf(['left','right']),
     onClose: PropTypes.func,
     showContent: PropTypes.bool,
     setShowContent: PropTypes.func,
