@@ -11,8 +11,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _DropdownButton = _interopRequireDefault(require("../../ui/button/DropdownButton"));
 
-var _SettingsIcon = _interopRequireDefault(require("../../icons/SettingsIcon"));
-
 var _ToggleLeftIcon = _interopRequireDefault(require("../../icons/ToggleLeftIcon"));
 
 require("./SettingsControl.scss");
@@ -48,7 +46,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function SettingsControl(props) {
   var _props = _objectSpread({}, props),
       showStructure = _props.showStructure,
-      setShowStructure = _props.setShowStructure;
+      setShowStructure = _props.setShowStructure,
+      settingsIcon = _props.settingsIcon;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -63,8 +62,8 @@ function SettingsControl(props) {
     title: "Settings",
     showContent: showContent,
     setShowContent: setShowContent,
-    drop: "left",
-    icon: /*#__PURE__*/_react.default.createElement(_SettingsIcon.default, null)
+    drop: "right",
+    icon: settingsIcon
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "settings__content"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -77,5 +76,6 @@ function SettingsControl(props) {
 
 SettingsControl.propTypes = {
   showStructure: _propTypes.default.bool.isRequired,
-  setShowStructure: _propTypes.default.func.isRequired
+  setShowStructure: _propTypes.default.func.isRequired,
+  settingsIcon: _propTypes.default.element.isRequired
 };

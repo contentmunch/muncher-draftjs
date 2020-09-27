@@ -111,7 +111,7 @@ DropdownButton.propTypes = {
   title: _propTypes.default.string,
   active: _propTypes.default.bool,
   icon: _propTypes.default.element,
-  drop: _propTypes.default.oneOf(['left']),
+  drop: _propTypes.default.oneOf(['left', 'right']),
   onClose: _propTypes.default.func,
   showContent: _propTypes.default.bool,
   setShowContent: _propTypes.default.func,

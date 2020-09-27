@@ -35,6 +35,10 @@ var _ListControl = _interopRequireDefault(require("../controls/block/ListControl
 
 var _SettingsControl = _interopRequireDefault(require("../controls/setting/SettingsControl"));
 
+var _MuncherIcon = _interopRequireDefault(require("../icons/MuncherIcon"));
+
+var _SettingsIcon = _interopRequireDefault(require("../icons/SettingsIcon"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -122,6 +126,7 @@ function MuncherToolBar(props) {
     className: "muncher__toolbar--right"
   }, /*#__PURE__*/_react.default.createElement(_SettingsControl.default, {
     showStructure: showStructure,
-    setShowStructure: setShowStructure
+    setShowStructure: setShowStructure,
+    settingsIcon: /*#__PURE__*/_react.default.createElement(_SettingsIcon.default, null)
   })));
 }
