@@ -3,6 +3,7 @@ import './assets/ColorControl.scss';
 import {EditorState, Modifier, RichUtils} from "draft-js";
 import {COLORS, colorStyleMap} from "../../utilities/draft/DraftUtilities";
 import DropdownButton from "../../ui/button/DropdownButton";
+import PropTypes from "prop-types";
 
 export default function ColorControl(props) {
     const {editorState, setEditorState} = {...props};
@@ -62,8 +63,8 @@ export default function ColorControl(props) {
                 <div className="color__content">
                     {COLORS.map(color =>
                         <span key={color.label} title={color.label}
-                             onMouseDown={(e) => colorPicked(e, color.style)}
-                             className={"color__content--item " + color.style}/>
+                              onMouseDown={(e) => colorPicked(e, color.style)}
+                              className={"color__content--item " + color.style}/>
                     )}
                 </div>
             </DropdownButton>
@@ -71,3 +72,7 @@ export default function ColorControl(props) {
         </Fragment>
     );
 }
+ColorControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};

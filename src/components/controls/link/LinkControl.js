@@ -6,6 +6,7 @@ import DropdownButton from "../../ui/button/DropdownButton";
 import {entityFromSelection} from "../../utilities/draft/DraftUtilities";
 import './LinkControl.scss';
 import Button from "../../ui/button/Button";
+import PropTypes from "prop-types";
 
 export default function LinkControl(props) {
     const {editorState, setEditorState} = {...props};
@@ -63,3 +64,7 @@ export default function LinkControl(props) {
         </div>
     );
 }
+LinkControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};

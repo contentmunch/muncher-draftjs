@@ -12,6 +12,7 @@ import "codemirror/addon/fold/brace-fold";
 import "codemirror/addon/fold/comment-fold";
 import "codemirror/addon/fold/foldgutter.css";
 import {Controlled as CodeMirror} from "react-codemirror2";
+import PropTypes from "prop-types";
 
 export default function CodeView(props) {
     const {html, setHtml} = props;
@@ -41,3 +42,7 @@ export default function CodeView(props) {
 
     );
 }
+CodeView.propTypes = {
+    html: PropTypes.string,
+    setHtml: PropTypes.func
+};

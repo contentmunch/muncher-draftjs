@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import './assets/Muncher.scss';
-import BoldControl from "./controls/inline/BoldControl";
+import InlineControl from "./controls/inline/InlineControl";
 
 export default function MuncherTest() {
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -47,7 +47,7 @@ export default function MuncherTest() {
     return (
         <div className="RichEditor-root">
 
-            <BoldControl
+            <InlineControl
                 editorState={editorState}
                 setEditorState={setEditorState}
             />

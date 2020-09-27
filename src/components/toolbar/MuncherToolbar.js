@@ -5,16 +5,12 @@ import ToggleCodeControl from "../controls/code/ToggleCodeControl";
 import UndoControl from "../controls/undo/UndoControl";
 import RedoControl from "../controls/undo/RedoControl";
 import BlockControl from "../controls/block/BlockControl";
-import BoldControl from "../controls/inline/BoldControl";
-import ItalicControl from "../controls/inline/ItalicControl";
-import UnderlineControl from "../controls/inline/UnderlineControl";
-import CodeControl from "../controls/inline/CodeControl";
+import InlineControl from "../controls/inline/InlineControl";
 import ColorControl from "../controls/inline/ColorControl";
 import ImageControl from "../controls/media/ImageControl";
 import YoutubeControl from "../controls/media/YoutubeControl";
 import AlignControl from "../controls/align/AlignControl";
-import UnorderedListControl from "../controls/list/UnorderedListControl";
-import OrderedListControl from "../controls/list/OrderedListControl";
+import ListControl from "../controls/block/ListControl";
 import SettingsControl from "../controls/setting/SettingsControl";
 
 export default function MuncherToolBar(props) {
@@ -35,21 +31,16 @@ export default function MuncherToolBar(props) {
                 <RedoControl editorState={editorState} setEditorState={onChange}/>
                 {!codeView ? <Fragment>
                     <span className="muncher__separator">|</span>
-                    <UnorderedListControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <OrderedListControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                    <ListControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <BlockControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <span className="muncher__separator">|</span>
-                    <BoldControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <ItalicControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <UnderlineControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <CodeControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                    <InlineControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <ColorControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <span className="muncher__separator">|</span>
                     <LinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <UnlinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <ImageControl editorState={editorState} setEditorState={onChange}/>
                     <YoutubeControl editorState={editorState} setEditorState={onChange}/>
-
                     <span className="muncher__separator">|</span>
                     <AlignControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <span className="muncher__separator">|</span>

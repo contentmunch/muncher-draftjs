@@ -4,6 +4,7 @@ import EditIcon from "../../icons/EditIcon";
 import CodeIcon from "../../icons/CodeIcon";
 import {EditorState} from "draft-js";
 import {convertHtmlToContent} from "../../utilities/html/HtmlUtilities";
+import PropTypes from "prop-types";
 
 export default function ToggleCodeControl(props) {
     const {codeView, setCodeView, html, editorState, setEditorState} = {...props};
@@ -19,3 +20,11 @@ export default function ToggleCodeControl(props) {
         </Button>
     );
 }
+ToggleCodeControl.propTypes = {
+    codeView: PropTypes.bool.isRequired,
+    setCodeView: PropTypes.func.isRequired,
+    html: PropTypes.string,
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired,
+
+};

@@ -10,6 +10,7 @@ import MuncherToolBar from "./toolbar/MuncherToolbar";
 import {colorStyleMap} from "./utilities/draft/DraftUtilities";
 import BlockRenderer from "./utilities/BlockRenderer";
 import IframeDecorator from "./decorators/IframeDecorator";
+import PropTypes from "prop-types";
 
 export default function Muncher(props) {
     const {content, html, setHtml} = {...props};
@@ -128,4 +129,8 @@ export default function Muncher(props) {
         </div>
     );
 }
-
+Muncher.propTypes = {
+    content: PropTypes.string,
+    html: PropTypes.string,
+    setHtml: PropTypes.func,
+};

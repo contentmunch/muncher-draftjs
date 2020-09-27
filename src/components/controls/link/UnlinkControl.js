@@ -3,6 +3,8 @@ import {RichUtils} from 'draft-js';
 import {entityFromSelection} from "../../utilities/draft/DraftUtilities";
 import Button from "../../ui/button/Button";
 import UnlinkIcon from "../../icons/UnlinkIcon";
+import PropTypes from "prop-types";
+
 export default function UnlinkControl(props) {
     const {editorState, setEditorState} = {...props};
     const selection = editorState.getSelection();
@@ -13,8 +15,13 @@ export default function UnlinkControl(props) {
         setEditorState(RichUtils.toggleLink(editorState, selection, null));
     };
     return (
-        <Button title="Remove a link" onClick={removeLink} disabled={selectionEntity === null || !selectionEntity.type === 'LINK'}>
+        <Button title="Remove a link" onClick={removeLink}
+                disabled={selectionEntity === null || !selectionEntity.type === 'LINK'}>
             <UnlinkIcon/>
         </Button>
     );
 }
+UnlinkControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};

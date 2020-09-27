@@ -1,9 +1,10 @@
 import React, {useCallback, useEffect, useRef} from 'react';
+import PropTypes from "prop-types";
 import './assets/DropdownButton.scss';
 import Button from "./Button";
 
 export default function DropdownButton(props) {
-    const {onClick, disabled, title,active, icon, drop, onClose, showContent, setShowContent} = {...props};
+    const {onClick, disabled, title, active, icon, drop, onClose, showContent, setShowContent, children} = {...props};
     const ref = useRef(null);
     const buttonOnClick = (e) => {
         e.preventDefault();
@@ -55,10 +56,22 @@ export default function DropdownButton(props) {
             <Button onMouseDown={buttonOnClick} title={title} disabled={!!disabled} active={active}>{icon}</Button>
             {
                 showContent ? <div className={dropdownClass()}>
-                    {props.children}
+                    {children}
                 </div> : ""
             }
 
         </div>
     );
+}
+DropdownButton.propTypes = {
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    title: PropTypes.string,
+    active: PropTypes.bool,
+    icon: PropTypes.element,
+    drop: PropTypes.oneOf(['left']),
+    onClose: PropTypes.func,
+    showContent: PropTypes.bool,
+    setShowContent: PropTypes.func,
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.oneOfType([PropTypes.element, PropTypes.string])])
 }

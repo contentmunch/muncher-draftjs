@@ -4,6 +4,7 @@ import SettingsIcon from "../../icons/SettingsIcon";
 import ToggleLeftIcon from "../../icons/ToggleLeftIcon";
 import './SettingsControl.scss';
 import ToggleRightIcon from "../../icons/ToggleRightIcon";
+import PropTypes from "prop-types";
 
 export default function SettingsControl(props) {
     const {showStructure, setShowStructure} = {...props};
@@ -29,6 +30,9 @@ export default function SettingsControl(props) {
             </div>
 
         </DropdownButton>
-
     );
 }
+SettingsControl.propTypes = {
+    showStructure: PropTypes.bool.isRequired,
+    setShowStructure: PropTypes.func.isRequired
+};

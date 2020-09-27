@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../ui/button/Button";
 import RedoIcon from "../../icons/RedoIcon";
 import {EditorState} from "draft-js";
+import PropTypes from "prop-types";
 
 export default function RedoControl(props) {
     const {editorState, setEditorState} = {...props};
@@ -14,3 +15,7 @@ export default function RedoControl(props) {
         </Button>
     );
 }
+RedoControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};

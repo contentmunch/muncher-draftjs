@@ -3,6 +3,7 @@ import {AtomicBlockUtils, EditorState} from 'draft-js';
 import '../../ui/button/assets/DropdownButton.scss';
 import DropdownButton from "../../ui/button/DropdownButton";
 import YoutubeIcon from "../../icons/YoutubeIcon";
+import PropTypes from "prop-types";
 
 export default function YoutubeControl(props) {
     const {editorState, setEditorState} = {...props};
@@ -56,3 +57,7 @@ export default function YoutubeControl(props) {
         </div>
     );
 }
+YoutubeControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};

@@ -3,6 +3,7 @@ import {AtomicBlockUtils, EditorState} from 'draft-js';
 import '../../ui/button/assets/DropdownButton.scss';
 import DropdownButton from "../../ui/button/DropdownButton";
 import ImageIcon from "../../icons/ImageIcon";
+import PropTypes from "prop-types";
 
 export default function ImageControl(props) {
     const {editorState, setEditorState} = {...props};
@@ -56,3 +57,7 @@ export default function ImageControl(props) {
         </div>
     );
 }
+ImageControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};

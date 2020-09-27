@@ -37,68 +37,78 @@ export const convertHtmlToContent = (currentHtml) => {
 
         },
         htmlToBlock: (nodeName, node, lastList) => {
-            switch (nodeName) {
-                case 'pre':
+            if ('pre' === nodeName) {
+                return {
+                    type: 'code-block',
+                    data: textAlignData(node.className)
+                };
+            }
+
+            if ('h1' === nodeName) {
+                return {
+                    type: 'header-one',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('h2' === nodeName) {
+                return {
+                    type: 'header-two',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('h3' === nodeName) {
+                return {
+                    type: 'header-three',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('h4' === nodeName) {
+                return {
+                    type: 'header-four',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('h5' === nodeName) {
+                return {
+                    type: 'header-five',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('h6' === nodeName) {
+                return {
+                    type: 'header-six',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('blockquote' === nodeName) {
+                return {
+                    type: 'blockquote',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('p' === nodeName) {
+                return {
+                    type: 'unstyled',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('li' === nodeName) {
+                if (lastList === 'ol') {
                     return {
-                        type: 'code-block',
+                        type: 'ordered-list-item',
                         data: textAlignData(node.className)
                     };
-                case 'h1':
-                    return {
-                        type: 'header-one',
-                        data: textAlignData(node.className)
-                    };
-                case 'h2':
-                    return {
-                        type: 'header-two',
-                        data: textAlignData(node.className)
-                    };
-                case 'h3':
-                    return {
-                        type: 'header-three',
-                        data: textAlignData(node.className)
-                    };
-                case 'h4':
-                    return {
-                        type: 'header-four',
-                        data: textAlignData(node.className)
-                    };
-                case 'h5':
-                    return {
-                        type: 'header-five',
-                        data: textAlignData(node.className)
-                    };
-                case 'h6':
-                    return {
-                        type: 'header-six',
-                        data: textAlignData(node.className)
-                    };
-                case 'blockquote':
-                    return {
-                        type: 'blockquote',
-                        data: textAlignData(node.className)
-                    };
-                case 'p':
-                    return {
-                        type: 'unstyled',
-                        data: textAlignData(node.className)
-                    };
-                case 'li':
-                    if (lastList === 'ol') {
-                        return {
-                            type: 'ordered-list-item',
-                            data: textAlignData(node.className)
-                        };
-                    }
-                    return {
-                        type: 'unordered-list-item',
-                        data: textAlignData(node.className)
-                    };
-                case 'figure':
-                    return {
-                        type: 'atomic',
-                        data: textAlignData(node.className)
-                    };
+                }
+                return {
+                    type: 'unordered-list-item',
+                    data: textAlignData(node.className)
+                };
+            }
+            if ('figure' === nodeName) {
+                return {
+                    type: 'atomic',
+                    data: textAlignData(node.className)
+                };
             }
         }
 

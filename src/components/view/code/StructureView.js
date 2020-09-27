@@ -12,6 +12,7 @@ import "codemirror/addon/fold/brace-fold";
 import "codemirror/addon/fold/comment-fold";
 import "codemirror/addon/fold/foldgutter.css";
 import JSONTree from "react-json-tree";
+import PropTypes from "prop-types";
 
 export default function StructureView(props) {
     const {editorState} = props;
@@ -35,3 +36,6 @@ export default function StructureView(props) {
         />
     );
 }
+StructureView.propTypes = {
+    editorState: PropTypes.object.isRequired
+};

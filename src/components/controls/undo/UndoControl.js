@@ -2,6 +2,7 @@ import React from "react";
 import {EditorState} from 'draft-js';
 import Button from "../../ui/button/Button";
 import UndoIcon from "../../icons/UndoIcon";
+import PropTypes from "prop-types";
 
 export default function UndoControl(props) {
     const {editorState, setEditorState} = {...props};
@@ -14,3 +15,7 @@ export default function UndoControl(props) {
         </Button>
     );
 }
+UndoControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};

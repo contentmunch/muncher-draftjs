@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Button from "../../ui/button/Button";
 import AlignCenterIcon from "../../icons/AlignCenterIcon";
 import {getBlockAlignment} from "../../utilities/draft/DraftUtilities";
@@ -53,3 +54,7 @@ export default function AlignControl(props) {
         )
     );
 }
+AlignControl.propTypes = {
+    editorState: PropTypes.object.isRequired,
+    setEditorState: PropTypes.func.isRequired
+};
