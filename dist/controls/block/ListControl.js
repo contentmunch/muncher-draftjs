@@ -3,13 +3,21 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = AlignRightControl;
+exports.default = ListControl;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _Button = _interopRequireDefault(require("../../ui/button/Button"));
 
-var _AlignRightIcon = _interopRequireDefault(require("../../icons/AlignRightIcon"));
+var _OrderedListIcon = _interopRequireDefault(require("../../icons/OrderedListIcon"));
+
+var _draftJs = require("draft-js");
+
+var _DraftUtilities = require("../../utilities/draft/DraftUtilities");
+
+var _UnorderedListIcon = _interopRequireDefault(require("../../icons/UnorderedListIcon"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19,12 +27,38 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function AlignRightControl(props) {
+var LIST_TYPES = [{
+  label: 'Ordered List',
+  style: 'ordered-list-item',
+  icon: /*#__PURE__*/_react.default.createElement(_OrderedListIcon.default, null)
+}, {
+  label: 'Unordered List',
+  style: 'unordered-list-item',
+  icon: /*#__PURE__*/_react.default.createElement(_UnorderedListIcon.default, null)
+}];
+
+function ListControl(props) {
   var _props = _objectSpread({}, props),
       editorState = _props.editorState,
       setEditorState = _props.setEditorState;
 
-  return /*#__PURE__*/_react.default.createElement(_Button.default, {
-    title: "Alight Right"
-  }, /*#__PURE__*/_react.default.createElement(_AlignRightIcon.default, null));
+  var _onClick = function onClick(style) {
+    setEditorState(_draftJs.RichUtils.toggleBlockType(editorState, style));
+  };
+
+  return LIST_TYPES.map(function (listType) {
+    return /*#__PURE__*/_react.default.createElement(_Button.default, {
+      key: listType.style,
+      title: listType.label,
+      active: listType.style === (0, _DraftUtilities.getBlockType)(editorState),
+      onClick: function onClick() {
+        return _onClick(listType.style);
+      }
+    }, listType.icon);
+  });
 }
+
+ListControl.propTypes = {
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};

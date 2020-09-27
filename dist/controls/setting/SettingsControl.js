@@ -19,6 +19,8 @@ require("./SettingsControl.scss");
 
 var _ToggleRightIcon = _interopRequireDefault(require("../../icons/ToggleRightIcon"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -72,3 +74,8 @@ function SettingsControl(props) {
     onClick: toggleStructure
   }, showStructure ? /*#__PURE__*/_react.default.createElement(_ToggleRightIcon.default, null) : /*#__PURE__*/_react.default.createElement(_ToggleLeftIcon.default, null)))));
 }
+
+SettingsControl.propTypes = {
+  showStructure: _propTypes.default.bool.isRequired,
+  setShowStructure: _propTypes.default.func.isRequired
+};

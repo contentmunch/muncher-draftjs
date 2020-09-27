@@ -17,6 +17,8 @@ var _DropdownButton2 = _interopRequireDefault(require("../../ui/button/DropdownB
 
 var _YoutubeIcon = _interopRequireDefault(require("../../icons/YoutubeIcon"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -101,3 +103,8 @@ function YoutubeControl(props) {
     onMouseDown: confirmLink
   }, "Confirm")));
 }
+
+YoutubeControl.propTypes = {
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};

@@ -17,6 +17,8 @@ var _draftJs = require("draft-js");
 
 var _HtmlUtilities = require("../../utilities/html/HtmlUtilities");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -46,3 +48,11 @@ function ToggleCodeControl(props) {
     onClick: toggleCodeView
   }, codeView ? /*#__PURE__*/_react.default.createElement(_EditIcon.default, null) : /*#__PURE__*/_react.default.createElement(_CodeIcon.default, null));
 }
+
+ToggleCodeControl.propTypes = {
+  codeView: _propTypes.default.bool.isRequired,
+  setCodeView: _propTypes.default.func.isRequired,
+  html: _propTypes.default.string,
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};

@@ -9,6 +9,8 @@ exports.default = DropdownButton;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 require("./assets/DropdownButton.scss");
 
 var _Button = _interopRequireDefault(require("./Button"));
@@ -35,7 +37,8 @@ function DropdownButton(props) {
       drop = _props.drop,
       onClose = _props.onClose,
       showContent = _props.showContent,
-      setShowContent = _props.setShowContent;
+      setShowContent = _props.setShowContent,
+      children = _props.children;
 
   var ref = (0, _react.useRef)(null);
 
@@ -99,5 +102,18 @@ function DropdownButton(props) {
     active: active
   }, icon), showContent ? /*#__PURE__*/_react.default.createElement("div", {
     className: dropdownClass()
-  }, props.children) : "");
+  }, children) : "");
 }
+
+DropdownButton.propTypes = {
+  onClick: _propTypes.default.func,
+  disabled: _propTypes.default.bool,
+  title: _propTypes.default.string,
+  active: _propTypes.default.bool,
+  icon: _propTypes.default.element,
+  drop: _propTypes.default.oneOf(['left']),
+  onClose: _propTypes.default.func,
+  showContent: _propTypes.default.bool,
+  setShowContent: _propTypes.default.func,
+  children: _propTypes.default.oneOfType([_propTypes.default.array, _propTypes.default.oneOfType([_propTypes.default.element, _propTypes.default.string])])
+};

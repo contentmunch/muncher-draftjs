@@ -33,6 +33,8 @@ require("codemirror/addon/fold/foldgutter.css");
 
 var _reactJsonTree = _interopRequireDefault(require("react-json-tree"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function StructureView(props) {
@@ -70,3 +72,7 @@ function StructureView(props) {
     data: editorState.getCurrentContent()
   });
 }
+
+StructureView.propTypes = {
+  editorState: _propTypes.default.object.isRequired
+};

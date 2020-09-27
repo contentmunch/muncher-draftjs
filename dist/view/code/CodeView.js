@@ -33,6 +33,8 @@ require("codemirror/addon/fold/foldgutter.css");
 
 var _reactCodemirror = require("react-codemirror2");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function CodeView(props) {
@@ -59,3 +61,8 @@ function CodeView(props) {
     value: html
   });
 }
+
+CodeView.propTypes = {
+  html: _propTypes.default.string,
+  setHtml: _propTypes.default.func
+};

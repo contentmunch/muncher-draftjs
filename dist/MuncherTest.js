@@ -15,7 +15,7 @@ require("draft-js/dist/Draft.css");
 
 require("./assets/Muncher.scss");
 
-var _BoldControl = _interopRequireDefault(require("./controls/inline/BoldControl"));
+var _InlineControl = _interopRequireDefault(require("./controls/inline/InlineControl"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -90,7 +90,7 @@ function MuncherTest() {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "RichEditor-root"
-  }, /*#__PURE__*/_react.default.createElement(_BoldControl.default, {
+  }, /*#__PURE__*/_react.default.createElement(_InlineControl.default, {
     editorState: editorState,
     setEditorState: setEditorState
   }), /*#__PURE__*/_react.default.createElement("div", {

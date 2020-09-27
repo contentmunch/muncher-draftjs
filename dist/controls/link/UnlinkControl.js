@@ -15,6 +15,8 @@ var _Button = _interopRequireDefault(require("../../ui/button/Button"));
 
 var _UnlinkIcon = _interopRequireDefault(require("../../icons/UnlinkIcon"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -43,3 +45,8 @@ function UnlinkControl(props) {
     disabled: selectionEntity === null || !selectionEntity.type === 'LINK'
   }, /*#__PURE__*/_react.default.createElement(_UnlinkIcon.default, null));
 }
+
+UnlinkControl.propTypes = {
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};

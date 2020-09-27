@@ -3,13 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ItalicControl;
+exports.default = InlineControl;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _Button = _interopRequireDefault(require("../../ui/button/Button"));
 
 var _draftJs = require("draft-js");
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19,22 +21,49 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function ItalicControl(props) {
+var INLINE_TYPES = [{
+  label: 'Bold',
+  style: 'BOLD',
+  icon: /*#__PURE__*/_react.default.createElement("strong", null, "B")
+}, {
+  label: 'Italic',
+  style: 'ITALIC',
+  icon: /*#__PURE__*/_react.default.createElement("strong", null, /*#__PURE__*/_react.default.createElement("em", null, "I"))
+}, {
+  label: 'Underline',
+  style: 'UNDERLINE',
+  icon: /*#__PURE__*/_react.default.createElement("strong", null, /*#__PURE__*/_react.default.createElement("u", null, "U"))
+}, {
+  label: 'Monospace',
+  style: 'CODE',
+  icon: /*#__PURE__*/_react.default.createElement("strong", null, '{', " ", '}')
+}];
+
+function InlineControl(props) {
   var _props = _objectSpread({}, props),
       editorState = _props.editorState,
       setEditorState = _props.setEditorState;
 
-  var style = "ITALIC";
   var currentStyle = editorState.getCurrentInlineStyle();
 
-  var onMouseDown = function onMouseDown(e) {
+  var _onMouseDown = function onMouseDown(e, style) {
     e.preventDefault();
     setEditorState(_draftJs.RichUtils.toggleInlineStyle(editorState, style));
   };
 
-  return /*#__PURE__*/_react.default.createElement(_Button.default, {
-    title: "Italic",
-    active: currentStyle.has(style),
-    onMouseDown: onMouseDown
-  }, /*#__PURE__*/_react.default.createElement("strong", null, /*#__PURE__*/_react.default.createElement("em", null, "I")));
+  return INLINE_TYPES.map(function (inlineType) {
+    return /*#__PURE__*/_react.default.createElement(_Button.default, {
+      key: inlineType.style,
+      title: inlineType.label,
+      active: currentStyle.has(inlineType.style),
+      onMouseDown: function onMouseDown(e) {
+        return _onMouseDown(e, inlineType.style);
+      }
+    }, inlineType.icon);
+  });
 }
+
+InlineControl.propTypes = {
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};

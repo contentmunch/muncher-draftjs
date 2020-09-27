@@ -31,6 +31,8 @@ var _BlockRenderer = _interopRequireDefault(require("./utilities/BlockRenderer")
 
 var _IframeDecorator = _interopRequireDefault(require("./decorators/IframeDecorator"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -189,3 +191,9 @@ function Muncher(props) {
     editorState: editorState
   })) : "");
 }
+
+Muncher.propTypes = {
+  content: _propTypes.default.string,
+  html: _propTypes.default.string,
+  setHtml: _propTypes.default.func
+};

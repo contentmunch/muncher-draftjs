@@ -21,13 +21,7 @@ var _RedoControl = _interopRequireDefault(require("../controls/undo/RedoControl"
 
 var _BlockControl = _interopRequireDefault(require("../controls/block/BlockControl"));
 
-var _BoldControl = _interopRequireDefault(require("../controls/inline/BoldControl"));
-
-var _ItalicControl = _interopRequireDefault(require("../controls/inline/ItalicControl"));
-
-var _UnderlineControl = _interopRequireDefault(require("../controls/inline/UnderlineControl"));
-
-var _CodeControl = _interopRequireDefault(require("../controls/inline/CodeControl"));
+var _InlineControl = _interopRequireDefault(require("../controls/inline/InlineControl"));
 
 var _ColorControl = _interopRequireDefault(require("../controls/inline/ColorControl"));
 
@@ -37,9 +31,7 @@ var _YoutubeControl = _interopRequireDefault(require("../controls/media/YoutubeC
 
 var _AlignControl = _interopRequireDefault(require("../controls/align/AlignControl"));
 
-var _UnorderedListControl = _interopRequireDefault(require("../controls/list/UnorderedListControl"));
-
-var _OrderedListControl = _interopRequireDefault(require("../controls/list/OrderedListControl"));
+var _ListControl = _interopRequireDefault(require("../controls/block/ListControl"));
 
 var _SettingsControl = _interopRequireDefault(require("../controls/setting/SettingsControl"));
 
@@ -91,10 +83,7 @@ function MuncherToolBar(props) {
     setEditorState: onChange
   }), !codeView ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
     className: "muncher__separator"
-  }, "|"), /*#__PURE__*/_react.default.createElement(_UnorderedListControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_OrderedListControl.default, {
+  }, "|"), /*#__PURE__*/_react.default.createElement(_ListControl.default, {
     editorState: editorState,
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement(_BlockControl.default, {
@@ -102,16 +91,7 @@ function MuncherToolBar(props) {
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement("span", {
     className: "muncher__separator"
-  }, "|"), /*#__PURE__*/_react.default.createElement(_BoldControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_ItalicControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_UnderlineControl.default, {
-    editorState: editorState,
-    setEditorState: onChangeAndFocus
-  }), /*#__PURE__*/_react.default.createElement(_CodeControl.default, {
+  }, "|"), /*#__PURE__*/_react.default.createElement(_InlineControl.default, {
     editorState: editorState,
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement(_ColorControl.default, {

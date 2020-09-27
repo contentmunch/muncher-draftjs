@@ -9,6 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./assets/Button.scss");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -23,7 +25,8 @@ function Button(props) {
       onMouseDown = _props.onMouseDown,
       disabled = _props.disabled,
       title = _props.title,
-      active = _props.active;
+      active = _props.active,
+      children = _props.children;
 
   return /*#__PURE__*/_react.default.createElement("button", {
     onClick: onClick,
@@ -32,5 +35,14 @@ function Button(props) {
     "data-title": title,
     type: "submit",
     disabled: !!disabled
-  }, props.children);
+  }, children);
 }
+
+Button.propTypes = {
+  onClick: _propTypes.default.func,
+  onMouseDown: _propTypes.default.func,
+  disabled: _propTypes.default.bool,
+  title: _propTypes.default.string,
+  active: _propTypes.default.bool,
+  children: _propTypes.default.oneOfType([_propTypes.default.element, _propTypes.default.string])
+};

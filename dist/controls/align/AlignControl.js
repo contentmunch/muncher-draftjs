@@ -7,6 +7,8 @@ exports.default = AlignControl;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 var _Button = _interopRequireDefault(require("../../ui/button/Button"));
 
 var _AlignCenterIcon = _interopRequireDefault(require("../../icons/AlignCenterIcon"));
@@ -94,3 +96,8 @@ function AlignControl(props) {
     }, alignType.icon);
   });
 }
+
+AlignControl.propTypes = {
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};

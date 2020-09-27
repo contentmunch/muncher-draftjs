@@ -17,6 +17,8 @@ require("./BlockControl.scss");
 
 var _draftJs = require("draft-js");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -41,6 +43,35 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var BLOCK_TYPES = [{
+  label: 'Paragraph',
+  style: 'unstyled'
+}, {
+  label: 'Heading 1',
+  style: 'header-one'
+}, {
+  label: 'Heading 2',
+  style: 'header-two'
+}, {
+  label: 'Heading 3',
+  style: 'header-three'
+}, {
+  label: 'Heading 4',
+  style: 'header-four'
+}, {
+  label: 'Heading 5',
+  style: 'header-five'
+}, {
+  label: 'Heading 6',
+  style: 'header-six'
+}, {
+  label: 'Blockquote',
+  style: 'blockquote'
+}, {
+  label: 'Code Block',
+  style: 'code-block'
+}];
+
 function BlockControl(props) {
   var _props = _objectSpread({}, props),
       editorState = _props.editorState,
@@ -50,35 +81,6 @@ function BlockControl(props) {
       _useState2 = _slicedToArray(_useState, 2),
       showContent = _useState2[0],
       setShowContent = _useState2[1];
-
-  var BLOCK_TYPES = [{
-    label: 'Paragraph',
-    style: 'unstyled'
-  }, {
-    label: 'Heading 1',
-    style: 'header-one'
-  }, {
-    label: 'Heading 2',
-    style: 'header-two'
-  }, {
-    label: 'Heading 3',
-    style: 'header-three'
-  }, {
-    label: 'Heading 4',
-    style: 'header-four'
-  }, {
-    label: 'Heading 5',
-    style: 'header-five'
-  }, {
-    label: 'Heading 6',
-    style: 'header-six'
-  }, {
-    label: 'Blockquote',
-    style: 'blockquote'
-  }, {
-    label: 'Code Block',
-    style: 'code-block'
-  }];
 
   var emptyBlockLabel = /*#__PURE__*/_react.default.createElement("strong", null, "...");
 
@@ -115,3 +117,8 @@ function BlockControl(props) {
     }, blockType.label);
   })));
 }
+
+BlockControl.propTypes = {
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};

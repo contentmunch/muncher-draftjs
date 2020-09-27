@@ -17,6 +17,8 @@ var _DraftUtilities = require("../../utilities/draft/DraftUtilities");
 
 var _DropdownButton = _interopRequireDefault(require("../../ui/button/DropdownButton"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -124,3 +126,8 @@ function ColorControl(props) {
     });
   }))));
 }
+
+ColorControl.propTypes = {
+  editorState: _propTypes.default.object.isRequired,
+  setEditorState: _propTypes.default.func.isRequired
+};
