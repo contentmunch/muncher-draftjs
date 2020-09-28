@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './components/assets/App.scss';
+import './App.scss';
 import {Muncher} from "./components";
 
 export default function App() {
