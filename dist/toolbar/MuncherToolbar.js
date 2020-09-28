@@ -35,8 +35,6 @@ var _ListControl = _interopRequireDefault(require("../controls/block/ListControl
 
 var _SettingsControl = _interopRequireDefault(require("../controls/setting/SettingsControl"));
 
-var _MuncherIcon = _interopRequireDefault(require("../icons/MuncherIcon"));
-
 var _SettingsIcon = _interopRequireDefault(require("../icons/SettingsIcon"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
