@@ -37,8 +37,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function StructureView(props) {
-  var editorState = props.editorState;
+function StructureView(_ref) {
+  var editorState = _ref.editorState;
   var theme = {
     scheme: 'monokai',
     author: 'wimer hazenberg (http://www.monokai.nl)',

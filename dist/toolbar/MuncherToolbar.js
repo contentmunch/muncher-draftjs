@@ -35,30 +35,21 @@ var _ListControl = _interopRequireDefault(require("../controls/block/ListControl
 
 var _SettingsControl = _interopRequireDefault(require("../controls/setting/SettingsControl"));
 
-var _SettingsIcon = _interopRequireDefault(require("../icons/SettingsIcon"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function MuncherToolBar(props) {
-  var _props = _objectSpread({}, props),
-      codeView = _props.codeView,
-      setCodeView = _props.setCodeView,
-      html = _props.html,
-      editorState = _props.editorState,
-      onChange = _props.onChange,
-      showStructure = _props.showStructure,
-      setShowStructure = _props.setShowStructure,
-      focusEditor = _props.focusEditor;
+function MuncherToolBar(_ref) {
+  var codeView = _ref.codeView,
+      setCodeView = _ref.setCodeView,
+      html = _ref.html,
+      editorState = _ref.editorState,
+      onChange = _ref.onChange,
+      showStructure = _ref.showStructure,
+      setShowStructure = _ref.setShowStructure,
+      focusEditor = _ref.focusEditor;
 
   var onChangeAndFocus = function onChangeAndFocus(currentEditorState) {
     onChange(currentEditorState);
@@ -66,9 +57,9 @@ function MuncherToolBar(props) {
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__toolbar"
+    className: "muncher-toolbar"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__toolbar--left"
+    className: "muncher-toolbar--left"
   }, /*#__PURE__*/_react.default.createElement(_ToggleCodeControl.default, {
     codeView: codeView,
     setCodeView: setCodeView,
@@ -76,7 +67,7 @@ function MuncherToolBar(props) {
     editorState: editorState,
     setEditorState: onChange
   }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "muncher__separator"
+    className: "muncher-separator"
   }, "|"), /*#__PURE__*/_react.default.createElement(_UndoControl.default, {
     editorState: editorState,
     setEditorState: onChange
@@ -84,7 +75,7 @@ function MuncherToolBar(props) {
     editorState: editorState,
     setEditorState: onChange
   }), !codeView ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
-    className: "muncher__separator"
+    className: "muncher-separator"
   }, "|"), /*#__PURE__*/_react.default.createElement(_ListControl.default, {
     editorState: editorState,
     setEditorState: onChangeAndFocus
@@ -92,7 +83,7 @@ function MuncherToolBar(props) {
     editorState: editorState,
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "muncher__separator"
+    className: "muncher-separator"
   }, "|"), /*#__PURE__*/_react.default.createElement(_InlineControl.default, {
     editorState: editorState,
     setEditorState: onChangeAndFocus
@@ -100,7 +91,7 @@ function MuncherToolBar(props) {
     editorState: editorState,
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "muncher__separator"
+    className: "muncher-separator"
   }, "|"), /*#__PURE__*/_react.default.createElement(_LinkControl.default, {
     editorState: editorState,
     setEditorState: onChangeAndFocus
@@ -114,17 +105,16 @@ function MuncherToolBar(props) {
     editorState: editorState,
     setEditorState: onChange
   }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "muncher__separator"
+    className: "muncher-separator"
   }, "|"), /*#__PURE__*/_react.default.createElement(_AlignControl.default, {
     editorState: editorState,
     setEditorState: onChangeAndFocus
   }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "muncher__separator"
+    className: "muncher-separator"
   }, "|")) : ''), /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__toolbar--right"
+    className: "muncher-toolbar--right"
   }, /*#__PURE__*/_react.default.createElement(_SettingsControl.default, {
     showStructure: showStructure,
-    setShowStructure: setShowStructure,
-    settingsIcon: /*#__PURE__*/_react.default.createElement(_SettingsIcon.default, null)
+    setShowStructure: setShowStructure
   })));
 }

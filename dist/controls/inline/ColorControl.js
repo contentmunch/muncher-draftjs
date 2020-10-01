@@ -15,7 +15,7 @@ var _draftJs = require("draft-js");
 
 var _DraftUtilities = require("../../utilities/draft/DraftUtilities");
 
-var _DropdownButton = _interopRequireDefault(require("../../ui/button/DropdownButton"));
+var _muncherUi = require("@contentmunch/muncher-ui");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -37,16 +37,9 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function ColorControl(props) {
-  var _props = _objectSpread({}, props),
-      editorState = _props.editorState,
-      setEditorState = _props.setEditorState;
+function ColorControl(_ref) {
+  var editorState = _ref.editorState,
+      setEditorState = _ref.setEditorState;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -69,8 +62,8 @@ function ColorControl(props) {
   });
 
   var currentStyleDiv = function currentStyleDiv() {
-    var styleType = _DraftUtilities.COLORS.find(function (_ref) {
-      var style = _ref.style;
+    var styleType = _DraftUtilities.COLORS.find(function (_ref2) {
+      var style = _ref2.style;
       return currentStyle.has(style);
     });
 
@@ -103,16 +96,17 @@ function ColorControl(props) {
     setShowContent(false);
   };
 
-  return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_DropdownButton.default, {
+  return /*#__PURE__*/_react.default.createElement(_muncherUi.DropdownButton, {
     title: "Font color",
-    showContent: showContent,
-    active: currentStyleDiv() !== emptyStyleDiv,
-    setShowContent: setShowContent,
-    icon: /*#__PURE__*/_react.default.createElement("span", {
+    element: /*#__PURE__*/_react.default.createElement("span", {
       className: "color__btn"
     }, currentStyleDiv(), " ", /*#__PURE__*/_react.default.createElement("span", {
       className: "muncher--small"
-    }, "\u25BC"))
+    }, "\u25BC")),
+    showContent: showContent,
+    setShowContent: setShowContent,
+    active: currentStyleDiv() !== emptyStyleDiv,
+    size: "small"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "color__content"
   }, _DraftUtilities.COLORS.map(function (color) {
@@ -124,7 +118,7 @@ function ColorControl(props) {
       },
       className: "color__content--item " + color.style
     });
-  }))));
+  })));
 }
 
 ColorControl.propTypes = {

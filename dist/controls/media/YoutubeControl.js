@@ -11,13 +11,9 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _draftJs = require("draft-js");
 
-require("../../ui/button/assets/DropdownButton.scss");
-
-var _DropdownButton2 = _interopRequireDefault(require("../../ui/button/DropdownButton"));
-
-var _YoutubeIcon = _interopRequireDefault(require("../../icons/YoutubeIcon"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _muncherUi = require("@contentmunch/muncher-ui");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,16 +33,9 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function YoutubeControl(props) {
-  var _props = _objectSpread({}, props),
-      editorState = _props.editorState,
-      setEditorState = _props.setEditorState;
+function YoutubeControl(_ref) {
+  var editorState = _ref.editorState,
+      setEditorState = _ref.setEditorState;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -84,22 +73,27 @@ function YoutubeControl(props) {
     setEditorState(_draftJs.AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' '));
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "muncher__dropdown"
-  }, /*#__PURE__*/_react.default.createElement(_DropdownButton2.default, {
+  return /*#__PURE__*/_react.default.createElement(_muncherUi.DropdownButton, {
     title: "Add or Edit Video",
     onClick: showLinkPrompt,
     onClose: hideLinkPrompt,
     showContent: showContent,
     setShowContent: setShowContent,
-    icon: /*#__PURE__*/_react.default.createElement(_YoutubeIcon.default, null)
-  }, /*#__PURE__*/_react.default.createElement("input", {
+    element: /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+      name: "youtube"
+    }),
+    size: "small"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "muncher-drop-media--content"
+  }, /*#__PURE__*/_react.default.createElement(_muncherUi.Input, {
+    name: "query",
+    type: "url",
     onChange: function onChange(event) {
       return setUrlValue(event.target.value);
     },
-    type: "text",
-    value: urlValue
-  }), /*#__PURE__*/_react.default.createElement("button", {
+    value: urlValue,
+    placeHolder: "type the url"
+  }), /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
     onMouseDown: confirmLink
   }, "Confirm")));
 }

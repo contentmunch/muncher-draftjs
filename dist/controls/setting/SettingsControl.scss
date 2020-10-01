@@ -1,15 +1,15 @@
 @import "src/components/assets/variables";
 
-.settings__content {
-  .settings__content--item {
+.muncher-settings--content {
+  .settings-content--item {
     display: flex;
     align-items: center;
     justify-content:  space-between;
-    .settings__content--toggle {
+    .settings-content--toggle {
       cursor: pointer;
 
     }
-    .settings__content--toggle:hover{
+    .settings-content--toggle:hover{
       opacity: .6;
     }
   }

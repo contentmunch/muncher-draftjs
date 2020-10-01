@@ -9,13 +9,9 @@ exports.default = SettingsControl;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _DropdownButton = _interopRequireDefault(require("../../ui/button/DropdownButton"));
-
-var _ToggleLeftIcon = _interopRequireDefault(require("../../icons/ToggleLeftIcon"));
-
 require("./SettingsControl.scss");
 
-var _ToggleRightIcon = _interopRequireDefault(require("../../icons/ToggleRightIcon"));
+var _muncherUi = require("@contentmunch/muncher-ui");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -37,17 +33,9 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function SettingsControl(props) {
-  var _props = _objectSpread({}, props),
-      showStructure = _props.showStructure,
-      setShowStructure = _props.setShowStructure,
-      settingsIcon = _props.settingsIcon;
+function SettingsControl(_ref) {
+  var showStructure = _ref.showStructure,
+      setShowStructure = _ref.setShowStructure;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -58,20 +46,27 @@ function SettingsControl(props) {
     setShowStructure(!showStructure);
   };
 
-  return /*#__PURE__*/_react.default.createElement(_DropdownButton.default, {
+  return /*#__PURE__*/_react.default.createElement(_muncherUi.DropdownButton, {
     title: "Settings",
     showContent: showContent,
     setShowContent: setShowContent,
-    drop: "right",
-    icon: settingsIcon
+    drop: "left",
+    size: "small",
+    element: /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+      name: "settings"
+    })
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "settings__content"
+    className: "muncher-settings--content"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "settings__content--item"
+    className: "settings-content--item"
   }, "Show Structure \xA0", /*#__PURE__*/_react.default.createElement("span", {
-    className: "settings__content--toggle",
+    className: "settings-content--toggle",
     onClick: toggleStructure
-  }, showStructure ? /*#__PURE__*/_react.default.createElement(_ToggleRightIcon.default, null) : /*#__PURE__*/_react.default.createElement(_ToggleLeftIcon.default, null)))));
+  }, showStructure ? /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "toggle-right"
+  }) : /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "toggle-left"
+  })))));
 }
 
 SettingsControl.propTypes = {

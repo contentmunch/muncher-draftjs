@@ -9,55 +9,39 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _Button = _interopRequireDefault(require("../../ui/button/Button"));
-
-var _AlignCenterIcon = _interopRequireDefault(require("../../icons/AlignCenterIcon"));
-
 var _DraftUtilities = require("../../utilities/draft/DraftUtilities");
 
 var _draftJs = require("draft-js");
 
-var _AlignRightIcon = _interopRequireDefault(require("../../icons/AlignRightIcon"));
-
-var _AlignJustifyIcon = _interopRequireDefault(require("../../icons/AlignJustifyIcon"));
-
-var _AlignLeftIcon = _interopRequireDefault(require("../../icons/AlignLeftIcon"));
+var _muncherUi = require("@contentmunch/muncher-ui");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var ALIGN_TYPES = [{
   label: 'Align Left',
   style: 'ALIGN_LEFT',
-  icon: /*#__PURE__*/_react.default.createElement(_AlignLeftIcon.default, null),
+  iconName: 'align-left',
   className: 'text-align--left'
 }, {
   label: 'Align Center',
   style: 'ALIGN_CENTER',
-  icon: /*#__PURE__*/_react.default.createElement(_AlignCenterIcon.default, null),
+  iconName: 'align-center',
   className: 'text-align--center'
 }, {
   label: 'Align Right',
   style: 'ALIGN_RIGHT',
-  icon: /*#__PURE__*/_react.default.createElement(_AlignRightIcon.default, null),
+  iconName: 'align-right',
   className: 'text-align--right'
 }, {
   label: 'Align Justify',
   style: 'ALIGN_JUSTIFY',
-  icon: /*#__PURE__*/_react.default.createElement(_AlignJustifyIcon.default, null),
+  iconName: 'align-justify',
   className: 'text-align--justify'
 }];
 
-function AlignControl(props) {
-  var _props = _objectSpread({}, props),
-      editorState = _props.editorState,
-      setEditorState = _props.setEditorState;
-
+function AlignControl(_ref) {
+  var editorState = _ref.editorState,
+      setEditorState = _ref.setEditorState;
   var blockAlignment = (0, _DraftUtilities.getBlockAlignment)(editorState);
 
   var _onMouseDown = function onMouseDown(e, alignType) {
@@ -86,14 +70,17 @@ function AlignControl(props) {
   };
 
   return ALIGN_TYPES.map(function (alignType) {
-    return /*#__PURE__*/_react.default.createElement(_Button.default, {
+    return /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
       key: alignType.style,
-      title: alignType.label,
-      active: alignType.style === blockAlignment,
       onMouseDown: function onMouseDown(e) {
         return _onMouseDown(e, alignType);
-      }
-    }, alignType.icon);
+      },
+      size: "small",
+      title: alignType.label,
+      active: alignType.style === blockAlignment
+    }, /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+      name: alignType.iconName
+    }));
   });
 }
 

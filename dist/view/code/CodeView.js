@@ -37,9 +37,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function CodeView(props) {
-  var html = props.html,
-      setHtml = props.setHtml;
+function CodeView(_ref) {
+  var html = _ref.html,
+      setHtml = _ref.setHtml;
   return /*#__PURE__*/_react.default.createElement(_reactCodemirror.Controlled, {
     onBeforeChange: function onBeforeChange(editor, data, codeMirrorValue) {
       return setHtml(codeMirrorValue);

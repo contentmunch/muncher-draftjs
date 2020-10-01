@@ -9,7 +9,7 @@ exports.default = BlockControl;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _DropdownButton = _interopRequireDefault(require("../../ui/button/DropdownButton"));
+var _muncherUi = require("@contentmunch/muncher-ui");
 
 var _DraftUtilities = require("../../utilities/draft/DraftUtilities");
 
@@ -36,12 +36,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var BLOCK_TYPES = [{
   label: 'Paragraph',
@@ -72,10 +66,9 @@ var BLOCK_TYPES = [{
   style: 'code-block'
 }];
 
-function BlockControl(props) {
-  var _props = _objectSpread({}, props),
-      editorState = _props.editorState,
-      setEditorState = _props.setEditorState;
+function BlockControl(_ref) {
+  var editorState = _ref.editorState,
+      setEditorState = _ref.setEditorState;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -86,33 +79,34 @@ function BlockControl(props) {
 
   var currentBlockLabel = function currentBlockLabel() {
     var currentBlockType = (0, _DraftUtilities.getBlockType)(editorState);
-    var blockType = BLOCK_TYPES.find(function (_ref) {
-      var style = _ref.style;
+    var blockType = BLOCK_TYPES.find(function (_ref2) {
+      var style = _ref2.style;
       return style === currentBlockType;
     });
     return blockType === undefined ? emptyBlockLabel : blockType.label;
   };
 
-  var _onClick = function onClick(style) {
+  var onClick = function onClick(style) {
     setEditorState(_draftJs.RichUtils.toggleBlockType(editorState, style));
     setShowContent(false);
   };
 
-  return /*#__PURE__*/_react.default.createElement(_DropdownButton.default, {
+  return /*#__PURE__*/_react.default.createElement(_muncherUi.DropdownButton, {
+    element: /*#__PURE__*/_react.default.createElement("span", null, currentBlockLabel(), " ", /*#__PURE__*/_react.default.createElement("span", {
+      className: "muncher--small"
+    }, "\u25BC")),
     showContent: showContent,
     setShowContent: setShowContent,
     active: currentBlockLabel() !== emptyBlockLabel,
-    icon: /*#__PURE__*/_react.default.createElement("span", null, currentBlockLabel(), " ", /*#__PURE__*/_react.default.createElement("span", {
-      className: "muncher--small"
-    }, "\u25BC"))
+    size: "small"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "block__content"
   }, BLOCK_TYPES.map(function (blockType) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "block__content--item",
       key: blockType.label,
-      onClick: function onClick() {
-        return _onClick(blockType.style);
+      onMouseDown: function onMouseDown() {
+        return onClick(blockType.style);
       }
     }, blockType.label);
   })));
