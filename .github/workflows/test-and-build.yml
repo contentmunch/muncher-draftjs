@@ -18,12 +18,12 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-        env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
       - run: npm test
+        env:
+          PACKAGES_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: Sibz/github-status-action@v1
         with:
-          authToken: ${{secrets.GITHUB_TOKEN}}
+          authToken: ${{ secrets.GITHUB_TOKEN }}
           context: 'Test run'
           description: 'Passed'
           state: '${{ job.status }}'
