@@ -1,15 +1,11 @@
 import React, {useState} from "react";
 import {EditorState, RichUtils} from 'draft-js';
-import LinkIcon from "../../icons/LinkIcon";
-import '../../ui/button/assets/DropdownButton.scss';
-import DropdownButton from "../../ui/button/DropdownButton";
 import {entityFromSelection} from "../../utilities/draft/DraftUtilities";
-import './LinkControl.scss';
-import Button from "../../ui/button/Button";
+import './assets/LinkControl.scss';
 import PropTypes from "prop-types";
+import {Button, DropdownButton, Icon, Input} from "@contentmunch/muncher-ui";
 
-export default function LinkControl(props) {
-    const {editorState, setEditorState} = {...props};
+export default function LinkControl({editorState, setEditorState}) {
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
     const selectionState = editorState.getSelection();
@@ -45,23 +41,22 @@ export default function LinkControl(props) {
 
 
     return (
-        <div className="muncher__dropdown">
-            <DropdownButton title="Add or edit a link" onClick={showLinkPrompt} onClose={hideLinkPrompt}
-                            showContent={showContent}
-                            setShowContent={setShowContent}
-                            disabled={selectionState.isCollapsed()} icon={<LinkIcon/>}>
-                <div className="link__content">
-                    <input
-                        onChange={event => setUrlValue(event.target.value)}
-                        type="text"
-                        value={urlValue}
-                        placeholder="type the url"
-                    />
-                    <Button onClick={confirmLink}>APPLY</Button>
-                </div>
+        <DropdownButton title="Add or edit a link" onClick={showLinkPrompt} onClose={hideLinkPrompt}
+                        showContent={showContent} setShowContent={setShowContent}
+                        disabled={selectionState.isCollapsed()}
+                        element={<Icon name="link"/>} size="small">
 
-            </DropdownButton>
-        </div>
+            <div className="muncher-drop-link--content">
+                <Input
+                    name="query"
+                    type="url"
+                    onChange={event => setUrlValue(event.target.value)}
+                    value={urlValue}
+                    placeHolder="type the url"
+                />
+                <Button onMouseDown={confirmLink}>APPLY</Button>
+            </div>
+        </DropdownButton>
     );
 }
 LinkControl.propTypes = {

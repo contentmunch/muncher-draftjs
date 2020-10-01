@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import DropdownButton from "../../ui/button/DropdownButton";
+import {DropdownButton} from "@contentmunch/muncher-ui";
 import {getBlockType} from "../../utilities/draft/DraftUtilities";
 import './BlockControl.scss';
 import {RichUtils} from "draft-js";
@@ -16,8 +16,7 @@ const BLOCK_TYPES = [
     {label: 'Blockquote', style: 'blockquote'},
     {label: 'Code Block', style: 'code-block'},
 ];
-export default function BlockControl(props) {
-    const {editorState, setEditorState} = {...props};
+export default function BlockControl({editorState, setEditorState}) {
     const [showContent, setShowContent] = useState(false);
 
     const emptyBlockLabel = <strong>...</strong>;
@@ -32,19 +31,19 @@ export default function BlockControl(props) {
     };
     return (
         <DropdownButton
+            element={<span>{currentBlockLabel()} <span className="muncher--small">&#9660;</span></span>}
             showContent={showContent}
             setShowContent={setShowContent}
             active={currentBlockLabel() !== emptyBlockLabel}
-            icon={<span>{currentBlockLabel()} <span className="muncher--small">&#9660;</span></span>}
-        >
+            size="small">
+
             <div className="block__content">
                 {BLOCK_TYPES.map(blockType =>
                     <div className="block__content--item" key={blockType.label}
-                         onClick={() => onClick(blockType.style)}>{blockType.label}</div>
+                         onMouseDown={() => onClick(blockType.style)}>{blockType.label}</div>
                 )}
             </div>
         </DropdownButton>
-
     );
 }
 BlockControl.propTypes = {

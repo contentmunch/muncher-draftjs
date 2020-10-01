@@ -1,18 +1,14 @@
 import React, {useState} from "react";
 import {AtomicBlockUtils, EditorState} from 'draft-js';
-import '../../ui/button/assets/DropdownButton.scss';
-import DropdownButton from "../../ui/button/DropdownButton";
-import ImageIcon from "../../icons/ImageIcon";
 import PropTypes from "prop-types";
+import './assets/MediaControl.scss'
+import {Button, DropdownButton, Icon, Input} from "@contentmunch/muncher-ui";
 
-export default function ImageControl(props) {
-    const {editorState, setEditorState} = {...props};
+export default function ImageControl({editorState, setEditorState}) {
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
 
-
     const showLinkPrompt = () => {
-
         setShowContent(true);
     };
     const hideLinkPrompt = () => {
@@ -37,24 +33,24 @@ export default function ImageControl(props) {
         setEditorState(
             AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' '),
         );
-
     };
 
-
     return (
-        <div className="muncher__dropdown">
-            <DropdownButton title="Add or Edit Image" onClick={showLinkPrompt} onClose={hideLinkPrompt}
-                            showContent={showContent}
-                            setShowContent={setShowContent}
-                            icon={<ImageIcon/>}>
-                <input
+        <DropdownButton title="Add or Edit Image" onClick={showLinkPrompt} onClose={hideLinkPrompt}
+                        showContent={showContent} setShowContent={setShowContent}
+                        element={<Icon name="image"/>} size="small">
+
+            <div className="muncher-drop-media--content">
+                <Input
+                    name="query"
+                    type="url"
                     onChange={event => setUrlValue(event.target.value)}
-                    type="text"
                     value={urlValue}
+                    placeHolder="type the url"
                 />
-                <button onMouseDown={confirmLink}>Confirm</button>
-            </DropdownButton>
-        </div>
+                <Button onMouseDown={confirmLink}>Confirm</Button>
+            </div>
+        </DropdownButton>
     );
 }
 ImageControl.propTypes = {

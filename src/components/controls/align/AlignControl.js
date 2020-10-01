@@ -1,21 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "../../ui/button/Button";
-import AlignCenterIcon from "../../icons/AlignCenterIcon";
 import {getBlockAlignment} from "../../utilities/draft/DraftUtilities";
 import {EditorState} from "draft-js";
-import AlignRightIcon from "../../icons/AlignRightIcon";
-import AlignJustifyIcon from "../../icons/AlignJustifyIcon";
-import AlignLeftIcon from "../../icons/AlignLeftIcon";
+import {Button, Icon} from "@contentmunch/muncher-ui";
 
 const ALIGN_TYPES = [
-    {label: 'Align Left', style: 'ALIGN_LEFT', icon: <AlignLeftIcon/>, className: 'text-align--left'},
-    {label: 'Align Center', style: 'ALIGN_CENTER', icon: <AlignCenterIcon/>, className: 'text-align--center'},
-    {label: 'Align Right', style: 'ALIGN_RIGHT', icon: <AlignRightIcon/>, className: 'text-align--right'},
-    {label: 'Align Justify', style: 'ALIGN_JUSTIFY', icon: <AlignJustifyIcon/>, className: 'text-align--justify'}
+    {label: 'Align Left', style: 'ALIGN_LEFT', iconName: 'align-left', className: 'text-align--left'},
+    {label: 'Align Center', style: 'ALIGN_CENTER', iconName: 'align-center', className: 'text-align--center'},
+    {label: 'Align Right', style: 'ALIGN_RIGHT', iconName: 'align-right', className: 'text-align--right'},
+    {label: 'Align Justify', style: 'ALIGN_JUSTIFY', iconName: 'align-justify', className: 'text-align--justify'}
 ];
-export default function AlignControl(props) {
-    const {editorState, setEditorState} = {...props};
+export default function AlignControl({editorState, setEditorState}) {
     const blockAlignment = getBlockAlignment(editorState);
 
     const onMouseDown = (e, alignType) => {
@@ -47,9 +42,14 @@ export default function AlignControl(props) {
     };
     return (
         ALIGN_TYPES.map(alignType =>
-            <Button key={alignType.style} title={alignType.label} active={alignType.style === blockAlignment}
-                    onMouseDown={(e) => onMouseDown(e, alignType)}>
-                {alignType.icon}
+            <Button
+                key={alignType.style}
+                onMouseDown={(e) => onMouseDown(e, alignType)}
+                size="small"
+                title={alignType.label}
+                active={alignType.style === blockAlignment}
+            >
+                <Icon name={alignType.iconName}/>
             </Button>
         )
     );

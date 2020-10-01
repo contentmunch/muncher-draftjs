@@ -12,8 +12,7 @@ import BlockRenderer from "./utilities/BlockRenderer";
 import IframeDecorator from "./decorators/IframeDecorator";
 import PropTypes from "prop-types";
 
-export default function Muncher(props) {
-    const {content, html, setHtml} = {...props};
+export default function Muncher({content, html, setHtml}) {
 
     const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
 
@@ -91,7 +90,7 @@ export default function Muncher(props) {
 
     return (
         <div className="muncher">
-            <div className="muncher__main">
+            <div className="muncher-main">
                 <MuncherToolBar
                     editorState={editorState} onChange={onChange}
                     codeView={codeView} setCodeView={setCodeView} html={html}
@@ -100,11 +99,11 @@ export default function Muncher(props) {
                 />
                 {
                     codeView ?
-                        <div className="muncher__code">
+                        <div className="muncher-code">
                             <CodeView html={html} setHtml={setHtml}/>
                         </div>
                         :
-                        <div className="muncher__editor" onClick={focusEditor}>
+                        <div className="muncher-editor" onClick={focusEditor}>
                             <Editor
                                 ref={editor}
                                 editorState={editorState}
@@ -122,7 +121,7 @@ export default function Muncher(props) {
 
             </div>
             {showStructure ?
-                <div className="muncher__structure">
+                <div className="muncher-structure">
                     <StructureView editorState={editorState}/>
                 </div>
                 : ""}

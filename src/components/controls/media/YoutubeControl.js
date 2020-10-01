@@ -1,18 +1,13 @@
 import React, {useState} from "react";
 import {AtomicBlockUtils, EditorState} from 'draft-js';
-import '../../ui/button/assets/DropdownButton.scss';
-import DropdownButton from "../../ui/button/DropdownButton";
-import YoutubeIcon from "../../icons/YoutubeIcon";
 import PropTypes from "prop-types";
+import {Button, DropdownButton, Icon, Input} from "@contentmunch/muncher-ui";
 
-export default function YoutubeControl(props) {
-    const {editorState, setEditorState} = {...props};
+export default function YoutubeControl({editorState, setEditorState}) {
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
 
-
     const showLinkPrompt = () => {
-
         setShowContent(true);
     };
     const hideLinkPrompt = () => {
@@ -37,24 +32,24 @@ export default function YoutubeControl(props) {
         setEditorState(
             AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' '),
         );
-
     };
 
-
     return (
-        <div className="muncher__dropdown">
-            <DropdownButton title="Add or Edit Video" onClick={showLinkPrompt} onClose={hideLinkPrompt}
-                            showContent={showContent}
-                            setShowContent={setShowContent}
-                            icon={<YoutubeIcon/>}>
-                <input
+        <DropdownButton title="Add or Edit Video" onClick={showLinkPrompt} onClose={hideLinkPrompt}
+                        showContent={showContent} setShowContent={setShowContent}
+                        element={<Icon name="youtube"/>} size="small">
+
+            <div className="muncher-drop-media--content">
+                <Input
+                    name="query"
+                    type="url"
                     onChange={event => setUrlValue(event.target.value)}
-                    type="text"
                     value={urlValue}
+                    placeHolder="type the url"
                 />
-                <button onMouseDown={confirmLink}>Confirm</button>
-            </DropdownButton>
-        </div>
+                <Button onMouseDown={confirmLink}>Confirm</Button>
+            </div>
+        </DropdownButton>
     );
 }
 YoutubeControl.propTypes = {

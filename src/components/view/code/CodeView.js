@@ -14,9 +14,7 @@ import "codemirror/addon/fold/foldgutter.css";
 import {Controlled as CodeMirror} from "react-codemirror2";
 import PropTypes from "prop-types";
 
-export default function CodeView(props) {
-    const {html, setHtml} = props;
-
+export default function CodeView({html, setHtml}) {
     return (
         <CodeMirror
             onBeforeChange={(editor, data, codeMirrorValue) =>

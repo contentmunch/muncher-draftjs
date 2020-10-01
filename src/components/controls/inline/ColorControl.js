@@ -1,12 +1,11 @@
-import React, {Fragment, useState} from "react";
+import React, {useState} from "react";
 import './assets/ColorControl.scss';
 import {EditorState, Modifier, RichUtils} from "draft-js";
 import {COLORS, colorStyleMap} from "../../utilities/draft/DraftUtilities";
-import DropdownButton from "../../ui/button/DropdownButton";
+import {DropdownButton} from "@contentmunch/muncher-ui";
 import PropTypes from "prop-types";
 
-export default function ColorControl(props) {
-    const {editorState, setEditorState} = {...props};
+export default function ColorControl({editorState, setEditorState}) {
     const [showContent, setShowContent] = useState(false);
     const currentStyle = editorState.getCurrentInlineStyle();
 
@@ -53,23 +52,22 @@ export default function ColorControl(props) {
 
     };
     return (
-        <Fragment>
-            <DropdownButton title="Font color"
-                            showContent={showContent}
-                            active={currentStyleDiv() !== emptyStyleDiv}
-                            setShowContent={setShowContent}
-                            icon={<span className="color__btn">{currentStyleDiv()} <span
-                                className="muncher--small">&#9660;</span></span>}>
-                <div className="color__content">
-                    {COLORS.map(color =>
-                        <span key={color.label} title={color.label}
-                              onMouseDown={(e) => colorPicked(e, color.style)}
-                              className={"color__content--item " + color.style}/>
-                    )}
-                </div>
-            </DropdownButton>
-
-        </Fragment>
+        <DropdownButton
+            title="Font color"
+            element={<span className="color__btn">{currentStyleDiv()} <span
+                className="muncher--small">&#9660;</span></span>}
+            showContent={showContent}
+            setShowContent={setShowContent}
+            active={currentStyleDiv() !== emptyStyleDiv}
+            size="small">
+            <div className="color__content">
+                {COLORS.map(color =>
+                    <span key={color.label} title={color.label}
+                          onMouseDown={(e) => colorPicked(e, color.style)}
+                          className={"color__content--item " + color.style}/>
+                )}
+            </div>
+        </DropdownButton>
     );
 }
 ColorControl.propTypes = {

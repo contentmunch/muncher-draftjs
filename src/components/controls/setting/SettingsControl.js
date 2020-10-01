@@ -1,33 +1,23 @@
 import React, {useState} from "react";
-import DropdownButton from "../../ui/button/DropdownButton";
-import ToggleLeftIcon from "../../icons/ToggleLeftIcon";
 import './SettingsControl.scss';
-import ToggleRightIcon from "../../icons/ToggleRightIcon";
+import {DropdownButton, Icon} from "@contentmunch/muncher-ui";
 import PropTypes from "prop-types";
 
-export default function SettingsControl(props) {
-    const {showStructure, setShowStructure, settingsIcon} = {...props};
+export default function SettingsControl({showStructure, setShowStructure}) {
     const [showContent, setShowContent] = useState(false);
     const toggleStructure = () => {
         setShowStructure(!showStructure);
     };
     return (
-        <DropdownButton title="Settings"
-                        showContent={showContent}
-                        setShowContent={setShowContent}
-                        drop="right"
-                        icon={settingsIcon}>
-
-            <div className="settings__content">
-                <div className="settings__content--item">Show Structure &nbsp;
-                    <span className="settings__content--toggle" onClick={toggleStructure}>
-                        {showStructure ? <ToggleRightIcon/> : <ToggleLeftIcon/>}
+        <DropdownButton title="Settings" showContent={showContent} setShowContent={setShowContent}
+                        drop="left" size="small" element={<Icon name="settings"/>}>
+            <div className="muncher-settings--content">
+                <div className="settings-content--item">Show Structure &nbsp;
+                    <span className="settings-content--toggle" onClick={toggleStructure}>
+                        {showStructure ? <Icon name="toggle-right"/> : <Icon name="toggle-left"/>}
                     </span>
                 </div>
-
-
             </div>
-
         </DropdownButton>
     );
 }

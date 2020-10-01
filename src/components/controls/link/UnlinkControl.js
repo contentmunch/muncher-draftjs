@@ -1,12 +1,10 @@
 import React from "react";
 import {RichUtils} from 'draft-js';
 import {entityFromSelection} from "../../utilities/draft/DraftUtilities";
-import Button from "../../ui/button/Button";
-import UnlinkIcon from "../../icons/UnlinkIcon";
+import {Button, Icon} from "@contentmunch/muncher-ui";
 import PropTypes from "prop-types";
 
-export default function UnlinkControl(props) {
-    const {editorState, setEditorState} = {...props};
+export default function UnlinkControl({editorState, setEditorState}) {
     const selection = editorState.getSelection();
     const selectionEntity = entityFromSelection(editorState);
     const removeLink = (e) => {
@@ -15,9 +13,9 @@ export default function UnlinkControl(props) {
         setEditorState(RichUtils.toggleLink(editorState, selection, null));
     };
     return (
-        <Button title="Remove a link" onClick={removeLink}
+        <Button title="Remove a link" onMouseDown={removeLink} size="small"
                 disabled={selectionEntity === null || !selectionEntity.type === 'LINK'}>
-            <UnlinkIcon/>
+            <Icon name="unlink"/>
         </Button>
     );
 }

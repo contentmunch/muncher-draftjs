@@ -14,8 +14,7 @@ import "codemirror/addon/fold/foldgutter.css";
 import JSONTree from "react-json-tree";
 import PropTypes from "prop-types";
 
-export default function StructureView(props) {
-    const {editorState} = props;
+export default function StructureView({editorState}) {
     const theme = {
         scheme: 'monokai', author: 'wimer hazenberg (http://www.monokai.nl)', base00: '#000000',
         base01: '#383830', base02: '#49483e', base03: '#75715e', base04: '#a59f85',

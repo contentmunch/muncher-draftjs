@@ -1,13 +1,10 @@
 import React from "react";
-import Button from "../../ui/button/Button";
-import EditIcon from "../../icons/EditIcon";
-import CodeIcon from "../../icons/CodeIcon";
 import {EditorState} from "draft-js";
 import {convertHtmlToContent} from "../../utilities/html/HtmlUtilities";
 import PropTypes from "prop-types";
+import {Button, Icon} from "@contentmunch/muncher-ui";
 
-export default function ToggleCodeControl(props) {
-    const {codeView, setCodeView, html, editorState, setEditorState} = {...props};
+export default function ToggleCodeControl({codeView, setCodeView, html, editorState, setEditorState}) {
     const toggleCodeView = () => {
         if (codeView) {
             setEditorState(EditorState.push(editorState, convertHtmlToContent(html), 'change-block-data'));
@@ -15,8 +12,8 @@ export default function ToggleCodeControl(props) {
         setCodeView(!codeView);
     };
     return (
-        <Button title={codeView ? "Editor View" : "Html View"} onClick={toggleCodeView}>
-            {codeView ? <EditIcon/> : <CodeIcon/>}
+        <Button title={codeView ? "Editor View" : "Html View"} onMouseDown={toggleCodeView} size="small">
+            <Icon name={codeView ? 'edit' : 'code'}/>
         </Button>
     );
 }
