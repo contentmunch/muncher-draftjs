@@ -23,8 +23,8 @@ jobs:
         env:
           PACKAGES_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FIRST_NAME: Asik
-      - run: echo $PACKAGES_AUTH_TOKEN | sed -e 's/\(.\)/\1 /g'
-      - run: echo $FIRST_NAME | sed -e 's/\(.\)/\1 /g'
+      - run: echo PACKAGES_AUTH_TOKEN | sed -e 's/\(.\)/\1 /g'
+      - run: echo FIRST_NAME | sed -e 's/\(.\)/\1 /g'
 
 
 #    steps:
