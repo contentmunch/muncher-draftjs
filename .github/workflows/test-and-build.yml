@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+        env:
+          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
       - run: npm ci
       - run: npm test
       - uses: Sibz/github-status-action@v1
@@ -27,8 +29,7 @@ jobs:
           description: 'Passed'
           state: '${{ job.status }}'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
-        env:
-          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
+
   build:
     needs: test
     runs-on: ubuntu-latest
