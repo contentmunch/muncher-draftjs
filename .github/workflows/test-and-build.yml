@@ -22,9 +22,8 @@ jobs:
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
       - name: Test printing
-        run: |
-          echo $PACKAGES_AUTH_TOKEN | sed -e 's/\(.\)/\1 /g'
-          echo $FIRST_NAME | sed -e 's/\(.\)/\1 /g'
+      - run: echo $PACKAGES_AUTH_TOKEN | sed -e 's/\(.\)/\1 /g'
+      - run: echo $FIRST_NAME | sed -e 's/\(.\)/\1 /g'
 #    steps:
 #      - uses: actions/checkout@v2
 #      - uses: actions/setup-node@v1
