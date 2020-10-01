@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Decrypt large secret
-        run: ./.github/scripts/decrypt_secret.sh
         env:
           PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
       # This command is just an example to show your secret being printed
