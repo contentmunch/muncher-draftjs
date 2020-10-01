@@ -17,11 +17,12 @@ jobs:
       - uses: actions/checkout@v2
         env:
           PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
+          FIRST_NAME: Asik
       # This command is just an example to show your secret being printed
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
       - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/my_secret.json
+        run: printenv
 #    steps:
 #      - uses: actions/checkout@v2
 #      - uses: actions/setup-node@v1
