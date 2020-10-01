@@ -18,9 +18,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - run: npm ci
         env:
           PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
-      - run: npm ci
       - run: npm test
       - uses: Sibz/github-status-action@v1
         with:
@@ -40,11 +40,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-        env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.secrets.PACKAGES_AUTH_TOKEN }}
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
       - run: npm ci
+        env:
+          PACKAGES_AUTH_TOKEN: ${{ secrets.secrets.PACKAGES_AUTH_TOKEN }}
       - run: npm run build
       - run: git add .
       - run: git commit -m "update build" --allow-empty
