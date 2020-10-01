@@ -29,11 +29,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
           registry-url: https://npm.pkg.github.com/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
   bump-revision:
     needs: publish
     runs-on: ubuntu-latest
@@ -42,6 +42,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+        env:
           PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"

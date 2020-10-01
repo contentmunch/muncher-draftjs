@@ -23,11 +23,12 @@ jobs:
       - uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.GITHUB_TOKEN}}
-          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
           context: 'Test run'
           description: 'Passed'
           state: '${{ job.status }}'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
+        env:
+          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -36,6 +37,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+        env:
           PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
