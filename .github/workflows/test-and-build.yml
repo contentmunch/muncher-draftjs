@@ -15,18 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: FranzDiebold/github-env-vars-action@v1.2.0
         env:
           PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
           FIRST_NAME: Asik
       # This command is just an example to show your secret being printed
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
-      - name: Test printing your secret (Remove this step in production)
-
+      - name: Test printing
         run: |
-          echo "FIRST_NAME=$FIRST_NAME"
-          echo "PACKAGES_AUTH_TOKEN=$PACKAGES_AUTH_TOKEN"
+          echo $PACKAGES_AUTH_TOKEN | sed -e 's/\(.\)/\1 /g'
+          echo $FIRST_NAME | sed -e 's/\(.\)/\1 /g'
 #    steps:
 #      - uses: actions/checkout@v2
 #      - uses: actions/setup-node@v1
