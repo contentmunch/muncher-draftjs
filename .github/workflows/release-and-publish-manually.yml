@@ -33,7 +33,7 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
+          PACKAGES_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
   bump-revision:
     needs: publish
     runs-on: ubuntu-latest
