@@ -10,7 +10,7 @@ export default function SettingsControl({showStructure, setShowStructure}) {
     };
     return (
         <DropdownButton title="Settings" showContent={showContent} setShowContent={setShowContent}
-                        drop="left" size="small" element={<Icon name="settings"/>}>
+                        drop="left" size="small" element={<Icon name="settings"/>} active={showContent}>
             <div className="muncher-settings--content">
                 <div className="settings-content--item">Show Structure &nbsp;
                     <span className="settings-content--toggle" onClick={toggleStructure}>

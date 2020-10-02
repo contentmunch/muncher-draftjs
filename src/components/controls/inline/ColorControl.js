@@ -58,7 +58,7 @@ export default function ColorControl({editorState, setEditorState}) {
                 className="muncher--small">&#9660;</span></span>}
             showContent={showContent}
             setShowContent={setShowContent}
-            active={currentStyleDiv() !== emptyStyleDiv}
+            active={showContent || currentStyleDiv() !== emptyStyleDiv}
             size="small">
             <div className="color__content">
                 {COLORS.map(color =>

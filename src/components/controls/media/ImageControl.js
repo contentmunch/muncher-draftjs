@@ -37,7 +37,7 @@ export default function ImageControl({editorState, setEditorState}) {
 
     return (
         <DropdownButton title="Add or Edit Image" onClick={showLinkPrompt} onClose={hideLinkPrompt}
-                        showContent={showContent} setShowContent={setShowContent}
+                        showContent={showContent} setShowContent={setShowContent} active={showContent}
                         element={<Icon name="image"/>} size="small">
 
             <div className="muncher-drop-media--content">

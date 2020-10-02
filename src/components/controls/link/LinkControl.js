@@ -43,7 +43,7 @@ export default function LinkControl({editorState, setEditorState}) {
     return (
         <DropdownButton title="Add or edit a link" onClick={showLinkPrompt} onClose={hideLinkPrompt}
                         showContent={showContent} setShowContent={setShowContent}
-                        disabled={selectionState.isCollapsed()}
+                        disabled={selectionState.isCollapsed()} active={showContent}
                         element={<Icon name="link"/>} size="small">
 
             <div className="muncher-drop-link--content">

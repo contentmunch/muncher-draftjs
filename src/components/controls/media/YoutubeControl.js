@@ -37,7 +37,7 @@ export default function YoutubeControl({editorState, setEditorState}) {
     return (
         <DropdownButton title="Add or Edit Video" onClick={showLinkPrompt} onClose={hideLinkPrompt}
                         showContent={showContent} setShowContent={setShowContent}
-                        element={<Icon name="youtube"/>} size="small">
+                        element={<Icon name="youtube"/>} size="small" active={showContent}>
 
             <div className="muncher-drop-media--content">
                 <Input
