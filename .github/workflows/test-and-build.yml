@@ -19,7 +19,7 @@ jobs:
           node-version: 12
       - run: npm ci
         env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
       - run: npm test
 
       - uses: Sibz/github-status-action@v1
