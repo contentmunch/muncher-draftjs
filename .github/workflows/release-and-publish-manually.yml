@@ -33,7 +33,7 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PACKAGES_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
   bump-revision:
     needs: publish
     runs-on: ubuntu-latest
@@ -47,6 +47,8 @@ jobs:
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
       - run: npm ci
+        env:
+          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
       - run: npm version patch
       - run: git add .
       - run: git commit -m "update build" --allow-empty
