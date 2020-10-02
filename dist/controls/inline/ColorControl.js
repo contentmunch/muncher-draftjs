@@ -105,7 +105,7 @@ function ColorControl(_ref) {
     }, "\u25BC")),
     showContent: showContent,
     setShowContent: setShowContent,
-    active: currentStyleDiv() !== emptyStyleDiv,
+    active: showContent || currentStyleDiv() !== emptyStyleDiv,
     size: "small"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "color__content"

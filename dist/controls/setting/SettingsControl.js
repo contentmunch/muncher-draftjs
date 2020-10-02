@@ -54,7 +54,8 @@ function SettingsControl(_ref) {
     size: "small",
     element: /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
       name: "settings"
-    })
+    }),
+    active: showContent
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "muncher-settings--content"
   }, /*#__PURE__*/_react.default.createElement("div", {

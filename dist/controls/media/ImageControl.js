@@ -81,6 +81,7 @@ function ImageControl(_ref) {
     onClose: hideLinkPrompt,
     showContent: showContent,
     setShowContent: setShowContent,
+    active: showContent,
     element: /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
       name: "image"
     }),

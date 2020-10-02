@@ -94,6 +94,7 @@ function LinkControl(_ref) {
     showContent: showContent,
     setShowContent: setShowContent,
     disabled: selectionState.isCollapsed(),
+    active: showContent,
     element: /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
       name: "link"
     }),

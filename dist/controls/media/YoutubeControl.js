@@ -82,7 +82,8 @@ function YoutubeControl(_ref) {
     element: /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
       name: "youtube"
     }),
-    size: "small"
+    size: "small",
+    active: showContent
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "muncher-drop-media--content"
   }, /*#__PURE__*/_react.default.createElement(_muncherUi.Input, {
