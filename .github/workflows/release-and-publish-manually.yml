@@ -50,6 +50,8 @@ jobs:
         env:
           PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
       - run: npm version patch
+        env:
+          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
       - run: git add .
       - run: git commit -m "update build" --allow-empty
       - run: git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
