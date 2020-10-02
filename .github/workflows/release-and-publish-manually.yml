@@ -1,7 +1,5 @@
 name: Release and publish
-description: This build is triggered manually, does release, publish, and then bumps revison
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
+# This build is triggered manually, does release, publish, and then bumps revision
 on:
   workflow_dispatch:
 
