@@ -54,7 +54,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Muncher(_ref) {
   var content = _ref.content,
       html = _ref.html,
-      setHtml = _ref.setHtml;
+      setHtml = _ref.setHtml,
+      handleSave = _ref.handleSave;
   var decorator = new _draftJs.CompositeDecorator([(0, _LinkDecorator.default)(), (0, _IframeDecorator.default)()]);
 
   var _useState = (0, _react.useState)(content ? _draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(content), decorator) : _draftJs.EditorState.createEmpty(decorator)),
@@ -157,7 +158,8 @@ function Muncher(_ref) {
     html: html,
     showStructure: showStructure,
     setShowStructure: setShowStructure,
-    focusEditor: focusEditor
+    focusEditor: focusEditor,
+    save: handleSave
   }), codeView ? /*#__PURE__*/_react.default.createElement("div", {
     className: "muncher-code"
   }, /*#__PURE__*/_react.default.createElement(_CodeView.default, {
@@ -187,5 +189,6 @@ function Muncher(_ref) {
 Muncher.propTypes = {
   content: _propTypes.default.string,
   html: _propTypes.default.string,
-  setHtml: _propTypes.default.func
+  setHtml: _propTypes.default.func,
+  handleSave: _propTypes.default.func
 };

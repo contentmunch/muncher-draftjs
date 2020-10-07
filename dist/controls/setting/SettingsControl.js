@@ -35,15 +35,32 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function SettingsControl(_ref) {
   var showStructure = _ref.showStructure,
-      setShowStructure = _ref.setShowStructure;
+      setShowStructure = _ref.setShowStructure,
+      save = _ref.save;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       showContent = _useState2[0],
       setShowContent = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isSaving = _useState4[0],
+      setIsSaving = _useState4[1];
+
   var toggleStructure = function toggleStructure() {
     setShowStructure(!showStructure);
+  };
+
+  var saveClickHandler = function saveClickHandler() {
+    if (save) {
+      save();
+    }
+
+    setIsSaving(true);
+    setTimeout(function () {
+      setIsSaving(false);
+    }, 3000);
   };
 
   return /*#__PURE__*/_react.default.createElement(_muncherUi.DropdownButton, {
@@ -60,13 +77,23 @@ function SettingsControl(_ref) {
     className: "muncher-settings--content"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "settings-content--item"
-  }, "Show Structure \xA0", /*#__PURE__*/_react.default.createElement("span", {
-    className: "settings-content--toggle",
-    onClick: toggleStructure
-  }, showStructure ? /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+  }, /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
+    onMouseDown: toggleStructure,
+    size: "small",
+    variant: "secondary"
+  }, " Data \xA0", showStructure ? /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
     name: "toggle-right"
   }) : /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
     name: "toggle-left"
+  }))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "settings-content--item"
+  }, /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
+    onMouseDown: saveClickHandler,
+    size: "small",
+    disabled: isSaving,
+    variant: "secondary"
+  }, " Save \xA0", /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "save"
   })))));
 }
 
