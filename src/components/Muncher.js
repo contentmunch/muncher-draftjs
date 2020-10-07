@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {Fragment, useEffect, useRef, useState} from "react";
 import {CompositeDecorator, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import './assets/Muncher.scss';
@@ -11,12 +11,17 @@ import {colorStyleMap} from "./utilities/draft/DraftUtilities";
 import BlockRenderer from "./utilities/BlockRenderer";
 import IframeDecorator from "./decorators/IframeDecorator";
 import PropTypes from "prop-types";
+import {Spinner} from "@contentmunch/muncher-ui";
 
 export default function Muncher({content, html, setHtml}) {
-
     const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
+    const [loadEditor, setLoadEditor] = useState(false);
+    const [editorState, setEditorState] = useState({});
+    useEffect(() => {
+        setEditorState(content ? EditorState.createWithContent(convertHtmlToContent(content), decorator) : EditorState.createEmpty(decorator));
+        setLoadEditor(true);
+    }, []);
 
-    const [editorState, setEditorState] = useState(content ? EditorState.createWithContent(convertHtmlToContent(content), decorator) : EditorState.createEmpty(decorator));
 
     const [showStructure, setShowStructure] = useState(false);
     const [codeView, setCodeView] = useState(false);
@@ -90,41 +95,45 @@ export default function Muncher({content, html, setHtml}) {
 
     return (
         <div className="muncher">
-            <div className="muncher-main">
-                <MuncherToolBar
-                    editorState={editorState} onChange={onChange}
-                    codeView={codeView} setCodeView={setCodeView} html={html}
-                    showStructure={showStructure} setShowStructure={setShowStructure}
-                    focusEditor={focusEditor}
-                />
-                {
-                    codeView ?
-                        <div className="muncher-code">
-                            <CodeView html={html} setHtml={setHtml}/>
-                        </div>
-                        :
-                        <div className="muncher-editor" onClick={focusEditor}>
-                            <Editor
-                                ref={editor}
-                                editorState={editorState}
-                                onChange={onChange}
-                                blockStyleFn={getBlockStyle}
-                                blockRendererFn={BlockRenderer}
-                                handleKeyCommand={handleKeyCommand}
-                                keyBindingFn={mapKeyToEditorCommand}
-                                customStyleMap={colorStyleMap}
-                                spellCheck={true}
-                                placeholder="Tell a story..."
-                            />
-                        </div>
-                }
+            {loadEditor ?
+                <Fragment>
+                    <div className="muncher-main">
+                        <MuncherToolBar
+                            editorState={editorState} onChange={onChange}
+                            codeView={codeView} setCodeView={setCodeView} html={html}
+                            showStructure={showStructure} setShowStructure={setShowStructure}
+                            focusEditor={focusEditor}
+                        />
+                        {
+                            codeView ?
+                                <div className="muncher-code">
+                                    <CodeView html={html} setHtml={setHtml}/>
+                                </div>
+                                :
+                                <div className="muncher-editor" onClick={focusEditor}>
+                                    <Editor
+                                        ref={editor}
+                                        editorState={editorState}
+                                        onChange={onChange}
+                                        blockStyleFn={getBlockStyle}
+                                        blockRendererFn={BlockRenderer}
+                                        handleKeyCommand={handleKeyCommand}
+                                        keyBindingFn={mapKeyToEditorCommand}
+                                        customStyleMap={colorStyleMap}
+                                        spellCheck={true}
+                                        placeholder="Tell a story..."
+                                    />
+                                </div>
+                        }
 
-            </div>
-            {showStructure ?
-                <div className="muncher-structure">
-                    <StructureView editorState={editorState}/>
-                </div>
-                : ""}
+                    </div>
+                    {showStructure ?
+                        <div className="muncher-structure">
+                            <StructureView editorState={editorState}/>
+                        </div>
+                        : ""}
+                </Fragment>
+                : <Spinner/>}
         </div>
     );
 }
