@@ -23,6 +23,5 @@ export default function SettingsControl({showStructure, setShowStructure}) {
 }
 SettingsControl.propTypes = {
     showStructure: PropTypes.bool.isRequired,
-    setShowStructure: PropTypes.func.isRequired,
-    settingsIcon: PropTypes.element.isRequired,
+    setShowStructure: PropTypes.func.isRequired
 };

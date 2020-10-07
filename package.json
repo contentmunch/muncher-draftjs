@@ -9,6 +9,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@contentmunch"
   },
+  "repository": {
+    "url": "https://github.com/contentmunch/muncher.git",
+    "type": "git"
+  },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -54,7 +58,7 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@contentmunch/muncher-ui": "^0.1.14",
+    "@contentmunch/muncher-ui": "^0.1.20",
     "codemirror": "^5.58.1",
     "draft-convert": "^2.1.10",
     "draft-js": "^0.11.7",
