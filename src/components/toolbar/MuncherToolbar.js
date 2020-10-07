@@ -16,7 +16,7 @@ import SettingsControl from "../controls/setting/SettingsControl";
 export default function MuncherToolBar(
     {
         codeView, setCodeView, html, editorState, onChange,
-        showStructure, setShowStructure, focusEditor,save
+        showStructure, setShowStructure, focusEditor, saveHandler, deleteHandler
     }) {
     const onChangeAndFocus = (currentEditorState) => {
         onChange(currentEditorState);
@@ -51,7 +51,8 @@ export default function MuncherToolBar(
             <div className="muncher-toolbar--right">
                 <SettingsControl showStructure={showStructure}
                                  setShowStructure={setShowStructure}
-                                 save={save}
+                                 saveHandler={saveHandler}
+                                 deleteHandler={deleteHandler}
                 />
             </div>
         </div>

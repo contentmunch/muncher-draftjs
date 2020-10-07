@@ -14,7 +14,7 @@ export default function App() {
             "</ol>"}
                      html={html}
                      setHtml={setHtml}
-                     handleSave={() => {
+                     saveHandler={() => {
                          console.log("save clicked");
                      }}
             />

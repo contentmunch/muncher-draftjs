@@ -12,7 +12,7 @@ import BlockRenderer from "./utilities/BlockRenderer";
 import IframeDecorator from "./decorators/IframeDecorator";
 import PropTypes from "prop-types";
 
-export default function Muncher({content, html, setHtml, handleSave}) {
+export default function Muncher({content, html, setHtml, saveHandler, handleDelete: deleteHandler}) {
 
     const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
 
@@ -96,7 +96,8 @@ export default function Muncher({content, html, setHtml, handleSave}) {
                     codeView={codeView} setCodeView={setCodeView} html={html}
                     showStructure={showStructure} setShowStructure={setShowStructure}
                     focusEditor={focusEditor}
-                    save={handleSave}
+                    saveHandler={saveHandler}
+                    deleteHandler={deleteHandler}
                 />
                 {
                     codeView ?
@@ -133,5 +134,6 @@ Muncher.propTypes = {
     content: PropTypes.string,
     html: PropTypes.string,
     setHtml: PropTypes.func,
-    handleSave: PropTypes.func
+    saveHandler: PropTypes.func,
+    deleteHandler: PropTypes.func,
 };
