@@ -36,7 +36,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function SettingsControl(_ref) {
   var showStructure = _ref.showStructure,
       setShowStructure = _ref.setShowStructure,
-      save = _ref.save;
+      saveHandler = _ref.saveHandler,
+      deleteHandler = _ref.deleteHandler;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -48,19 +49,46 @@ function SettingsControl(_ref) {
       isSaving = _useState4[0],
       setIsSaving = _useState4[1];
 
+  var _useState5 = (0, _react.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      showDeleteModal = _useState6[0],
+      setShowDeleteModal = _useState6[1];
+
   var toggleStructure = function toggleStructure() {
     setShowStructure(!showStructure);
   };
 
   var saveClickHandler = function saveClickHandler() {
-    if (save) {
-      save();
+    if (saveHandler) {
+      saveHandler();
     }
 
     setIsSaving(true);
     setTimeout(function () {
       setIsSaving(false);
     }, 3000);
+  };
+
+  var closeAll = function closeAll() {
+    console.log("called");
+    setShowDeleteModal(false);
+    setShowContent(false);
+  };
+
+  var deleteCancelHandler = function deleteCancelHandler() {
+    closeAll();
+  };
+
+  var deleteConfirmHandler = function deleteConfirmHandler() {
+    if (deleteHandler) {
+      deleteHandler();
+    }
+
+    closeAll();
+  };
+
+  var deleteClickHandler = function deleteClickHandler() {
+    setShowDeleteModal(true);
   };
 
   return /*#__PURE__*/_react.default.createElement(_muncherUi.DropdownButton, {
@@ -75,29 +103,63 @@ function SettingsControl(_ref) {
     active: showContent
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "muncher-settings--content"
+  }, /*#__PURE__*/_react.default.createElement(_muncherUi.Modal, {
+    show: showDeleteModal,
+    setShow: closeAll
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "settings-content--item"
+    className: "delete-modal--info"
+  }, /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "alert",
+    size: "large"
+  }), /*#__PURE__*/_react.default.createElement("h3", null, "Delete article?")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "delete-modal--action"
   }, /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
-    onMouseDown: toggleStructure,
+    onMouseDown: deleteConfirmHandler,
     size: "small",
     variant: "secondary"
-  }, " Data \xA0", showStructure ? /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
-    name: "toggle-right"
-  }) : /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
-    name: "toggle-left"
-  }))), /*#__PURE__*/_react.default.createElement("div", {
+  }, " ", /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "trash",
+    weight: 2
+  }), "\xA0", /*#__PURE__*/_react.default.createElement("h3", null, "Delete")), /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
+    onMouseDown: deleteCancelHandler,
+    size: "small",
+    variant: "secondary"
+  }, " ", /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "close",
+    weight: 2
+  }), "\xA0", /*#__PURE__*/_react.default.createElement("h3", null, "Cancel")))), /*#__PURE__*/_react.default.createElement("div", {
     className: "settings-content--item"
   }, /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
     onMouseDown: saveClickHandler,
     size: "small",
     disabled: isSaving,
     variant: "secondary"
-  }, " Save \xA0", /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+  }, " ", /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
     name: "save"
-  })))));
+  }), /*#__PURE__*/_react.default.createElement("span", null, "Save"))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "settings-content--item"
+  }, /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
+    onMouseDown: deleteClickHandler,
+    size: "small",
+    variant: "secondary"
+  }, " ", /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "trash"
+  }), /*#__PURE__*/_react.default.createElement("span", null, "Delete"))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "settings-content--item"
+  }, /*#__PURE__*/_react.default.createElement(_muncherUi.Button, {
+    onMouseDown: toggleStructure,
+    size: "small",
+    variant: "secondary"
+  }, showStructure ? /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "toggle-right"
+  }) : /*#__PURE__*/_react.default.createElement(_muncherUi.Icon, {
+    name: "toggle-left"
+  }), /*#__PURE__*/_react.default.createElement("span", null, "Data")))));
 }
 
 SettingsControl.propTypes = {
   showStructure: _propTypes.default.bool.isRequired,
-  setShowStructure: _propTypes.default.func.isRequired
+  setShowStructure: _propTypes.default.func.isRequired,
+  saveHandler: _propTypes.default.func,
+  deleteHandler: _propTypes.default.func
 };

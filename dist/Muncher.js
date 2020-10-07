@@ -55,7 +55,8 @@ function Muncher(_ref) {
   var content = _ref.content,
       html = _ref.html,
       setHtml = _ref.setHtml,
-      handleSave = _ref.handleSave;
+      saveHandler = _ref.saveHandler,
+      deleteHandler = _ref.handleDelete;
   var decorator = new _draftJs.CompositeDecorator([(0, _LinkDecorator.default)(), (0, _IframeDecorator.default)()]);
 
   var _useState = (0, _react.useState)(content ? _draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(content), decorator) : _draftJs.EditorState.createEmpty(decorator)),
@@ -159,7 +160,8 @@ function Muncher(_ref) {
     showStructure: showStructure,
     setShowStructure: setShowStructure,
     focusEditor: focusEditor,
-    save: handleSave
+    saveHandler: saveHandler,
+    deleteHandler: deleteHandler
   }), codeView ? /*#__PURE__*/_react.default.createElement("div", {
     className: "muncher-code"
   }, /*#__PURE__*/_react.default.createElement(_CodeView.default, {
@@ -190,5 +192,6 @@ Muncher.propTypes = {
   content: _propTypes.default.string,
   html: _propTypes.default.string,
   setHtml: _propTypes.default.func,
-  handleSave: _propTypes.default.func
+  saveHandler: _propTypes.default.func,
+  deleteHandler: _propTypes.default.func
 };

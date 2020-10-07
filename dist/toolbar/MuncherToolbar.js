@@ -50,7 +50,8 @@ function MuncherToolBar(_ref) {
       showStructure = _ref.showStructure,
       setShowStructure = _ref.setShowStructure,
       focusEditor = _ref.focusEditor,
-      save = _ref.save;
+      saveHandler = _ref.saveHandler,
+      deleteHandler = _ref.deleteHandler;
 
   var onChangeAndFocus = function onChangeAndFocus(currentEditorState) {
     onChange(currentEditorState);
@@ -117,6 +118,7 @@ function MuncherToolBar(_ref) {
   }, /*#__PURE__*/_react.default.createElement(_SettingsControl.default, {
     showStructure: showStructure,
     setShowStructure: setShowStructure,
-    save: save
+    saveHandler: saveHandler,
+    deleteHandler: deleteHandler
   })));
 }
