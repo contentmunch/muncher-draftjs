@@ -33,8 +33,6 @@ var _IframeDecorator = _interopRequireDefault(require("./decorators/IframeDecora
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _muncherUi = require("@contentmunch/muncher-ui");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -59,30 +57,20 @@ function Muncher(_ref) {
       setHtml = _ref.setHtml;
   var decorator = new _draftJs.CompositeDecorator([(0, _LinkDecorator.default)(), (0, _IframeDecorator.default)()]);
 
-  var _useState = (0, _react.useState)(false),
+  var _useState = (0, _react.useState)(content ? _draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(content), decorator) : _draftJs.EditorState.createEmpty(decorator)),
       _useState2 = _slicedToArray(_useState, 2),
-      loadEditor = _useState2[0],
-      setLoadEditor = _useState2[1];
+      editorState = _useState2[0],
+      setEditorState = _useState2[1];
 
-  var _useState3 = (0, _react.useState)({}),
+  var _useState3 = (0, _react.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
-      editorState = _useState4[0],
-      setEditorState = _useState4[1];
-
-  (0, _react.useEffect)(function () {
-    setEditorState(content ? _draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(content), decorator) : _draftJs.EditorState.createEmpty(decorator));
-    setLoadEditor(true);
-  }, []);
+      showStructure = _useState4[0],
+      setShowStructure = _useState4[1];
 
   var _useState5 = (0, _react.useState)(false),
       _useState6 = _slicedToArray(_useState5, 2),
-      showStructure = _useState6[0],
-      setShowStructure = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      codeView = _useState8[0],
-      setCodeView = _useState8[1];
+      codeView = _useState6[0],
+      setCodeView = _useState6[1];
 
   var onChange = function onChange(currentEditorState) {
     setEditorState(currentEditorState);
@@ -159,7 +147,7 @@ function Muncher(_ref) {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "muncher"
-  }, loadEditor ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "muncher-main"
   }, /*#__PURE__*/_react.default.createElement(_MuncherToolbar.default, {
     editorState: editorState,
@@ -193,7 +181,7 @@ function Muncher(_ref) {
     className: "muncher-structure"
   }, /*#__PURE__*/_react.default.createElement(_StructureView.default, {
     editorState: editorState
-  })) : "") : /*#__PURE__*/_react.default.createElement(_muncherUi.Spinner, null));
+  })) : "");
 }
 
 Muncher.propTypes = {
