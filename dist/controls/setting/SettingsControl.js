@@ -72,6 +72,5 @@ function SettingsControl(_ref) {
 
 SettingsControl.propTypes = {
   showStructure: _propTypes.default.bool.isRequired,
-  setShowStructure: _propTypes.default.func.isRequired,
-  settingsIcon: _propTypes.default.element.isRequired
+  setShowStructure: _propTypes.default.func.isRequired
 };
