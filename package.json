@@ -1,5 +1,5 @@
 {
-  "name": "muncher",
+  "name": "@contentmunch/muncher",
   "version": "0.3.6",
   "description": "Content editor wysiwyg for contentmunch",
   "main": "dist/index.js",
@@ -7,7 +7,7 @@
   "author": "asikpradhan",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@contentmunch"
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "url": "https://github.com/contentmunch/muncher.git",
