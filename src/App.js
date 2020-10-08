@@ -17,6 +17,9 @@ export default function App() {
                      saveHandler={() => {
                          console.log("save clicked");
                      }}
+                     deleteHandler={() => {
+                         console.log("delete clicked");
+                     }}
             />
         </div>
 

@@ -12,7 +12,7 @@ import BlockRenderer from "./utilities/BlockRenderer";
 import IframeDecorator from "./decorators/IframeDecorator";
 import PropTypes from "prop-types";
 
-export default function Muncher({content, html, setHtml, saveHandler, handleDelete: deleteHandler}) {
+export default function Muncher({content, html, setHtml, saveHandler, deleteHandler}) {
 
     const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
 

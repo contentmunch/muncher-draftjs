@@ -21,7 +21,6 @@ export default function SettingsControl({showStructure, setShowStructure, saveHa
         }, 3000);
     };
     const closeAll=()=>{
-        console.log("called");
         setShowDeleteModal(false);
         setShowContent(false);
     }
