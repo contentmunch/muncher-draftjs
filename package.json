@@ -1,6 +1,6 @@
 {
   "name": "@contentmunch/muncher",
-  "version": "0.3.6",
+  "version": "0.4.1",
   "description": "Content editor wysiwyg for contentmunch",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -58,7 +58,7 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@contentmunch/muncher-ui": "^0.1.24",
+    "@contentmunch/muncher-ui": "^0.3.1",
     "codemirror": "^5.58.1",
     "draft-convert": "^2.1.10",
     "draft-js": "^0.11.7",
