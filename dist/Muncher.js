@@ -56,7 +56,7 @@ function Muncher(_ref) {
       html = _ref.html,
       setHtml = _ref.setHtml,
       saveHandler = _ref.saveHandler,
-      deleteHandler = _ref.handleDelete;
+      deleteHandler = _ref.deleteHandler;
   var decorator = new _draftJs.CompositeDecorator([(0, _LinkDecorator.default)(), (0, _IframeDecorator.default)()]);
 
   var _useState = (0, _react.useState)(content ? _draftJs.EditorState.createWithContent((0, _HtmlUtilities.convertHtmlToContent)(content), decorator) : _draftJs.EditorState.createEmpty(decorator)),

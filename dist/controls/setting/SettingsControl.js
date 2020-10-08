@@ -70,7 +70,6 @@ function SettingsControl(_ref) {
   };
 
   var closeAll = function closeAll() {
-    console.log("called");
     setShowDeleteModal(false);
     setShowContent(false);
   };
