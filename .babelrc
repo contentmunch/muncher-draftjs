@@ -1,11 +1,17 @@
 {
   "presets": [
-    "@babel/preset-react",
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "entry"
-      }
-    ]
+    "@babel/preset-env",
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "ignore": [
+    "src/react-app-env.d.ts",
+    "src/setupTests.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx",
+    "src/storybook.test.js"
   ]
 }
