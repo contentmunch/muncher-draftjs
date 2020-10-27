@@ -1,0 +1,39 @@
+@import "src/assets/variables";
+
+.muncher-settings--content {
+  .muncher-modal {
+    background-color: $secondary-background-color;
+    left: 40vw;
+    top: 30vh;
+    padding: .3rem .8rem;
+    width: auto;
+    .delete-modal--info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > * {
+        padding: .5rem;
+      }
+    }
+
+    .delete-modal--action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .settings-content--item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      :first-child {
+        margin-right: .5rem;
+      }
+    }
+
+  }
+}
+

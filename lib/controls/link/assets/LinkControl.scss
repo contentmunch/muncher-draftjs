@@ -1,0 +1,11 @@
+@import "src/assets/variables";
+
+.muncher-drop-link--content {
+  display: flex;
+  width: 15rem;
+  align-items: center;
+  .muncher-button {
+    margin-left: 1.5rem;
+  }
+}
+
