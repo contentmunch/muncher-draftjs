@@ -13,10 +13,10 @@ import IframeDecorator from "./decorators/IframeDecorator";
 
 export const Muncher: React.FC<MuncherProps> = (
     {
-        content, html, setHtml,
+        content, setContent,
         saveHandler, deleteHandler
     }) => {
-
+    const [html, setHtml] = useState("");
     const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
 
     const [editorState, setEditorState] = useState(content ? EditorState.createWithContent(convertHtmlToContent(content), decorator) : EditorState.createEmpty(decorator));
@@ -28,8 +28,10 @@ export const Muncher: React.FC<MuncherProps> = (
     const onChange = (currentEditorState: EditorState) => {
 
         setEditorState(currentEditorState);
-        if (setHtml) {
-            setHtml(beautifyHtml(convertContentToHtml(currentEditorState)));
+        const currentHtml = beautifyHtml(convertContentToHtml(currentEditorState));
+        setHtml(currentHtml);
+        if (setContent) {
+            setContent(currentHtml);
         }
 
     };
@@ -140,10 +142,9 @@ export const Muncher: React.FC<MuncherProps> = (
 
 export interface MuncherProps {
     content?: string;
+    setContent?: (content: string) => void;
     saveHandler?: () => void;
     deleteHandler?: () => void;
-    html: string;
-    setHtml: (html: string) => void;
 }
 
 export interface EditorStateProps {
