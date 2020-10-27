@@ -1,4 +1,4 @@
-![Release and publish](https://github.com/contentmunch/muncher/workflows/Release%20and%20publish/badge.svg)  ![Tests](https://github.com/contentmunch/muncher/workflows/Test/badge.svg)
+![Test release and publish](https://github.com/contentmunch/muncher/workflows/Test%20release%20and%20publish/badge.svg)
 # Muncher  
 Muncher is a rich text editor based on [Draftjs](https://draftjs.org/) with a focus on content reuse. 
 
