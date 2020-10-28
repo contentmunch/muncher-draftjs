@@ -9,6 +9,7 @@
   ],
   "ignore": [
     "src/react-app-env.d.ts",
+    "src/draft-convert.d.ts",
     "src/setupTests.ts",
     "src/**/*.test.tsx",
     "src/**/*.stories.tsx",

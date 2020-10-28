@@ -1,8 +1,10 @@
+import React from "react";
 import {convertFromHTML, convertToHTML} from "draft-convert";
 import {html_beautify} from "js-beautify";
 import {COLORS} from "../draft/DraftUtilities";
 
-export const convertHtmlToContent = (currentHtml) => {
+
+export const convertHtmlToContent = (currentHtml: any) => {
     return convertFromHTML({
         htmlToStyle: (nodeName, node, currentStyle) => {
 
@@ -19,18 +21,18 @@ export const convertHtmlToContent = (currentHtml) => {
                 return createEntity(
                     'LINK',
                     'MUTABLE',
-                    {url: node.href}
+                    {url: node.getAttribute('href')}
                 )
             }
             if (nodeName === 'img') {
                 return createEntity('image',
                     'IMMUTABLE',
-                    {src: node.src})
+                    {src: node.getAttribute('src')})
             }
             if (nodeName === 'iframe') {
                 return createEntity('IFRAME',
                     'IMMUTABLE',
-                    {src: node.src})
+                    {src: node.getAttribute('src')})
             }
 
         },
@@ -113,7 +115,7 @@ export const convertHtmlToContent = (currentHtml) => {
     })(currentHtml);
 };
 
-const textAlignClass = (block) => {
+const textAlignClass = (block: any) => {
     if (block.data.textAlign) {
         switch (block.data.textAlign) {
             case 'ALIGN_JUSTIFY':
@@ -127,7 +129,7 @@ const textAlignClass = (block) => {
         }
     }
 };
-const textAlignData = (className) => {
+const textAlignData = (className: string) => {
     switch (className) {
         case 'text-align--left':
             return {textAlign: 'ALIGN_LEFT'};
@@ -142,8 +144,8 @@ const textAlignData = (className) => {
     }
 };
 
-export const convertContentToHtml = (currentEditorState) => {
-    const ORDERED_LIST_TYPES = ['1', 'a', 'i'];
+export const convertContentToHtml = (currentEditorState: any) => {
+    //const ORDERED_LIST_TYPES = ['1', 'a', 'i'];
     return convertToHTML({
         styleToHTML: (style) => {
             const styleType = COLORS.find((color) => color.style === style);
@@ -185,10 +187,10 @@ export const convertContentToHtml = (currentEditorState) => {
                 case 'ordered-list-item':
                     return {
                         element: <li className={textAlignClass(block)}/>,
-                        nest: depth => {
-                            const type = ORDERED_LIST_TYPES[depth % 3];
-                            return <ol type={type}/>;
-                        },
+                        // nest: depth => {
+                        //     const type = ORDERED_LIST_TYPES[depth % 3];
+                        //     return <ol type={type}/>;
+                        // },
                     };
                 case 'unstyled':
                     return <p className={textAlignClass(block)}/>
@@ -209,6 +211,6 @@ export const convertContentToHtml = (currentEditorState) => {
     })(currentEditorState.getCurrentContent());
 };
 
-export const beautifyHtml = (currentHtml) => {
+export const beautifyHtml = (currentHtml: any) => {
     return html_beautify(currentHtml, {indent_size: 2});
 };

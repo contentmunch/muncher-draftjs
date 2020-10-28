@@ -1,8 +1,9 @@
 import React from "react";
 import {EditorState} from "draft-js";
-import {convertHtmlToContent} from "../../utilities/html/HtmlUtilities.js";
+
 import {Button, Icon} from "@contentmunch/muncher-ui";
 import {EditorStateProps} from "../../Muncher";
+import {convertHtmlToContent} from "../../utilities/html/HtmlUtilities";
 
 export const ToggleCodeControl: React.FC<ToggleCodeControlProps> = (
     {

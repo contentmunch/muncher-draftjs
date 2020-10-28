@@ -3,7 +3,7 @@ import Draft, {CompositeDecorator, Editor, EditorState, getDefaultKeyBinding, Ri
 import 'draft-js/dist/Draft.css';
 import './assets/Muncher.scss';
 import {CodeView} from "./view/code/CodeView";
-import {beautifyHtml, convertContentToHtml, convertHtmlToContent} from "./utilities/html/HtmlUtilities.js";
+import {beautifyHtml, convertContentToHtml, convertHtmlToContent} from "./utilities/html/HtmlUtilities";
 import LinkDecorator from "./decorators/LinkDecorator";
 import {StructureView} from "./view/code/StructureView";
 import {MuncherToolBar} from "./toolbar/MuncherToolbar";
