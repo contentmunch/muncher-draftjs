@@ -1,8 +1,6 @@
-import React from "react";
 import {convertFromHTML, convertToHTML} from "draft-convert";
 import {html_beautify} from "js-beautify";
 import {COLORS} from "../draft/DraftUtilities";
-
 
 export const convertHtmlToContent = (currentHtml) => {
     return convertFromHTML({
