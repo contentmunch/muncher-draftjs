@@ -52,7 +52,7 @@ export const LinkControl: React.FC<EditorStateProps> = ({editorState, setEditorS
                     type="url"
                     onChange={event => setUrlValue(event.target.value)}
                     value={urlValue}
-                    placeHolder="type the url"
+                    placeholder="type the url"
                 />
                 <Button onMouseDown={confirmLink}>APPLY</Button>
             </div>

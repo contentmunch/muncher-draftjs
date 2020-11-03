@@ -49,7 +49,7 @@ export const ImageControl: React.FC<EditorStateProps> = (
                     type="url"
                     onChange={event => setUrlValue(event.target.value)}
                     value={urlValue}
-                    placeHolder="type the url"
+                    placeholder="type the url"
                 />
                 <Button onMouseDown={confirmLink}>Confirm</Button>
             </div>

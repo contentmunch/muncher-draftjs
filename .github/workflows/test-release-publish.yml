@@ -1,12 +1,11 @@
 name: Test release and publish
-# Runs Tests as well as build, commits the changes from build
+
 on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:
       # Push events on master branch
       - master
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -17,10 +16,10 @@ jobs:
           node-version: 12
       - run: npm ci
         env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
       - run: npm test
         env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
       - uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.GITHUB_TOKEN}}
@@ -50,15 +49,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
       - run: npm ci
         env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
-      - run: npm publish
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+      - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
-  bump-revision:
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+  deploy-storybook-bump-revision:
     needs: publish
     runs-on: ubuntu-latest
     steps:
@@ -66,16 +63,17 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-        env:
-          PACKAGES_AUTH_TOKEN: ${{secrets.PACKAGES_AUTH_TOKEN}}
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
       - run: npm ci
         env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
       - run: npm version patch
         env:
-          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+      - run: npm run build-storybook
+        env:
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
       - run: git add .
       - run: git commit -m "update build" --allow-empty
       - run: git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"

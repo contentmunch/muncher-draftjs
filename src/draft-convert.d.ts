@@ -1,5 +1,5 @@
 declare module 'draft-convert' {
-    import {ContentBlock, ContentState, DraftInlineStyleType, EntityInstance,} from 'draft-js';
+    import {ContentState, DraftInlineStyleType,} from 'draft-js';
 
     import {ReactNode} from 'react';
 
@@ -19,7 +19,7 @@ declare module 'draft-convert' {
 
     interface ConvertFromHTMLConfig {
         // Inline styles:
-        htmlToStyle?: (nodeName: string, node: HTMLElement,currentStyle:any) => DraftInlineStyleType;
+        htmlToStyle?: (nodeName: string, node: HTMLElement, currentStyle: any) => DraftInlineStyleType;
 
         // Block styles:
         htmlToBlock?: (
