@@ -1,6 +1,6 @@
 {
   "name": "@contentmunch/muncher",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Content editor wysiwyg for contentmunch",
   "author": "asikpradhan",
   "license": "MIT",
@@ -9,12 +9,9 @@
   "files": [
     "lib/"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/contentmunch/muncher.git"
+    "url": "git+https://github.com/contentmunch/muncher.git"
   },
   "scripts": {
     "start": "npm run storybook",
@@ -91,5 +88,20 @@
     "react-json-tree": "^0.13.0",
     "react-loading-skeleton": "^2.1.1",
     "typescript": "^4.0.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/contentmunch/muncher/issues"
+  },
+  "homepage": "https://github.com/contentmunch/muncher#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [
+    "wysiwyg",
+    "contentmunch",
+    "muncher",
+    "content",
+    "editor",
+    "draftjs"
+  ]
 }
