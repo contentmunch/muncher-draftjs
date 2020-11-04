@@ -25,6 +25,7 @@
     "pretest": "cp tsconfig-test.json tsconfig.json",
     "test": "react-scripts test",
     "deploy": "npm run build-storybook",
+    "postdeploy": "cp public/CNAME docs/CNAME",
     "storybook": "start-storybook -p 6008 -s public",
     "build-storybook": "build-storybook -s public -o docs"
   },
