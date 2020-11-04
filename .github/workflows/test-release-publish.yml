@@ -55,7 +55,7 @@ jobs:
       - run: npm publish --access public
         env:
           NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
-  deploy-storybook-bump-revision:
+  deploy-bump-revision:
     needs: publish
     runs-on: ubuntu-latest
     steps:
@@ -71,7 +71,7 @@ jobs:
       - run: npm version patch
         env:
           NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
-      - run: npm run build-storybook
+      - run: npm run deploy
         env:
           NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
       - run: git add .
