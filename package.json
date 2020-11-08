@@ -94,7 +94,7 @@
   "bugs": {
     "url": "https://github.com/contentmunch/muncher/issues"
   },
-  "homepage": "https://github.com/contentmunch/muncher#readme",
+  "homepage": "https://muncher.contentmunch.com",
   "directories": {
     "lib": "lib"
   },
