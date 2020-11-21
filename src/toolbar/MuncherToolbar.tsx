@@ -11,13 +11,13 @@ import {ImageControl} from "../controls/media/ImageControl";
 import {YoutubeControl} from "../controls/media/YoutubeControl";
 import {AlignControl} from "../controls/align/AlignControl";
 import {ListControl} from "../controls/block/ListControl";
-import {SettingsControl} from "../controls/setting/SettingsControl";
 import {EditorState} from "draft-js";
 
 export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
     {
-        codeView, setCodeView, html, editorState, onChange,
-        showStructure, setShowStructure, focusEditor, saveHandler, deleteHandler
+        isCodeView, setIsCodeView, editorState, onChange, focusEditor,
+        children
+
     }) => {
     const onChangeAndFocus = (currentEditorState: any) => {
         onChange(currentEditorState);
@@ -26,12 +26,11 @@ export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
     return (
         <div className="muncher-toolbar">
             <div className="muncher-toolbar--left">
-                <ToggleCodeControl isCodeView={codeView} setIsCodeView={setCodeView} html={html}
-                                   editorState={editorState} setEditorState={onChange}/>
+                <ToggleCodeControl isCodeView={isCodeView} setIsCodeView={setIsCodeView}/>
                 <span className="muncher-separator">|</span>
                 <UndoControl editorState={editorState} setEditorState={onChange}/>
                 <RedoControl editorState={editorState} setEditorState={onChange}/>
-                {!codeView ? <Fragment>
+                {!isCodeView ? <Fragment>
                     <span className="muncher-separator">|</span>
                     <ListControl editorState={editorState} setEditorState={onChangeAndFocus}/>
                     <BlockControl editorState={editorState} setEditorState={onChangeAndFocus}/>
@@ -50,25 +49,16 @@ export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
 
             </div>
             <div className="muncher-toolbar--right">
-                <SettingsControl showStructure={showStructure}
-                                 setShowStructure={setShowStructure}
-                                 saveHandler={saveHandler}
-                                 deleteHandler={deleteHandler}
-                />
+                {children}
             </div>
         </div>
     );
 }
 
 export interface MuncherToolbarProps {
-    codeView: boolean;
-    setCodeView: (codeView: boolean) => void;
-    html?: string;
+    isCodeView: boolean;
+    setIsCodeView: (codeView: boolean) => void;
     editorState: EditorState;
     onChange: (e: any) => void;
-    showStructure: boolean;
-    setShowStructure: (showStructure: boolean) => void;
     focusEditor: () => void;
-    saveHandler?: () => void;
-    deleteHandler?: () => void;
 }

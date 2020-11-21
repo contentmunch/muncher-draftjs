@@ -39,8 +39,7 @@
     border-bottom: 1px solid $border-color;
   }
 
-  .muncher-editor, .muncher-code {
-
+  .DraftEditor-root, .muncher-code {
     padding: 1rem;
     cursor: text;
     min-height: 60vh;
@@ -54,7 +53,6 @@
   }
 
   .muncher-separator {
-
     color: $border-color;
   }
 
@@ -66,6 +64,26 @@
     margin-top: 1rem;
     padding: 1rem;
     background: $primary-background-color;
+  }
+
+  .muncher-footer {
+    border-top: 1px solid $border-color;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    font-size: .9rem;
+
+    .left, .right {
+      display: inline-flex;
+      align-items: flex-end;
+
+      .muncher-icon {
+        margin-right: .5rem;
+      }
+
+    }
   }
 }
 

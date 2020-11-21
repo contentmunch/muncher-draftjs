@@ -13,7 +13,7 @@ import "codemirror/addon/fold/comment-fold";
 import "codemirror/addon/fold/foldgutter.css";
 import {Controlled as CodeMirror} from "react-codemirror2";
 
-export const CodeView: React.FC<CodeViewProps> = ({html, setHtml}) => {
+export const CodeView: React.FC<CodeViewProps> = ({html, setHtml, readOnly}) => {
     return (
         <CodeMirror
             onBeforeChange={(editor, data, codeMirrorValue) =>
@@ -32,9 +32,12 @@ export const CodeView: React.FC<CodeViewProps> = ({html, setHtml}) => {
                 autoCloseBrackets: true,
                 extraKeys: {
                     "Ctrl-Space": "autocomplete"
-                }
+                },
+                readOnly: readOnly ? readOnly : false
+
             }}
             value={html}
+
         />
 
     );
@@ -43,4 +46,5 @@ export const CodeView: React.FC<CodeViewProps> = ({html, setHtml}) => {
 export interface CodeViewProps {
     html: string;
     setHtml: (html: string) => void;
+    readOnly?: boolean;
 }
