@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "./static/css/main.7544329d.chunk.css",
-    "main.js": "./main.25a22a5ca20034fe400b.bundle.js",
+    "main.js": "./main.894ad8dfe7f2a5d0127a.bundle.js",
     "main.css.map": "./static/css/main.7544329d.chunk.css.map",
-    "main.js.map": "./main.25a22a5ca20034fe400b.bundle.js.map",
-    "runtime~main.js": "./runtime~main.25a22a5ca20034fe400b.bundle.js",
-    "runtime~main.js.map": "./runtime~main.25a22a5ca20034fe400b.bundle.js.map",
-    "vendors~main.css": "./static/css/vendors~main.3de329cc.chunk.css",
-    "vendors~main.js": "./vendors~main.25a22a5ca20034fe400b.bundle.js",
-    "vendors~main.css.map": "./static/css/vendors~main.3de329cc.chunk.css.map",
-    "vendors~main.js.map": "./vendors~main.25a22a5ca20034fe400b.bundle.js.map",
+    "main.js.map": "./main.894ad8dfe7f2a5d0127a.bundle.js.map",
+    "runtime~main.js": "./runtime~main.894ad8dfe7f2a5d0127a.bundle.js",
+    "runtime~main.js.map": "./runtime~main.894ad8dfe7f2a5d0127a.bundle.js.map",
+    "vendors~main.css": "./static/css/vendors~main.a47e26f9.chunk.css",
+    "vendors~main.js": "./vendors~main.894ad8dfe7f2a5d0127a.bundle.js",
+    "vendors~main.css.map": "./static/css/vendors~main.a47e26f9.chunk.css.map",
+    "vendors~main.js.map": "./vendors~main.894ad8dfe7f2a5d0127a.bundle.js.map",
     "iframe.html": "./iframe.html",
-    "vendors~main.25a22a5ca20034fe400b.bundle.js.LICENSE.txt": "./vendors~main.25a22a5ca20034fe400b.bundle.js.LICENSE.txt"
+    "vendors~main.894ad8dfe7f2a5d0127a.bundle.js.LICENSE.txt": "./vendors~main.894ad8dfe7f2a5d0127a.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.25a22a5ca20034fe400b.bundle.js",
-    "static/css/vendors~main.3de329cc.chunk.css",
-    "vendors~main.25a22a5ca20034fe400b.bundle.js",
+    "runtime~main.894ad8dfe7f2a5d0127a.bundle.js",
+    "static/css/vendors~main.a47e26f9.chunk.css",
+    "vendors~main.894ad8dfe7f2a5d0127a.bundle.js",
     "static/css/main.7544329d.chunk.css",
-    "main.25a22a5ca20034fe400b.bundle.js"
+    "main.894ad8dfe7f2a5d0127a.bundle.js"
   ]
 }
