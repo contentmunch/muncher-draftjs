@@ -143,7 +143,7 @@ export const Muncher: React.FC<MuncherProps> = (
 
                 <div className="muncher-footer">
                     <div className="left"><Icon name="muncher" weight={1}/> Muncher Editor</div>
-                    <div className="right">Character count: {characterCount}</div>
+                    <div className="right">Characters: {characterCount}</div>
                 </div>
             </div>
 
