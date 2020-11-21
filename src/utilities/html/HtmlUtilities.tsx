@@ -214,3 +214,4 @@ export const convertContentToHtml = (currentEditorState: any) => {
 export const beautifyHtml = (currentHtml: any) => {
     return html_beautify(currentHtml, {indent_size: 2});
 };
+

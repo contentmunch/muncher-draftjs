@@ -7,7 +7,7 @@ import {beautifyHtml, convertContentToHtml, convertHtmlToContent} from "./utilit
 import LinkDecorator from "./decorators/LinkDecorator";
 import {StructureView} from "./view/code/StructureView";
 import {MuncherToolBar} from "./toolbar/MuncherToolbar";
-import {colorStyleMap} from "./utilities/draft/DraftUtilities";
+import {colorStyleMap, getPlainText} from "./utilities/draft/DraftUtilities";
 import BlockRenderer from "./utilities/BlockRenderer";
 import IframeDecorator from "./decorators/IframeDecorator";
 import {SettingsControl} from "./controls/setting/SettingsControl";
@@ -38,11 +38,12 @@ export const Muncher: React.FC<MuncherProps> = (
     }
 
     const onChange = (currentEditorState: EditorState) => {
-        setCharacterCount(currentEditorState.getCurrentContent().getPlainText('\u0001').length);
-        setEditorState(currentEditorState);
+        const currentContent = getPlainText(currentEditorState);
+        setCharacterCount(currentContent.length);
         const currentHtml = beautifyHtml(convertContentToHtml(currentEditorState));
+        if (saveHandler && currentHtml !== html) saveHandler(currentHtml);
         setHtml(currentHtml);
-        if (saveHandler) saveHandler(currentHtml);
+        setEditorState(currentEditorState);
     };
 
     const editor = useRef<Editor>(null);

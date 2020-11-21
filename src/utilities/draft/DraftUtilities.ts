@@ -1,3 +1,5 @@
+import {EditorState} from "draft-js";
+
 export const entityFromSelection = (editorState: any) => {
     const selectionState = editorState.getSelection();
     if (!selectionState.isCollapsed()) {
@@ -72,3 +74,4 @@ export const colorStyleMap = {
         color: 'rgba(168, 42, 42, 1.0)',
     }
 };
+export const getPlainText = (editorState: EditorState) => editorState.getCurrentContent().getPlainText('\u0001');
