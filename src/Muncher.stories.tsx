@@ -22,7 +22,7 @@ const Template: Story<MuncherProps> = (() => {
         "<p></p>\n" +
         "<p>Nunc elit mi, pharetra sit amet diam et, pulvinar ornare arcu. Duis sollicitudin tempus varius. Nunc sed neque viverra, finibus felis et, iaculis nibh. Sed vel mauris a nibh feugiat accumsan. Praesent et rhoncus ligula, rutrum convallis nulla. Pellentesque eget nibh augue. Mauris maximus libero nec metus tincidunt luctus. Vivamus enim dui, vulputate eget lorem id, venenatis vulputate risus.</p>";
 
-    const saveHandler = (html: string) => {
+    const changeHandler = (html: string) => {
         console.log(html);
     };
     return (
@@ -30,7 +30,7 @@ const Template: Story<MuncherProps> = (() => {
             {
                 isLoading ?
                     <MuncherSkeleton/> :
-                    <Muncher content={content} saveHandler={saveHandler}
+                    <Muncher content={content} changeHandler={changeHandler}
                     />
             }
         </Fragment>

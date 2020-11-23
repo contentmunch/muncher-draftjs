@@ -15,7 +15,7 @@ import {Icon} from "@contentmunch/muncher-ui";
 
 export const Muncher: React.FC<MuncherProps> = (
     {
-        content, saveHandler,
+        content, changeHandler,
         readOnly
     }) => {
 
@@ -26,14 +26,17 @@ export const Muncher: React.FC<MuncherProps> = (
     const [characterCount, setCharacterCount] = useState(0);
     const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
 
-    const [editorState, setEditorState] = useState(content ? EditorState.createWithContent(convertHtmlToContent(content), decorator) : EditorState.createEmpty(decorator));
+    const [editorState, setEditorState] = useState(content ?
+        EditorState.createWithContent(convertHtmlToContent(content), decorator) :
+        EditorState.createEmpty(decorator));
 
     const [codeView, setCodeView] = useState(false);
 
     const setIsCodeView = (isCodeView: boolean) => {
         setCodeView(isCodeView);
         if (!isCodeView) {
-            onChange(EditorState.push(editorState, convertHtmlToContent(html), 'change-block-data'));
+            onChange(EditorState.push(editorState, convertHtmlToContent(html),
+                'change-block-data'));
         }
     }
 
@@ -41,7 +44,7 @@ export const Muncher: React.FC<MuncherProps> = (
         const currentContent = getPlainText(currentEditorState);
         setCharacterCount(currentContent.length);
         const currentHtml = beautifyHtml(convertContentToHtml(currentEditorState));
-        if (saveHandler && currentHtml !== html) saveHandler(currentHtml);
+        if (changeHandler && currentHtml !== html) changeHandler(currentHtml);
         setHtml(currentHtml);
         setEditorState(currentEditorState);
     };
@@ -159,7 +162,7 @@ export const Muncher: React.FC<MuncherProps> = (
 
 export interface MuncherProps {
     content?: string;
-    saveHandler?: (content: string) => void;
+    changeHandler?: (content: string) => void;
     readOnly?: boolean;
 }
 
