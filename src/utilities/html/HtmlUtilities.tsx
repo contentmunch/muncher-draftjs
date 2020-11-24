@@ -145,7 +145,7 @@ const textAlignData = (className: string) => {
 };
 
 export const convertContentToHtml = (currentEditorState: any) => {
-    //const ORDERED_LIST_TYPES = ['1', 'a', 'i'];
+    const ORDERED_LIST_TYPES = ['1', 'a', 'i'];
     return convertToHTML({
         styleToHTML: (style) => {
             const styleType = COLORS.find((color) => color.style === style);
@@ -187,10 +187,10 @@ export const convertContentToHtml = (currentEditorState: any) => {
                 case 'ordered-list-item':
                     return {
                         element: <li className={textAlignClass(block)}/>,
-                        // nest: depth => {
-                        //     const type = ORDERED_LIST_TYPES[depth % 3];
-                        //     return <ol type={type}/>;
-                        // },
+                        nest: (depth: number) => {
+                            const type: any = ORDERED_LIST_TYPES[depth % 3];
+                            return <ol type={type}/>;
+                        },
                     };
                 case 'unstyled':
                     return <p className={textAlignClass(block)}/>

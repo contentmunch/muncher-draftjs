@@ -61,7 +61,7 @@ export const Muncher: React.FC<MuncherProps> = (
     useEffect(() => {
         focusEditor();
         setCharacterCount(editorState.getCurrentContent().getPlainText('\u0001').length);
-    }, []);
+    }, [editorState]);
 
     const getBlockStyle = (block: Draft.ContentBlock) => {
         switch (block.getData().get('textAlign')) {
