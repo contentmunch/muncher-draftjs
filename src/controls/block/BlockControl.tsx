@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {DropdownButton} from "@contentmunch/muncher-ui";
 import {getBlockType} from "../../utilities/draft/DraftUtilities";
 import './BlockControl.scss';
-import {RichUtils} from "draft-js";
+import {DraftBlockType, RichUtils} from "draft-js";
 import {EditorStateProps} from "../../Muncher";
 
 
@@ -15,7 +15,7 @@ export const BlockControl: React.FC<EditorStateProps> = ({editorState, setEditor
         const blockType = BLOCK_TYPES.find(({style}) => style === currentBlockType);
         return blockType === undefined ? emptyBlockLabel : blockType.label;
     };
-    const onClick = (style: any) => {
+    const onClick = (style: DraftBlockType) => {
         setEditorState(RichUtils.toggleBlockType(editorState, style));
         setShowContent(false);
     };

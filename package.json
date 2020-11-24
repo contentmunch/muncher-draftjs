@@ -24,7 +24,7 @@
     "postbuild": "npm run clean:tsx && npm run clean:reactfiles && npm run clean:stories && npm run clean:tests",
     "build:types": "cp tsconfig-tsc.json tsconfig.json && tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-    "postbuild:js": "rsync -avz src/ lib/",
+    "postbuild:js": "rsync -avz --exclude='*.ts' src/ lib/",
     "prepublishOnly": "npm run build",
     "pretest": "cp tsconfig-test.json tsconfig.json",
     "test": "react-scripts test -u",
