@@ -8,12 +8,12 @@ export default {
     component: Muncher
 } as Meta;
 
-const Template: Story<MuncherProps> = (() => {
+const Template: Story<MuncherProps> = (args => {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        }, 500);
     }, []);
     const content = "<h1>Lorem Ipsum</h1>\n" +
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ultrices blandit. Maecenas vulputate diam risus, vel pellentesque nibh consequat ac. Morbi iaculis pharetra ultrices. Donec eros risus, tincidunt quis sodales eget, luctus eget diam. Mauris rhoncus felis facilisis lectus blandit congue. Vestibulum est tortor, ultricies in est eu, posuere efficitur diam. Nunc at vulputate metus, id eleifend risus. Aenean consequat convallis nisl, ut elementum tellus dapibus vitae.</p>\n" +
@@ -30,10 +30,15 @@ const Template: Story<MuncherProps> = (() => {
             {
                 isLoading ?
                     <MuncherSkeleton/> :
-                    <Muncher content={content} changeHandler={changeHandler}
-                    />
+                    <Muncher content={content} changeHandler={changeHandler} {...args}/>
             }
         </Fragment>
     );
 });
 export const Default = Template.bind({});
+
+export const WithImage = Template.bind({});
+WithImage.args={
+    content:"<h2>Content with Image</h2>\n" +
+        "<figure><img src='https://images.pexels.com/photos/5778749/pexels-photo-5778749.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=100'/></figure>"
+};

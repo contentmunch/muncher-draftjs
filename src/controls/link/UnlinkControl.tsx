@@ -13,7 +13,7 @@ export const UnlinkControl: React.FC<EditorStateProps> = ({editorState, setEdito
     };
     return (
         <Button title="Remove a link" onMouseDown={removeLink} size="small"
-                disabled={selectionEntity === null || selectionEntity.type !== 'LINK'}>
+                disabled={selectionEntity === null || selectionEntity.getType() !== 'LINK'}>
             <Icon name="unlink"/>
         </Button>
     );

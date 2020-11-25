@@ -2,10 +2,10 @@ import React from "react";
 import Draft from "draft-js";
 import {LinkProps} from "./LinkDecorator";
 
-const IframeDecorator = (): Draft.DraftDecorator => {
+const ImageDecorator = (): Draft.DraftDecorator => {
     return {
         strategy: findIframeEntities,
-        component: Iframe,
+        component: Image,
     };
 }
 
@@ -14,19 +14,19 @@ const findIframeEntities = (contentBlock: Draft.ContentBlock, callback: (start: 
         const entityKey = character.getEntity();
         return (
             entityKey !== null &&
-            contentState.getEntity(entityKey).getType() === 'IFRAME'
+            contentState.getEntity(entityKey).getType() === 'image'
         );
     }, callback);
 };
 
-const Iframe: React.FC<LinkProps> = ({contentState, entityKey, children}) => {
+const Image: React.FC<LinkProps> = ({contentState, entityKey, children}) => {
     const {src} = contentState.getEntity(entityKey).getData();
-    const iframeClicked = () => {
-        console.log("iframe clicked");
+    const imageClicked = () => {
+        console.log("image clicked");
     };
     return (
-        <iframe onClick={iframeClicked} allowFullScreen frameBorder={0} width={300} height={200} src={src}/>
+        <img onClick={imageClicked}  src={src}/>
 
     );
 };
-export default IframeDecorator;
+export default ImageDecorator;

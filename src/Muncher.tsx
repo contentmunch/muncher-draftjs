@@ -9,7 +9,7 @@ import {StructureView} from "./view/code/StructureView";
 import {MuncherToolBar} from "./toolbar/MuncherToolbar";
 import {colorStyleMap, getPlainText} from "./utilities/draft/DraftUtilities";
 import BlockRenderer from "./utilities/BlockRenderer";
-import IframeDecorator from "./decorators/IframeDecorator";
+import ImageDecorator from "./decorators/ImageDecorator";
 import {SettingsControl} from "./controls/setting/SettingsControl";
 import {Icon} from "@contentmunch/muncher-ui";
 
@@ -24,7 +24,7 @@ export const Muncher: React.FC<MuncherProps> = (
     const [stripPastedStyles, setStripPastedStyles] = useState(false);
     const [spellCheck, setSpellCheck] = useState(true);
     const [characterCount, setCharacterCount] = useState(0);
-    const decorator = new CompositeDecorator([LinkDecorator(), IframeDecorator()]);
+    const decorator = new CompositeDecorator([LinkDecorator(), ImageDecorator()]);
 
     const [editorState, setEditorState] = useState(content ?
         EditorState.createWithContent(convertHtmlToContent(content), decorator) :
@@ -59,7 +59,7 @@ export const Muncher: React.FC<MuncherProps> = (
 
     };
     useEffect(() => {
-        focusEditor();
+        setHtml(beautifyHtml(convertContentToHtml(editorState)));
         setCharacterCount(editorState.getCurrentContent().getPlainText('\u0001').length);
     }, [editorState]);
 

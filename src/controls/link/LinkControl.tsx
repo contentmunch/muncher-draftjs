@@ -14,7 +14,7 @@ export const LinkControl: React.FC<EditorStateProps> = ({editorState, setEditorS
         e.preventDefault();
         const selectionEntity = entityFromSelection(editorState);
         let url = '';
-        if (selectionEntity !== null && selectionEntity.type === 'LINK') {
+        if (selectionEntity !== null && selectionEntity.getType() === 'LINK') {
             url = selectionEntity.getData().url;
         }
         setUrlValue(url);

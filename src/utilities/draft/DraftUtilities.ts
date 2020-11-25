@@ -1,6 +1,6 @@
 import {EditorState} from "draft-js";
 
-export const entityFromSelection = (editorState: any) => {
+export const entityFromSelection = (editorState: EditorState) => {
     const selectionState = editorState.getSelection();
     if (!selectionState.isCollapsed()) {
         const anchorKey = selectionState.getAnchorKey();
@@ -21,17 +21,17 @@ export const entityFromSelection = (editorState: any) => {
     return null;
 };
 
-export const getBlock = (editorState: any) => {
+export const getBlock = (editorState: EditorState) => {
     const selection = editorState.getSelection();
     return editorState
         .getCurrentContent()
         .getBlockForKey(selection.getStartKey());
 };
-export const getBlockType = (editorState: any) => {
+export const getBlockType = (editorState: EditorState) => {
 
     return getBlock(editorState).getType();
 };
-export const getBlockAlignment = (editorState: any) => {
+export const getBlockAlignment = (editorState: EditorState) => {
     return getBlock(editorState).getData().get('textAlign');
 };
 export const COLORS = [
