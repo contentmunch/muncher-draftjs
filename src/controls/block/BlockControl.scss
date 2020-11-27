@@ -1,13 +1,19 @@
 @import "src/assets/variables";
 
-.block__content {
-  .block__content--item {
-    cursor: pointer;
-    margin: .2rem;
+.block-control {
+  .muncher-button {
+    min-width: 6rem;
   }
+  .block__content {
+    .block__content--item {
+      cursor: pointer;
+      margin: .2rem;
+    }
 
-  .block__content--item:hover {
-    opacity: .6;
+    .block__content--item:hover {
+      opacity: .6;
+    }
   }
 }
+
 

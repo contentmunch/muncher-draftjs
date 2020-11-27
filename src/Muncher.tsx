@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import Draft, {CompositeDecorator, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
+import Draft, {CompositeDecorator, ContentBlock, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import './assets/Muncher.scss';
 import {CodeView} from "./view/code/CodeView";
@@ -8,39 +8,39 @@ import LinkDecorator from "./decorators/LinkDecorator";
 import {StructureView} from "./view/code/StructureView";
 import {MuncherToolBar} from "./toolbar/MuncherToolbar";
 import {colorStyleMap, getPlainText} from "./utilities/draft/DraftUtilities";
-import BlockRenderer from "./utilities/BlockRenderer";
-import ImageDecorator from "./decorators/ImageDecorator";
 import {SettingsControl} from "./controls/setting/SettingsControl";
 import {Icon} from "@contentmunch/muncher-ui";
+import {MediaRenderer} from "./renderers/MediaRenderer";
+import {ImageBlock, MuncherContext} from "./context/MuncherContext";
 
 export const Muncher: React.FC<MuncherProps> = (
     {
         content, changeHandler,
         readOnly
     }) => {
-
     const [html, setHtml] = useState("");
     const [showStructure, setShowStructure] = useState(false);
     const [stripPastedStyles, setStripPastedStyles] = useState(false);
     const [spellCheck, setSpellCheck] = useState(true);
     const [characterCount, setCharacterCount] = useState(0);
-    const decorator = new CompositeDecorator([LinkDecorator(), ImageDecorator()]);
+    const [codeView, setCodeView] = useState(false);
+    const [imageBlockToEdit, setImageBlockToEdit] = useState({} as ImageBlock);
+    const editor = useRef<Editor>(null);
 
+    const decorator = new CompositeDecorator([LinkDecorator()]);
     const [editorState, setEditorState] = useState(content ?
         EditorState.createWithContent(convertHtmlToContent(content), decorator) :
         EditorState.createEmpty(decorator));
 
-    const [codeView, setCodeView] = useState(false);
-
     const setIsCodeView = (isCodeView: boolean) => {
         setCodeView(isCodeView);
         if (!isCodeView) {
-            onChange(EditorState.push(editorState, convertHtmlToContent(html),
+            handleEditorStateChange(EditorState.push(editorState, convertHtmlToContent(html),
                 'change-block-data'));
         }
     }
 
-    const onChange = (currentEditorState: EditorState) => {
+    const handleEditorStateChange = (currentEditorState: EditorState) => {
         const currentContent = getPlainText(currentEditorState);
         setCharacterCount(currentContent.length);
         const currentHtml = beautifyHtml(convertContentToHtml(currentEditorState));
@@ -48,8 +48,6 @@ export const Muncher: React.FC<MuncherProps> = (
         setHtml(currentHtml);
         setEditorState(currentEditorState);
     };
-
-    const editor = useRef<Editor>(null);
 
     const focusEditor = () => {
         //wait for focus, causes stack overflow, otherwise.
@@ -59,6 +57,7 @@ export const Muncher: React.FC<MuncherProps> = (
 
     };
     useEffect(() => {
+
         setHtml(beautifyHtml(convertContentToHtml(editorState)));
         setCharacterCount(editorState.getCurrentContent().getPlainText('\u0001').length);
     }, [editorState]);
@@ -67,16 +66,12 @@ export const Muncher: React.FC<MuncherProps> = (
         switch (block.getData().get('textAlign')) {
             case 'ALIGN_LEFT':
                 return 'text-align--left';
-
             case 'ALIGN_CENTER':
                 return 'text-align--center';
-
             case 'ALIGN_RIGHT':
                 return 'text-align--right';
-
             case 'ALIGN_JUSTIFY':
                 return 'text-align--justify';
-
             default:
                 switch (block.getType()) {
                     case 'blockquote':
@@ -85,13 +80,20 @@ export const Muncher: React.FC<MuncherProps> = (
                         return block.getType();
                 }
         }
-
     };
-    const handleKeyCommand: any = (command: any,
-                                   editorState: EditorState) => {
+    const getBlockRenderer = (block: ContentBlock) => {
+        if (block.getType() === 'atomic') {
+            return {
+                component: MediaRenderer,
+                editable: false,
+            };
+        }
+    };
+
+    const handleKeyCommand: any = (command: any, editorState: EditorState) => {
         const newState = RichUtils.handleKeyCommand(editorState, command);
         if (newState) {
-            onChange(newState);
+            handleEditorStateChange(newState);
             return true;
         }
         return false;
@@ -100,63 +102,65 @@ export const Muncher: React.FC<MuncherProps> = (
         if (e.keyCode === 9 /* TAB */) {
             const newEditorState = RichUtils.onTab(e, editorState, 4, /* maxDepth */);
             if (newEditorState !== editorState) {
-                onChange(newEditorState);
+                handleEditorStateChange(newEditorState);
             }
             return false;
         }
         return getDefaultKeyBinding(e);
     };
-
     return (
-        <div className="muncher">
-            <div className="muncher-main">
-                <MuncherToolBar
-                    editorState={editorState} onChange={onChange}
-                    isCodeView={codeView} setIsCodeView={setIsCodeView}
-                    focusEditor={focusEditor}>
-                    <SettingsControl showStructure={showStructure} setShowStructure={setShowStructure}
-                                     stripPastedStyles={stripPastedStyles}
-                                     setStripPastedStyles={setStripPastedStyles}
-                                     spellCheck={spellCheck} setSpellCheck={setSpellCheck}
-                    />
+        <MuncherContext.Provider value={{
+            isCodeView: codeView, setIsCodeView, editorState,
+            handleEditorStateChange, focusEditor, imageBlockToEdit, setImageBlockToEdit
+        }}>
+            <div className="muncher">
+                <div className="muncher-main">
+                    <MuncherToolBar>
+                        <SettingsControl showStructure={showStructure} setShowStructure={setShowStructure}
+                                         stripPastedStyles={stripPastedStyles}
+                                         setStripPastedStyles={setStripPastedStyles}
+                                         spellCheck={spellCheck} setSpellCheck={setSpellCheck}
+                        />
 
-                </MuncherToolBar>
-                {
-                    codeView ?
-                        <div className="muncher-code">
-                            <CodeView html={html} setHtml={setHtml} readOnly={readOnly}/>
-                        </div>
-                        :
-                        <div className="muncher-editor" onClick={focusEditor}>
-                            <Editor
-                                editorState={editorState} onChange={onChange}
-                                ref={editor}
-                                blockStyleFn={getBlockStyle}
-                                blockRendererFn={BlockRenderer}
-                                customStyleMap={colorStyleMap}
-                                spellCheck={spellCheck}
-                                stripPastedStyles={stripPastedStyles}
-                                readOnly={readOnly}
-                                placeholder="Tell a story..."
-                                handleKeyCommand={handleKeyCommand}
-                                keyBindingFn={mapKeyToEditorCommand}
-                            />
+                    </MuncherToolBar>
+                    {
+                        codeView ?
+                            <div className="muncher-code">
+                                <CodeView html={html} setHtml={setHtml} readOnly={readOnly}/>
+                            </div>
+                            :
+                            <div className="muncher-editor" onClick={() => {
+                                if (Object.keys(imageBlockToEdit).length === 0) focusEditor();
+                            }}>
+                                <Editor
+                                    editorState={editorState} onChange={handleEditorStateChange}
+                                    ref={editor}
+                                    blockStyleFn={getBlockStyle}
+                                    blockRendererFn={getBlockRenderer}
+                                    customStyleMap={colorStyleMap}
+                                    spellCheck={spellCheck}
+                                    stripPastedStyles={stripPastedStyles}
+                                    readOnly={readOnly}
+                                    placeholder="Tell a story..."
+                                    handleKeyCommand={handleKeyCommand}
+                                    keyBindingFn={mapKeyToEditorCommand}
+                                />
+                            </div>
+                    }
 
-                        </div>
-                }
-
-                <div className="muncher-footer">
-                    <div className="left"><Icon name="muncher" weight={1}/> Muncher Editor</div>
-                    <div className="right">Characters: {characterCount}</div>
+                    <div className="muncher-footer">
+                        <div className="left"><Icon name="muncher" weight={1}/> Muncher Editor</div>
+                        <div className="right">Characters: {characterCount}</div>
+                    </div>
                 </div>
+
+                {showStructure ?
+                    <div className="muncher-structure">
+                        <StructureView editorState={editorState}/>
+                    </div>
+                    : ""}
             </div>
-
-            {showStructure ?
-                <div className="muncher-structure">
-                    <StructureView editorState={editorState}/>
-                </div>
-                : ""}
-        </div>
+        </MuncherContext.Provider>
     );
 }
 

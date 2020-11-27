@@ -16,7 +16,6 @@ export const entityFromSelection = (editorState: EditorState) => {
         if (entityId !== null) {
             return currentContent.getEntity(entityId);
         }
-
     }
     return null;
 };

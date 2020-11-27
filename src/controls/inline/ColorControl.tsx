@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import './assets/ColorControl.scss';
 import {EditorState, Modifier, RichUtils} from "draft-js";
 import {COLORS, colorStyleMap} from "../../utilities/draft/DraftUtilities";
 import {DropdownButton} from "@contentmunch/muncher-ui";
-import {EditorStateProps} from "../../Muncher";
+import {MuncherContext} from "../../context/MuncherContext";
 
-export const ColorControl: React.FC<EditorStateProps> = ({editorState, setEditorState}) => {
+export const ColorControl: React.FC = () => {
+    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
     const [showContent, setShowContent] = useState(false);
     const currentStyle = editorState.getCurrentInlineStyle();
 
@@ -47,7 +48,8 @@ export const ColorControl: React.FC<EditorStateProps> = ({editorState, setEditor
                 style
             );
         }
-        setEditorState(nextEditorState);
+        handleEditorStateChange(nextEditorState);
+        focusEditor()
         setShowContent(false);
 
     };

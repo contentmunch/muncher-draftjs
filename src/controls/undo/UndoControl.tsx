@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import {EditorState} from 'draft-js';
 import {Button, Icon} from "@contentmunch/muncher-ui";
-import {EditorStateProps} from "../../Muncher";
+import {MuncherContext} from "../../context/MuncherContext";
 
-export const UndoControl: React.FC<EditorStateProps> = (
-    {editorState, setEditorState}) => {
-    const onClick = () => {
-        setEditorState(EditorState.undo(editorState));
-    }
+export const UndoControl: React.FC = () => {
+    const {handleEditorStateChange, editorState} = useContext(MuncherContext);
+
     return (
-        <Button title="Undo" size="small" onClick={onClick} disabled={editorState.getUndoStack().size === 0}>
+        <Button
+            title="Undo"
+            size="small"
+            disabled={editorState.getUndoStack().size === 0}
+            onMouseDown={() => {
+                handleEditorStateChange(EditorState.undo(editorState));
+            }}>
             <Icon name="undo"/>
         </Button>
     );

@@ -1,12 +1,10 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {AtomicBlockUtils, EditorState} from 'draft-js';
 import {Button, DropdownButton, Icon, Input} from "@contentmunch/muncher-ui";
-import {EditorStateProps} from "../../Muncher";
+import {MuncherContext} from "../../context/MuncherContext";
 
-export const YoutubeControl: React.FC<EditorStateProps> = (
-    {
-        editorState, setEditorState
-    }) => {
+export const YoutubeControl: React.FC = () => {
+    const {editorState, handleEditorStateChange} = useContext(MuncherContext);
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
 
@@ -32,7 +30,7 @@ export const YoutubeControl: React.FC<EditorStateProps> = (
 
         // The third parameter here is a space string, not an empty string
         // If you set an empty string, you will get an error: Unknown DraftEntity key: null
-        setEditorState(
+        handleEditorStateChange(
             AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' '),
         );
     };
