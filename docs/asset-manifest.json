@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.7544329d.chunk.css",
-    "main.js": "./main.efaf2e5d8df0e422e9ce.bundle.js",
-    "main.css.map": "./static/css/main.7544329d.chunk.css.map",
-    "main.js.map": "./main.efaf2e5d8df0e422e9ce.bundle.js.map",
-    "runtime~main.js": "./runtime~main.efaf2e5d8df0e422e9ce.bundle.js",
-    "runtime~main.js.map": "./runtime~main.efaf2e5d8df0e422e9ce.bundle.js.map",
-    "vendors~main.css": "./static/css/vendors~main.a47e26f9.chunk.css",
-    "vendors~main.js": "./vendors~main.efaf2e5d8df0e422e9ce.bundle.js",
-    "vendors~main.css.map": "./static/css/vendors~main.a47e26f9.chunk.css.map",
-    "vendors~main.js.map": "./vendors~main.efaf2e5d8df0e422e9ce.bundle.js.map",
+    "main.css": "./static/css/main.dc6be52b.chunk.css",
+    "main.js": "./main.240d474f2b9e4b894a39.bundle.js",
+    "main.css.map": "./static/css/main.dc6be52b.chunk.css.map",
+    "main.js.map": "./main.240d474f2b9e4b894a39.bundle.js.map",
+    "runtime~main.js": "./runtime~main.240d474f2b9e4b894a39.bundle.js",
+    "runtime~main.js.map": "./runtime~main.240d474f2b9e4b894a39.bundle.js.map",
+    "vendors~main.css": "./static/css/vendors~main.d8dc00d2.chunk.css",
+    "vendors~main.js": "./vendors~main.240d474f2b9e4b894a39.bundle.js",
+    "vendors~main.css.map": "./static/css/vendors~main.d8dc00d2.chunk.css.map",
+    "vendors~main.js.map": "./vendors~main.240d474f2b9e4b894a39.bundle.js.map",
     "iframe.html": "./iframe.html",
-    "vendors~main.efaf2e5d8df0e422e9ce.bundle.js.LICENSE.txt": "./vendors~main.efaf2e5d8df0e422e9ce.bundle.js.LICENSE.txt"
+    "vendors~main.240d474f2b9e4b894a39.bundle.js.LICENSE.txt": "./vendors~main.240d474f2b9e4b894a39.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.efaf2e5d8df0e422e9ce.bundle.js",
-    "static/css/vendors~main.a47e26f9.chunk.css",
-    "vendors~main.efaf2e5d8df0e422e9ce.bundle.js",
-    "static/css/main.7544329d.chunk.css",
-    "main.efaf2e5d8df0e422e9ce.bundle.js"
+    "runtime~main.240d474f2b9e4b894a39.bundle.js",
+    "static/css/vendors~main.d8dc00d2.chunk.css",
+    "vendors~main.240d474f2b9e4b894a39.bundle.js",
+    "static/css/main.dc6be52b.chunk.css",
+    "main.240d474f2b9e4b894a39.bundle.js"
   ]
 }
