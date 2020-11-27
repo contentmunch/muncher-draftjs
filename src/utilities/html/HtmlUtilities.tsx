@@ -31,7 +31,6 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
                     {
                         src: node.getAttribute('src'),
                         alt: node.getAttribute('alt'),
-                        caption: node.getAttribute('data-caption'),
                     })
             }
             if (nodeName === 'iframe') {
@@ -221,7 +220,7 @@ export const convertContentToHtml = (currentEditorState: any) => {
                 return <a href={entity.data.url}>{originalText}</a>;
             }
             if (entity.type === 'IMAGE') {
-                return `<img src="${entity.data.src}" alt="${entity.data.alt}" data-caption="${entity.data.caption}"/><figcaption>${entity.data.caption}</figcaption>`;
+                return `<img src="${entity.data.src}" alt="${entity.data.alt}" />`;
             }
             if (entity.type === 'IFRAME') {
                 return `<iframe allowFullScreen width="300" height="200" src="${entity.data.src}" />`;

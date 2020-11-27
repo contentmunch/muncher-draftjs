@@ -2,29 +2,24 @@ import React, {useState} from "react";
 import {Button, Icon, Input} from "@contentmunch/muncher-ui";
 import "./assets/ImageInput.scss";
 
-export const ImageInput: React.FC<ImageInputProps> = ({caption, alt, src, handleImageUpdate}) => {
+export const ImageInput: React.FC<ImageInputProps> = ({alt, src, handleImageUpdate}) => {
 
     const [inputSrc, setInputSrc] = useState(src ? src : "");
     const [inputSrcError, setInputSrcError] = useState("");
     const [inputAlt, setInputAlt] = useState(alt ? alt : "");
     const [inputAltError, setInputAltError] = useState("");
-    const [inputCaption, setInputCaption] = useState(caption ? caption : "");
-    const [inputCaptionError, setInputCaptionError] = useState("");
+
     const handleSave = (e: React.MouseEvent) => {
-        if (inputSrc !== "" && inputAlt !== "" && inputCaption !== "") {
-            handleImageUpdate({src: inputSrc, alt: inputAlt, caption: inputCaption}, e);
+        if (inputSrc !== "" && inputAlt !== "") {
+            handleImageUpdate({src: inputSrc, alt: inputAlt}, e);
             setInputSrcError("");
             setInputAltError("");
-            setInputCaptionError("");
         } else {
             if (inputSrc === "") {
                 setInputSrcError("Please provide src");
             }
             if (inputAlt === "") {
                 setInputAltError("Please provide alt");
-            }
-            if (inputCaption === "") {
-                setInputCaptionError("Please provide caption");
             }
         }
     };
@@ -51,15 +46,7 @@ export const ImageInput: React.FC<ImageInputProps> = ({caption, alt, src, handle
                 value={inputAlt}
                 error={inputAltError}
             />
-            <Input
-                name="caption"
-                label="caption"
-                placeholder="caption"
-                required={true}
-                onChange={event => setInputCaption(event.target.value)}
-                value={inputCaption}
-                error={inputCaptionError}
-            />
+
             <Button onMouseDown={handleSave} size="small"><Icon name="save" size="small"/> &nbsp; Update</Button>
         </div>
     );
@@ -68,7 +55,6 @@ export const ImageInput: React.FC<ImageInputProps> = ({caption, alt, src, handle
 export interface Image {
     src?: string;
     alt?: string;
-    caption?: string;
 }
 
 export interface ImageInputProps extends Image {

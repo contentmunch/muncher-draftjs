@@ -3,6 +3,28 @@
 .muncher-drop-media--content {
   display: flex;
   width: 12rem;
+  .muncher-modal {
+    background-color: $secondary-background-color;
+    left: 40vw;
+    top: 30vh;
+    padding: .3rem .8rem;
+    width: auto;
 
+    .delete-modal--info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > * {
+        padding: .5rem;
+      }
+    }
+
+    .delete-modal--action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
 

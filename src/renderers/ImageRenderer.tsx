@@ -5,7 +5,7 @@ import {ImageBlock, MuncherContext} from "../context/MuncherContext";
 
 export const ImageRenderer: React.FC<ImageBlock> = (
     {
-        src, alt, caption, block
+        src, alt, block
     }) => {
     const {setImageBlockToEdit} = useContext(MuncherContext);
     const [showMenu, setShowMenu] = useState(false);
@@ -19,16 +19,15 @@ export const ImageRenderer: React.FC<ImageBlock> = (
         >
             {showMenu ?
                 <Button variant="transparent" onMouseDown={() => {
-                    setImageBlockToEdit({src, alt, caption, block})
+                    setImageBlockToEdit({src, alt, block})
                 }}>
-                    <Icon name="more" size="small"/>
+                    <Icon name="edit" size="small"/>
                 </Button>
                 : ""
             }
 
 
             <img src={src} alt={alt}/>
-            <figcaption>{caption}</figcaption>
         </div>
     )
 };

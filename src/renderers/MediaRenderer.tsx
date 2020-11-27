@@ -8,17 +8,17 @@ export const MediaRenderer: React.FC<MediaRendererProps> = (
     {contentState, block}) => {
     try {
         const entity = contentState.getEntity(block?.getEntityAt(0));
-        const {src, alt, caption} = entity.getData();
+        const {src, alt, title} = entity.getData();
 
         switch (entity.getType()) {
             case "IMAGE":
 
-                return <ImageRenderer src={src}  alt={alt} caption={caption} block={block}
+                return <ImageRenderer src={src} alt={alt} block={block}
 
                 />;
             default:
 
-                return <IframeRenderer src={src} title={caption}/>;
+                return <IframeRenderer src={src} title={title}/>;
         }
 
     } catch (e) {

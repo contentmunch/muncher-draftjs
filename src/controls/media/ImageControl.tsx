@@ -47,7 +47,7 @@ export const ImageControl: React.FC = () => {
             <div className="muncher-drop-media--content">
                 {hasImageBlockToEdit() ?
                     <ImageInput handleImageUpdate={handleImageUpdate} src={imageBlockToEdit.src}
-                                caption={imageBlockToEdit.caption} alt={imageBlockToEdit.alt}/> :
+                                alt={imageBlockToEdit.alt}/> :
                     <ImageInput handleImageUpdate={handleImageUpdate}/>}
 
             </div>
