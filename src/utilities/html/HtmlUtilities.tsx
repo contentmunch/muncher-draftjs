@@ -2,10 +2,11 @@ import React from "react";
 import {convertFromHTML, convertToHTML} from "draft-convert";
 import {html_beautify} from "js-beautify";
 import {COLORS} from "../draft/DraftUtilities";
+import {ContentBlock, ContentState} from "draft-js";
 
 
-export const convertHtmlToContent = (currentHtml: any) => {
-    return convertFromHTML({
+export const convertHtmlToContent = (currentHtml: string): ContentState => {
+    const contentState: ContentState = convertFromHTML({
         htmlToStyle: (nodeName, node, currentStyle) => {
 
             if (nodeName === 'span' && node.style.color) {
@@ -25,9 +26,13 @@ export const convertHtmlToContent = (currentHtml: any) => {
                 )
             }
             if (nodeName === 'img') {
-                return createEntity('image',
+                return createEntity('IMAGE',
                     'IMMUTABLE',
-                    {src: node.getAttribute('src')})
+                    {
+                        src: node.getAttribute('src'),
+                        alt: node.getAttribute('alt'),
+                        caption: node.getAttribute('data-caption'),
+                    })
             }
             if (nodeName === 'iframe') {
                 return createEntity('IFRAME',
@@ -113,6 +118,21 @@ export const convertHtmlToContent = (currentHtml: any) => {
         }
 
     })(currentHtml);
+
+    if (contentState.getLastBlock().getType() === "atomic") {
+
+        const blankLine = new ContentBlock({
+            text: '',
+            type: 'unstyled',
+        });
+
+        const newBlockArray = contentState
+            .getBlockMap()
+            .set(blankLine.getKey(), blankLine)
+            .toArray();
+        return ContentState.createFromBlockArray(newBlockArray);
+    }
+    return contentState;
 };
 
 const textAlignClass = (block: any) => {
@@ -200,11 +220,11 @@ export const convertContentToHtml = (currentEditorState: any) => {
             if (entity.type === 'LINK') {
                 return <a href={entity.data.url}>{originalText}</a>;
             }
-            if (entity.type === 'image') {
-                return `<img src="${entity.data.src}" />`;
+            if (entity.type === 'IMAGE') {
+                return `<img src="${entity.data.src}" alt="${entity.data.alt}" data-caption="${entity.data.caption}"/>`;
             }
             if (entity.type === 'IFRAME') {
-                return `<iframe allowFullScreen frameBorder="0" width="300" height="200" src="${entity.data.src}" controls />`;
+                return `<iframe allowFullScreen width="300" height="200" src="${entity.data.src}" />`;
             }
             return originalText;
         }

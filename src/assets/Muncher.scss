@@ -42,13 +42,14 @@
   .DraftEditor-root, .muncher-code {
     padding: 1rem;
     cursor: text;
-    min-height: 60vh;
-
+    height: 60vh;
+    overflow: scroll;
   }
 
   .muncher-code {
     .CodeMirror {
-      min-height: 60vh;
+      height: 60vh;
+      overflow: scroll;
     }
   }
 

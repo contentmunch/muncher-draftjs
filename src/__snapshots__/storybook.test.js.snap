@@ -1127,3 +1127,208 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
   </div>
 </div>
 `;
+
+exports[`Storyshots Sample Editor Default 1`] = `
+<div
+  className="muncher"
+>
+  <div
+    className="muncher-main"
+  >
+    <div
+      className="muncher-editor"
+      onClick={[Function]}
+    >
+      <div
+        className="DraftEditor-root"
+      >
+        <div
+          className="DraftEditor-editorContainer"
+        >
+          <div
+            aria-expanded={null}
+            className="notranslate public-DraftEditor-content"
+            contentEditable={true}
+            onBeforeInput={[Function]}
+            onBlur={[Function]}
+            onCompositionEnd={[Function]}
+            onCompositionStart={[Function]}
+            onCopy={[Function]}
+            onCut={[Function]}
+            onDragEnd={[Function]}
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            onInput={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onKeyUp={[Function]}
+            onMouseUp={[Function]}
+            onPaste={[Function]}
+            onSelect={[Function]}
+            role="textbox"
+            spellCheck={false}
+            style={
+              Object {
+                "WebkitUserSelect": "text",
+                "outline": "none",
+                "userSelect": "text",
+                "whiteSpace": "pre-wrap",
+                "wordWrap": "break-word",
+              }
+            }
+            suppressContentEditableWarning={true}
+          >
+            <div
+              data-contents="true"
+            >
+              <div
+                className=""
+                data-block={true}
+                data-editor="89lva"
+                data-offset-key="2k2h4-0-0"
+              >
+                <div
+                  className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                  data-offset-key="2k2h4-0-0"
+                >
+                  <span
+                    data-offset-key="2k2h4-0-0"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    <span
+                      data-text="true"
+                    >
+                      Bold text
+                    </span>
+                  </span>
+                  <span
+                    data-offset-key="2k2h4-0-1"
+                    style={Object {}}
+                  >
+                    <span
+                      data-text="true"
+                    >
+                      , 
+                    </span>
+                  </span>
+                  <span
+                    data-offset-key="2k2h4-0-2"
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                      }
+                    }
+                  >
+                    <span
+                      data-text="true"
+                    >
+                      Italic text
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className=""
+                data-block={true}
+                data-editor="89lva"
+                data-offset-key="3o2bu-0-0"
+              >
+                <div
+                  className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                  data-offset-key="3o2bu-0-0"
+                >
+                  <span
+                    data-offset-key="3o2bu-0-0"
+                    style={Object {}}
+                  >
+                    <br
+                      data-text="true"
+                    />
+                  </span>
+                </div>
+              </div>
+              <div
+                className=""
+                data-block={true}
+                data-editor="89lva"
+                data-offset-key="26nem-0-0"
+              >
+                <div
+                  className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                  data-offset-key="26nem-0-0"
+                >
+                  <span
+                    data-offset-key="26nem-0-0"
+                    style={Object {}}
+                  >
+                    <span
+                      data-text="true"
+                    >
+                      What
+                    </span>
+                  </span>
+                  <a
+                    href="http://www.facebook.com"
+                    style={
+                      Object {
+                        "color": "brown",
+                      }
+                    }
+                  >
+                    <span
+                      data-offset-key="26nem-1-0"
+                      style={Object {}}
+                    >
+                      <span
+                        data-text="true"
+                      >
+                        Example link
+                      </span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div
+                className=""
+                data-block={true}
+                data-editor="89lva"
+                data-offset-key="a4efh-0-0"
+              >
+                <div
+                  className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                  data-offset-key="a4efh-0-0"
+                >
+                  <span
+                    data-offset-key="a4efh-0-0"
+                    style={Object {}}
+                  >
+                    <br
+                      data-text="true"
+                    />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      className="muncher-button muncher-button--medium"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Log State
+    </button>
+  </div>
+</div>
+`;
