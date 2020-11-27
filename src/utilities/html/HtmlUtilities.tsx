@@ -221,7 +221,7 @@ export const convertContentToHtml = (currentEditorState: any) => {
                 return <a href={entity.data.url}>{originalText}</a>;
             }
             if (entity.type === 'IMAGE') {
-                return `<img src="${entity.data.src}" alt="${entity.data.alt}" data-caption="${entity.data.caption}"/>`;
+                return `<img src="${entity.data.src}" alt="${entity.data.alt}" data-caption="${entity.data.caption}"/><figcaption>${entity.data.caption}</figcaption>`;
             }
             if (entity.type === 'IFRAME') {
                 return `<iframe allowFullScreen width="300" height="200" src="${entity.data.src}" />`;

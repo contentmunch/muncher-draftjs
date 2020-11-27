@@ -1,14 +1,16 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useContext} from "react";
 import {RichUtils} from "draft-js";
 import {Button} from "@contentmunch/muncher-ui";
-import {EditorStateProps} from "../../Muncher";
+import {MuncherContext} from "../../context/MuncherContext";
 
 
-export const InlineControl: React.FC<EditorStateProps> = ({editorState, setEditorState}) => {
+export const InlineControl: React.FC = () => {
+    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
     const currentStyle = editorState.getCurrentInlineStyle();
     const onMouseDown = (e: React.MouseEvent<HTMLButtonElement>, style: string) => {
         e.preventDefault();
-        setEditorState(RichUtils.toggleInlineStyle(editorState, style));
+        handleEditorStateChange(RichUtils.toggleInlineStyle(editorState, style));
+        focusEditor();
     };
     return (
         <Fragment>
@@ -18,7 +20,7 @@ export const InlineControl: React.FC<EditorStateProps> = ({editorState, setEdito
                         key={inlineType.style}
                         title={inlineType.label}
                         active={currentStyle.has(inlineType.style)}
-                        onMouseDown={(e:React.MouseEvent<HTMLButtonElement>) => onMouseDown(e, inlineType.style)}
+                        onMouseDown={(e: React.MouseEvent<HTMLButtonElement>) => onMouseDown(e, inlineType.style)}
                         size="small"
                     >
                         {inlineType.icon}

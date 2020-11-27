@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useContext} from "react";
 import {LinkControl} from "../controls/link/LinkControl";
 import {UnlinkControl} from "../controls/link/UnlinkControl";
 import {ToggleCodeControl} from "../controls/code/ToggleCodeControl";
@@ -11,39 +11,26 @@ import {ImageControl} from "../controls/media/ImageControl";
 import {YoutubeControl} from "../controls/media/YoutubeControl";
 import {AlignControl} from "../controls/align/AlignControl";
 import {ListControl} from "../controls/block/ListControl";
-import {EditorState} from "draft-js";
+import {MuncherContext} from "../context/MuncherContext";
 
-export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
-    {
-        isCodeView, setIsCodeView, editorState, onChange, focusEditor,
-        children
+export const MuncherToolBar: React.FC = ({children}) => {
+    const {isCodeView} = useContext(MuncherContext);
 
-    }) => {
-    const onChangeAndFocus = (currentEditorState: any) => {
-        onChange(currentEditorState);
-        focusEditor();
-    }
     return (
         <div className="muncher-toolbar">
             <div className="muncher-toolbar--left">
-                <ToggleCodeControl isCodeView={isCodeView} setIsCodeView={setIsCodeView}/>
+                <ToggleCodeControl/>
                 <span className="muncher-separator">|</span>
-                <UndoControl editorState={editorState} setEditorState={onChange}/>
-                <RedoControl editorState={editorState} setEditorState={onChange}/>
+                <UndoControl/><RedoControl/>
                 {!isCodeView ? <Fragment>
                     <span className="muncher-separator">|</span>
-                    <ListControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <BlockControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                    <ListControl/><BlockControl/>
                     <span className="muncher-separator">|</span>
-                    <InlineControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <ColorControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                    <InlineControl/><ColorControl/>
                     <span className="muncher-separator">|</span>
-                    <LinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <UnlinkControl editorState={editorState} setEditorState={onChangeAndFocus}/>
-                    <ImageControl editorState={editorState} setEditorState={onChange}/>
-                    <YoutubeControl editorState={editorState} setEditorState={onChange}/>
+                    <LinkControl/><UnlinkControl/><ImageControl/><YoutubeControl/>
                     <span className="muncher-separator">|</span>
-                    <AlignControl editorState={editorState} setEditorState={onChangeAndFocus}/>
+                    <AlignControl/>
                     <span className="muncher-separator">|</span>
                 </Fragment> : ''}
 
@@ -53,12 +40,4 @@ export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
             </div>
         </div>
     );
-}
-
-export interface MuncherToolbarProps {
-    isCodeView: boolean;
-    setIsCodeView: (codeView: boolean) => void;
-    editorState: EditorState;
-    onChange: (e: any) => void;
-    focusEditor: () => void;
 }

@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {DropdownButton} from "@contentmunch/muncher-ui";
 import {getBlockType} from "../../utilities/draft/DraftUtilities";
 import './BlockControl.scss';
 import {DraftBlockType, RichUtils} from "draft-js";
-import {EditorStateProps} from "../../Muncher";
+import {MuncherContext} from "../../context/MuncherContext";
 
 
-export const BlockControl: React.FC<EditorStateProps> = ({editorState, setEditorState}) => {
+export const BlockControl: React.FC = () => {
+    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
     const [showContent, setShowContent] = useState(false);
 
     const emptyBlockLabel = <strong>...</strong>;
@@ -16,24 +17,26 @@ export const BlockControl: React.FC<EditorStateProps> = ({editorState, setEditor
         return blockType === undefined ? emptyBlockLabel : blockType.label;
     };
     const onClick = (style: DraftBlockType) => {
-        setEditorState(RichUtils.toggleBlockType(editorState, style));
+        handleEditorStateChange(RichUtils.toggleBlockType(editorState, style));
+        focusEditor();
         setShowContent(false);
     };
     return (
-        <DropdownButton
-            element={<span>{currentBlockLabel()} <span className="muncher--small">&#9660;</span></span>}
-            showContent={showContent}
-            setShowContent={setShowContent}
-            active={currentBlockLabel() !== emptyBlockLabel}
-            size="small">
-
-            <div className="block__content">
-                {BLOCK_TYPES.map(blockType =>
-                    <div className="block__content--item" key={blockType.label}
-                         onMouseDown={() => onClick(blockType.style)}>{blockType.label}</div>
-                )}
-            </div>
-        </DropdownButton>
+        <div className="block-control">
+            <DropdownButton
+                element={<span>{currentBlockLabel()} <span className="muncher--small">&#9660;</span></span>}
+                showContent={showContent}
+                setShowContent={setShowContent}
+                active={currentBlockLabel() !== emptyBlockLabel}
+                size="small">
+                <div className="block__content">
+                    {BLOCK_TYPES.map(blockType =>
+                        <div className="block__content--item" key={blockType.label}
+                             onMouseDown={() => onClick(blockType.style)}>{blockType.label}</div>
+                    )}
+                </div>
+            </DropdownButton>
+        </div>
     );
 }
 export const BLOCK_TYPES = [

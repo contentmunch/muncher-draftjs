@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {EditorState, RichUtils} from 'draft-js';
 import {entityFromSelection} from "../../utilities/draft/DraftUtilities";
 import './assets/LinkControl.scss';
 import {Button, DropdownButton, Icon, Input} from "@contentmunch/muncher-ui";
-import {EditorStateProps} from "../../Muncher";
+import {MuncherContext} from "../../context/MuncherContext";
 
-export const LinkControl: React.FC<EditorStateProps> = ({editorState, setEditorState}) => {
+export const LinkControl: React.FC = () => {
+    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
     const selectionState = editorState.getSelection();
@@ -35,7 +36,8 @@ export const LinkControl: React.FC<EditorStateProps> = ({editorState, setEditorS
         const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
         const newEditorState = EditorState.set(editorState, {currentContent: contentStateWithEntity});
 
-        setEditorState(RichUtils.toggleLink(newEditorState, newEditorState.getSelection(), entityKey));
+        handleEditorStateChange(RichUtils.toggleLink(newEditorState, newEditorState.getSelection(), entityKey));
+        focusEditor();
         hideLinkPrompt();
     };
 

@@ -60,7 +60,7 @@ export const ImageInput: React.FC<ImageInputProps> = ({caption, alt, src, handle
                 value={inputCaption}
                 error={inputCaptionError}
             />
-            <Button onMouseDown={handleSave} size="small"><Icon name="save" size="small"/> &nbsp; Save</Button>
+            <Button onMouseDown={handleSave} size="small"><Icon name="save" size="small"/> &nbsp; Update</Button>
         </div>
     );
 };

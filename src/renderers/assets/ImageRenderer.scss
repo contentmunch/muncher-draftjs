@@ -2,25 +2,29 @@
 
 .muncher-image-renderer {
   position: relative;
+
   img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
 
-  .muncher-dropdown {
+  .muncher-button {
     position: absolute;
     right: .4rem;
     top: .4rem;
-    display: none;
     z-index: 1000;
   }
 
+  figcaption {
+    text-align: center;
+    font-size: .8rem;
+    font-weight: 300;
+  }
+
 }
+
 .muncher-image-renderer:hover {
   opacity: .8;
-  .muncher-dropdown {
-    display: block;
-  }
 
 }
