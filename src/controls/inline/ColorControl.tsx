@@ -17,7 +17,7 @@ export const ColorControl: React.FC = () => {
         const styleType = COLORS.find(({style}) => currentStyle.has(style));
         return styleType === undefined ? emptyStyleDiv : colorSpan(styleType);
     };
-    const colorPicked = (e: any, style: any) => {
+    const colorPicked = (e: React.MouseEvent, style: string) => {
         e.preventDefault();
         const selection = editorState.getSelection();
 

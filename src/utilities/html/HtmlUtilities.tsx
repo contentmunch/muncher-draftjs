@@ -9,9 +9,9 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
     const contentState: ContentState = convertFromHTML({
         htmlToStyle: (nodeName, node, currentStyle) => {
 
-            if (nodeName === 'span' && node.style.color) {
+            if (nodeName === 'span' && node.className.includes("color-")) {
 
-                return currentStyle.add(node.style.color);
+                return currentStyle.add(node.className.substring(6));
             }
             return currentStyle;
 
@@ -114,6 +114,12 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
                     data: textAlignData(node.className)
                 };
             }
+            if ('div' === nodeName) {
+                return {
+                    type: 'div',
+                    data: textAlignData(node.className)
+                };
+            }
         }
 
     })(currentHtml);
@@ -169,7 +175,7 @@ export const convertContentToHtml = (currentEditorState: any) => {
         styleToHTML: (style) => {
             const styleType = COLORS.find((color) => color.style === style);
             if (styleType !== undefined) {
-                return <span style={{color: styleType.style}}/>;
+                return <span className={"color-" + styleType.style}/>;
             }
         },
         blockToHTML: (block) => {
@@ -213,6 +219,8 @@ export const convertContentToHtml = (currentEditorState: any) => {
                     };
                 case 'unstyled':
                     return <p className={textAlignClass(block)}/>
+                default:
+                    return <div className={textAlignClass(block)}/>
             }
         },
         entityToHTML: (entity, originalText) => {
