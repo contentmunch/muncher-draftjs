@@ -4,9 +4,8 @@ import './assets/MediaControl.scss'
 import {DropdownButton, Icon} from "@contentmunch/muncher-ui";
 import {Image, ImageInput} from "../../components/image/ImageInput";
 import {EditorStateProps} from "../../Muncher";
-import {ImageBlock} from "../../renderers/ImageRenderer";
 
-export const ImageControl: React.FC<ImageControlProps> = ({editorState, handleEditorStateChange, imageBlockToEdit, setImageBlockToEdit}) => {
+export const ImageControl: React.FC<EditorStateProps> = ({editorState, handleEditorStateChange}) => {
 
     const [showContent, setShowContent] = useState(false);
 
@@ -35,29 +34,18 @@ export const ImageControl: React.FC<ImageControlProps> = ({editorState, handleEd
 
     const handleShowContent = (show: boolean) => {
         setShowContent(show);
-        if (!show) setImageBlockToEdit({} as ImageBlock);
     };
-    const hasImageBlockToEdit = () => Object.keys(imageBlockToEdit).length > 0;
+
     return (
         <DropdownButton title="Add or Edit Image"
-                        showContent={showContent || hasImageBlockToEdit()}
+                        showContent={showContent}
                         setShowContent={handleShowContent}
                         active={showContent}
                         element={<Icon name="image"/>}
                         drop="middle" size="small">
             <div className="muncher-drop-media--content">
-                {hasImageBlockToEdit() ?
-                    <ImageInput handleImageUpdate={handleImageUpdate} src={imageBlockToEdit.src}
-                                alt={imageBlockToEdit.alt}/> :
-                    <ImageInput handleImageUpdate={handleImageUpdate}/>}
-
+                <ImageInput handleImageUpdate={handleImageUpdate}/>
             </div>
         </DropdownButton>
     );
-}
-
-export interface ImageControlProps extends EditorStateProps {
-    imageBlockToEdit: ImageBlock;
-    setImageBlockToEdit: (block: ImageBlock) => void;
-
 }
