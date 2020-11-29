@@ -7,7 +7,7 @@ import {RedoControl} from "../controls/undo/RedoControl";
 import {BlockControl} from "../controls/block/BlockControl";
 import {InlineControl} from "../controls/inline/InlineControl";
 import {ColorControl} from "../controls/inline/ColorControl";
-import {ImageControl, ImageControlProps} from "../controls/media/ImageControl";
+import {ImageControl} from "../controls/media/ImageControl";
 import {YoutubeControl} from "../controls/media/YoutubeControl";
 import {AlignControl} from "../controls/align/AlignControl";
 import {ListControl} from "../controls/block/ListControl";
@@ -17,7 +17,7 @@ import {EditorStatePropsWithFocus} from "../Muncher";
 export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
     {
         isCodeView, setIsCodeView, editorState,
-        handleEditorStateChange, focusEditor, imageBlockToEdit, setImageBlockToEdit, children
+        handleEditorStateChange, focusEditor, children
     }) => {
 
 
@@ -57,8 +57,6 @@ export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
                                    editorState={editorState}/>
                     <ImageControl handleEditorStateChange={handleEditorStateChange}
                                   editorState={editorState}
-                                  imageBlockToEdit={imageBlockToEdit}
-                                  setImageBlockToEdit={setImageBlockToEdit}
                     />
                     <YoutubeControl handleEditorStateChange={handleEditorStateChange}
                                     editorState={editorState}/>
@@ -77,6 +75,6 @@ export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
     );
 }
 
-export interface MuncherToolbarProps extends ToggleCodeControlProps, EditorStatePropsWithFocus, ImageControlProps {
+export interface MuncherToolbarProps extends ToggleCodeControlProps, EditorStatePropsWithFocus {
 
 }

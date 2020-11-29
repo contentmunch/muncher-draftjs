@@ -129,8 +129,6 @@ export const Muncher: React.FC<MuncherProps> = (
                 <MuncherToolBar setIsCodeView={setIsCodeView} isCodeView={codeView}
                                 editorState={editorState}
                                 handleEditorStateChange={handleEditorStateChange}
-                                imageBlockToEdit={imageBlockToEdit}
-                                setImageBlockToEdit={setImageBlockToEdit}
                                 focusEditor={focusEditor}
                 >
                     <SettingsControl showStructure={showStructure} setShowStructure={setShowStructure}
