@@ -1,11 +1,11 @@
-import React, {Fragment, useContext} from "react";
+import React, {Fragment} from "react";
 import {getBlockAlignment} from "../../utilities/draft/DraftUtilities";
 import {EditorState} from "draft-js";
 import {Button, Icon} from "@contentmunch/muncher-ui";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStatePropsWithFocus} from "../../Muncher";
 
-export const AlignControl: React.FC = () => {
-    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
+export const AlignControl: React.FC<EditorStatePropsWithFocus> = ({editorState, handleEditorStateChange, focusEditor}) => {
+
     const blockAlignment = getBlockAlignment(editorState);
 
     const onMouseDown = (e: any, alignType: any) => {

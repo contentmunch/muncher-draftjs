@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from "react";
 import {Meta, Story} from "@storybook/react/types-6-0";
 import {Muncher, MuncherProps} from "./Muncher";
-import {MuncherSkeleton} from "./MuncherSkeleton";
+import {MuncherSkeleton} from "./skeleton/MuncherSkeleton";
 
 export default {
     title: "Muncher",
@@ -38,7 +38,11 @@ const Template: Story<MuncherProps> = (args => {
 export const Default = Template.bind({});
 
 export const WithImage = Template.bind({});
-WithImage.args={
-    content:"<h2>Content with Image</h2>\n" +
+WithImage.args = {
+    content: "<h2>Content with Image</h2>\n" +
         "<figure><img src='https://images.pexels.com/photos/5778749/pexels-photo-5778749.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=100'/></figure>"
+};
+export const Empty = Template.bind({});
+Empty.args = {
+    content: ""
 };

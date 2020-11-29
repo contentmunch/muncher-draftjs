@@ -1,12 +1,11 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {EditorState, RichUtils} from 'draft-js';
 import {entityFromSelection} from "../../utilities/draft/DraftUtilities";
 import './assets/LinkControl.scss';
 import {Button, DropdownButton, Icon, Input} from "@contentmunch/muncher-ui";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStatePropsWithFocus} from "../../Muncher";
 
-export const LinkControl: React.FC = () => {
-    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
+export const LinkControl: React.FC<EditorStatePropsWithFocus> = ({editorState, handleEditorStateChange, focusEditor}) => {
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
     const selectionState = editorState.getSelection();

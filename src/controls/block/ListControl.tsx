@@ -1,12 +1,12 @@
-import React, {Fragment, useContext} from "react";
+import React, {Fragment} from "react";
 import {RichUtils} from "draft-js";
 import {getBlockType} from "../../utilities/draft/DraftUtilities";
 import {Button, Icon} from "@contentmunch/muncher-ui";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStatePropsWithFocus} from "../../Muncher";
 
 
-export const ListControl: React.FC = () => {
-    const {handleEditorStateChange, focusEditor, editorState} = useContext(MuncherContext);
+export const ListControl: React.FC<EditorStatePropsWithFocus> = ({handleEditorStateChange, focusEditor, editorState}) => {
+
 
     return (
         <Fragment>

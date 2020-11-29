@@ -1,11 +1,11 @@
-import React, {Fragment, useContext} from "react";
+import React, {Fragment} from "react";
 import {RichUtils} from "draft-js";
 import {Button} from "@contentmunch/muncher-ui";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStatePropsWithFocus} from "../../Muncher";
 
 
-export const InlineControl: React.FC = () => {
-    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
+export const InlineControl: React.FC<EditorStatePropsWithFocus> = ({editorState, handleEditorStateChange, focusEditor}) => {
+
     const currentStyle = editorState.getCurrentInlineStyle();
     const onMouseDown = (e: React.MouseEvent<HTMLButtonElement>, style: string) => {
         e.preventDefault();

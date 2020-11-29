@@ -1,2 +1,2 @@
 export {Muncher} from "./Muncher";
-export {MuncherSkeleton} from "./MuncherSkeleton";
+export {MuncherSkeleton} from "./skeleton/MuncherSkeleton";

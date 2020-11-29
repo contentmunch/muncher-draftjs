@@ -1,12 +1,13 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {AtomicBlockUtils, EditorState} from 'draft-js';
 import './assets/MediaControl.scss'
 import {DropdownButton, Icon} from "@contentmunch/muncher-ui";
 import {Image, ImageInput} from "../../components/image/ImageInput";
-import {ImageBlock, MuncherContext} from "../../context/MuncherContext";
+import {ImageBlock} from "../../context/MuncherContext";
+import {EditorStateProps} from "../../Muncher";
 
-export const ImageControl: React.FC = () => {
-    const {editorState, handleEditorStateChange, imageBlockToEdit, setImageBlockToEdit} = useContext(MuncherContext);
+export const ImageControl: React.FC<ImageControlProps> = ({editorState, handleEditorStateChange, imageBlockToEdit, setImageBlockToEdit}) => {
+
     const [showContent, setShowContent] = useState(false);
 
     const handleImageUpdate = (image: Image, e: React.MouseEvent) => {
@@ -53,4 +54,10 @@ export const ImageControl: React.FC = () => {
             </div>
         </DropdownButton>
     );
+}
+
+export interface ImageControlProps extends EditorStateProps {
+    imageBlockToEdit: ImageBlock;
+    setImageBlockToEdit: (block: ImageBlock) => void;
+
 }

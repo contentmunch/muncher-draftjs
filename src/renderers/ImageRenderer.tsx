@@ -1,13 +1,13 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import "./assets/ImageRenderer.scss";
 import {Button, Icon} from "@contentmunch/muncher-ui";
-import {ImageBlock, MuncherContext} from "../context/MuncherContext";
+import {ContentBlock} from "draft-js";
+import {Image} from "../components/image/ImageInput";
 
-export const ImageRenderer: React.FC<ImageBlock> = (
+export const ImageRenderer: React.FC<ImageRendererProps> = (
     {
-        src, alt, block
+        src, alt, block, setImageBlockToEdit
     }) => {
-    const {setImageBlockToEdit} = useContext(MuncherContext);
     const [showMenu, setShowMenu] = useState(false);
 
     return (
@@ -32,3 +32,10 @@ export const ImageRenderer: React.FC<ImageBlock> = (
     )
 };
 
+export interface ImageRendererProps extends ImageBlock {
+    setImageBlockToEdit: (block: ImageBlock) => void;
+}
+
+export interface ImageBlock extends Image {
+    block: ContentBlock;
+}

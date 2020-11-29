@@ -115,10 +115,17 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
                 };
             }
             if ('div' === nodeName) {
-                return {
-                    type: 'div',
-                    data: textAlignData(node.className)
-                };
+                if (node.className.includes('col')) {
+                    return {
+                        type: 'col',
+                        data: textAlignData(node.className)
+                    }
+                } else {
+                    return {
+                        type: 'div',
+                        data: textAlignData(node.className)
+                    };
+                }
             }
         }
 
@@ -129,7 +136,7 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
         const blankLine = new ContentBlock({
             text: '',
             type: 'unstyled',
-        });
+        } );
 
         const newBlockArray = contentState
             .getBlockMap()
@@ -219,6 +226,11 @@ export const convertContentToHtml = (currentEditorState: any) => {
                     };
                 case 'unstyled':
                     return <p className={textAlignClass(block)}/>
+                case 'col':
+                    return {
+                        element: <div className="col"/>,
+                        nest: <section className="row"/>,
+                    };
                 default:
                     return <div className={textAlignClass(block)}/>
             }

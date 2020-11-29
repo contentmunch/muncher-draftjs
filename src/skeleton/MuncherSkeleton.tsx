@@ -1,9 +1,9 @@
 import React, {Fragment, useState} from "react";
-import './assets/Muncher.scss';
+import '../assets/Muncher.scss';
 import Skeleton from "react-loading-skeleton";
 import {Button, DropdownButton, Icon} from "@contentmunch/muncher-ui";
-import {BLOCK_TYPES} from "./controls/block/BlockControl";
-import {INLINE_TYPES} from "./controls/inline/InlineControl";
+import {BLOCK_TYPES} from "../controls/block/BlockControl";
+import {INLINE_TYPES} from "../controls/inline/InlineControl";
 
 export const MuncherSkeleton: React.FC = () => {
     const [showContent, setShowContent] = useState(false);

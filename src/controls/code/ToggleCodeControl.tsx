@@ -1,10 +1,11 @@
-import React, {useContext} from "react";
+import React from "react";
 
 import {Button, Icon} from "@contentmunch/muncher-ui";
-import {MuncherContext} from "../../context/MuncherContext";
 
-export const ToggleCodeControl: React.FC = () => {
-    const {isCodeView, setIsCodeView} = useContext(MuncherContext);
+export const ToggleCodeControl: React.FC<ToggleCodeControlProps> = (
+    {
+        isCodeView, setIsCodeView
+    }) => {
     return (
         <Button title={isCodeView ? "Editor View" : "Html View"} onMouseDown={() => {
             setIsCodeView(!isCodeView);
@@ -12,4 +13,9 @@ export const ToggleCodeControl: React.FC = () => {
             <Icon name={isCodeView ? 'edit' : 'code'}/>
         </Button>
     );
+}
+
+export interface ToggleCodeControlProps {
+    isCodeView: boolean;
+    setIsCodeView: (codeView: boolean) => void;
 }

@@ -1,10 +1,9 @@
-import React, {useContext} from "react";
+import React from "react";
 import {Button, Icon} from "@contentmunch/muncher-ui";
 import {EditorState} from "draft-js";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStateProps} from "../../Muncher";
 
-export const RedoControl: React.FC = () => {
-    const {handleEditorStateChange, editorState} = useContext(MuncherContext);
+export const RedoControl: React.FC<EditorStateProps> = ({handleEditorStateChange, editorState}) => {
     return (
         <Button title="Redo"
                 size="small"

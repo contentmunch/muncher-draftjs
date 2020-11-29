@@ -5,7 +5,7 @@ import {IframeRenderer} from "./IframeRenderer";
 
 
 export const MediaRenderer: React.FC<MediaRendererProps> = (
-    {contentState, block}) => {
+    {contentState, block, blockProps}) => {
     try {
         const entity = contentState.getEntity(block?.getEntityAt(0));
         const {src, alt, title} = entity.getData();
@@ -14,6 +14,7 @@ export const MediaRenderer: React.FC<MediaRendererProps> = (
             case "IMAGE":
 
                 return <ImageRenderer src={src} alt={alt} block={block}
+                                      setImageBlockToEdit={blockProps.setImageBlockToEdit}
 
                 />;
             default:
@@ -31,4 +32,5 @@ export const MediaRenderer: React.FC<MediaRendererProps> = (
 export interface MediaRendererProps {
     contentState: ContentState;
     block: ContentBlock;
+    blockProps: any;
 }

@@ -1,10 +1,9 @@
-import React, {useContext} from "react";
+import React from "react";
 import {EditorState} from 'draft-js';
 import {Button, Icon} from "@contentmunch/muncher-ui";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStateProps} from "../../Muncher";
 
-export const UndoControl: React.FC = () => {
-    const {handleEditorStateChange, editorState} = useContext(MuncherContext);
+export const UndoControl: React.FC<EditorStateProps> = ({handleEditorStateChange, editorState}) => {
 
     return (
         <Button

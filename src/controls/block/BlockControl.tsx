@@ -1,13 +1,13 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {DropdownButton} from "@contentmunch/muncher-ui";
 import {getBlockType} from "../../utilities/draft/DraftUtilities";
 import './BlockControl.scss';
 import {DraftBlockType, RichUtils} from "draft-js";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStatePropsWithFocus} from "../../Muncher";
 
 
-export const BlockControl: React.FC = () => {
-    const {editorState, handleEditorStateChange, focusEditor} = useContext(MuncherContext);
+export const BlockControl: React.FC<EditorStatePropsWithFocus> = ({editorState, handleEditorStateChange, focusEditor}) => {
+
     const [showContent, setShowContent] = useState(false);
 
     const emptyBlockLabel = <strong>...</strong>;

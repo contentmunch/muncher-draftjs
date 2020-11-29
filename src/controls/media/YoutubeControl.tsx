@@ -1,10 +1,10 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {AtomicBlockUtils, EditorState} from 'draft-js';
 import {Button, DropdownButton, Icon, Input} from "@contentmunch/muncher-ui";
-import {MuncherContext} from "../../context/MuncherContext";
+import {EditorStateProps} from "../../Muncher";
 
-export const YoutubeControl: React.FC = () => {
-    const {editorState, handleEditorStateChange} = useContext(MuncherContext);
+export const YoutubeControl: React.FC<EditorStateProps> = ({editorState, handleEditorStateChange}) => {
+
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
 
