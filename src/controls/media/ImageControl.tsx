@@ -3,8 +3,8 @@ import {AtomicBlockUtils, EditorState} from 'draft-js';
 import './assets/MediaControl.scss'
 import {DropdownButton, Icon} from "@contentmunch/muncher-ui";
 import {Image, ImageInput} from "../../components/image/ImageInput";
-import {ImageBlock} from "../../context/MuncherContext";
 import {EditorStateProps} from "../../Muncher";
+import {ImageBlock} from "../../renderers/ImageRenderer";
 
 export const ImageControl: React.FC<ImageControlProps> = ({editorState, handleEditorStateChange, imageBlockToEdit, setImageBlockToEdit}) => {
 
