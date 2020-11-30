@@ -1,5 +1,13 @@
 import React, {useEffect, useRef, useState} from "react";
-import Draft, {CompositeDecorator, ContentBlock, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
+import Draft, {
+    CompositeDecorator,
+    ContentBlock,
+    ContentState,
+    Editor,
+    EditorState,
+    getDefaultKeyBinding,
+    RichUtils
+} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import './assets/Muncher.scss';
 import {CodeView} from "./view/code/CodeView";
@@ -13,7 +21,6 @@ import {Icon} from "@contentmunch/muncher-ui";
 import {MediaRenderer} from "./renderers/MediaRenderer";
 import {Table} from "./wrapper/Table";
 import Immutable from "immutable";
-import {ImageBlock} from "./renderers/ImageRenderer";
 
 export const Muncher: React.FC<MuncherProps> = (
     {
@@ -21,12 +28,12 @@ export const Muncher: React.FC<MuncherProps> = (
         readOnly
     }) => {
     const [html, setHtml] = useState("");
+    const [editorReadOnly, setEditorReadOnly] = useState(readOnly);
     const [showStructure, setShowStructure] = useState(false);
     const [stripPastedStyles, setStripPastedStyles] = useState(false);
     const [spellCheck, setSpellCheck] = useState(true);
     const [characterCount, setCharacterCount] = useState(0);
     const [codeView, setCodeView] = useState(false);
-    const [imageBlockToEdit, setImageBlockToEdit] = useState({} as ImageBlock);
     const editor = useRef<Editor>(null);
 
     const decorator = new CompositeDecorator([LinkDecorator()]);
@@ -89,7 +96,10 @@ export const Muncher: React.FC<MuncherProps> = (
                 component: MediaRenderer,
                 editable: false,
                 props: {
-                    setImageBlockToEdit
+                    updateImage: (newContentState: ContentState) => {
+                        handleEditorStateChange(EditorState.createWithContent(newContentState));
+                    },
+                    setEditorReadOnly
                 }
             };
         }
@@ -144,9 +154,7 @@ export const Muncher: React.FC<MuncherProps> = (
                             <CodeView html={html} setHtml={setHtml} readOnly={readOnly}/>
                         </div>
                         :
-                        <div className="muncher-editor" onClick={() => {
-                            if (Object.keys(imageBlockToEdit).length === 0) focusEditor();
-                        }}>
+                        <div className="muncher-editor" onClick={focusEditor}>
                             <Editor
                                 editorState={editorState} onChange={handleEditorStateChange}
                                 ref={editor}
@@ -156,7 +164,7 @@ export const Muncher: React.FC<MuncherProps> = (
                                 customStyleMap={colorStyleMap}
                                 spellCheck={spellCheck}
                                 stripPastedStyles={stripPastedStyles}
-                                readOnly={readOnly}
+                                readOnly={editorReadOnly}
                                 placeholder="Tell a story..."
                                 handleKeyCommand={handleKeyCommand}
                                 keyBindingFn={mapKeyToEditorCommand}
