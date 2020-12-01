@@ -1,20 +1,20 @@
 import React, {useState} from "react";
 import './assets/ColorControl.scss';
 import {EditorState, Modifier, RichUtils} from "draft-js";
-import {COLORS, colorStyleMap} from "../../utilities/draft/DraftUtilities";
+import {COLORS, colorStyleMap, getCurrentInlineStyle} from "../../utilities/draft/DraftUtilities";
 import {DropdownButton} from "@contentmunch/muncher-ui";
 import {EditorStatePropsWithFocus} from "../../Muncher";
 
 export const ColorControl: React.FC<EditorStatePropsWithFocus> = ({editorState, handleEditorStateChange, focusEditor}) => {
 
     const [showContent, setShowContent] = useState(false);
-    const currentStyle = editorState.getCurrentInlineStyle();
+    const currentStyle = getCurrentInlineStyle(editorState);
 
     const colorSpan = (color: any) => <span key={color.label} title={color.label}
                                             className={"color__content--item " + color.style}/>;
     const emptyStyleDiv = colorSpan({label: 'Black', style: 'black'});
     const currentStyleDiv = () => {
-        const styleType = COLORS.find(({style}) => currentStyle.has(style));
+        const styleType = COLORS.find(({style}) => currentStyle?.has(style));
         return styleType === undefined ? emptyStyleDiv : colorSpan(styleType);
     };
     const colorPicked = (e: React.MouseEvent, style: string) => {
@@ -35,14 +35,14 @@ export const ColorControl: React.FC<EditorStatePropsWithFocus> = ({editorState, 
 
 
         // Unset style override for current color.
-        if (selection.isCollapsed()) {
+        if (selection.isCollapsed() && currentStyle) {
             nextEditorState = currentStyle.reduce((state: any, color: any) => {
                 return RichUtils.toggleInlineStyle(state, color);
             }, nextEditorState);
         }
 
         // If the color is being toggled on, apply it.
-        if (!currentStyle.has(style)) {
+        if (currentStyle && !currentStyle.has(style)) {
             nextEditorState = RichUtils.toggleInlineStyle(
                 nextEditorState,
                 style

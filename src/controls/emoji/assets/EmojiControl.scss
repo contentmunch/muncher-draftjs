@@ -1,0 +1,14 @@
+@import "src/assets/variables";
+
+.emoji-content {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 10rem;
+
+  .muncher-button {
+    font-size: 1rem;
+  }
+
+  max-height: 10rem;
+  overflow: scroll;
+}

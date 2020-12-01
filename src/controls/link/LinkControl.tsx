@@ -9,13 +9,13 @@ export const LinkControl: React.FC<EditorStatePropsWithFocus> = ({editorState, h
     const [showContent, setShowContent] = useState(false);
     const [urlValue, setUrlValue] = useState('');
     const selectionState = editorState.getSelection();
-
+    const selectionEntity = entityFromSelection(editorState);
     const showLinkPrompt = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        const selectionEntity = entityFromSelection(editorState);
+
         let url = '';
-        if (selectionEntity !== null && selectionEntity.getType() === 'LINK') {
-            url = selectionEntity.getData().url;
+        if (isControlActive()) {
+            url = selectionEntity?.getData().url;
         }
         setUrlValue(url);
         setShowContent(true);
@@ -39,13 +39,18 @@ export const LinkControl: React.FC<EditorStatePropsWithFocus> = ({editorState, h
         focusEditor();
         hideLinkPrompt();
     };
-
+    const isSelectionLink = () => {
+        return !selectionState.isCollapsed() && selectionEntity !== null && selectionEntity.getType() === 'LINK'
+    }
+    const isControlActive = () => {
+        return isSelectionLink() && !selectionEntity?.getData().docid;
+    }
 
     return (
         <DropdownButton title="Add or edit a link" onClick={showLinkPrompt} onClose={hideLinkPrompt}
                         showContent={showContent} setShowContent={setShowContent}
-                        disabled={selectionState.isCollapsed()} active={showContent}
-                        element={<Icon name="link"/>} size="small">
+                        disabled={selectionState.isCollapsed()} active={isControlActive() || showContent}
+                        element={<Icon name="external-link"/>} size="small">
 
             <div className="muncher-drop-link--content">
                 <Input

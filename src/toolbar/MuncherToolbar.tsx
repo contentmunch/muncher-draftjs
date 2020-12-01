@@ -7,12 +7,15 @@ import {RedoControl} from "../controls/undo/RedoControl";
 import {BlockControl} from "../controls/block/BlockControl";
 import {InlineControl} from "../controls/inline/InlineControl";
 import {ColorControl} from "../controls/inline/ColorControl";
-import {ImageControl} from "../controls/media/ImageControl";
-import {YoutubeControl} from "../controls/media/YoutubeControl";
+import {ImageControl} from "../controls/atomic/ImageControl";
+import {YoutubeControl} from "../controls/atomic/YoutubeControl";
 import {AlignControl} from "../controls/align/AlignControl";
 import {ListControl} from "../controls/block/ListControl";
 import {TableControl} from "../controls/block/TableControl";
 import {EditorStatePropsWithFocus} from "../Muncher";
+import {FragmentControl} from "../controls/block/FragmentControl";
+import {InternalLinkControl} from "../controls/link/InternalLinkControl";
+import {EmojiControl} from "../controls/emoji/EmojiControl";
 
 export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
     {
@@ -41,6 +44,9 @@ export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
                     <TableControl focusEditor={focusEditor}
                                   handleEditorStateChange={handleEditorStateChange}
                                   editorState={editorState}/>
+                    <FragmentControl focusEditor={focusEditor}
+                                     handleEditorStateChange={handleEditorStateChange}
+                                     editorState={editorState}/>
                     <span className="muncher-separator">|</span>
                     <InlineControl focusEditor={focusEditor}
                                    handleEditorStateChange={handleEditorStateChange}
@@ -52,9 +58,15 @@ export const MuncherToolBar: React.FC<MuncherToolbarProps> = (
                     <LinkControl focusEditor={focusEditor}
                                  handleEditorStateChange={handleEditorStateChange}
                                  editorState={editorState}/>
+                    <InternalLinkControl focusEditor={focusEditor}
+                                         handleEditorStateChange={handleEditorStateChange}
+                                         editorState={editorState}/>
                     <UnlinkControl focusEditor={focusEditor}
                                    handleEditorStateChange={handleEditorStateChange}
                                    editorState={editorState}/>
+                    <EmojiControl focusEditor={focusEditor}
+                                  handleEditorStateChange={handleEditorStateChange}
+                                  editorState={editorState}/>
                     <ImageControl handleEditorStateChange={handleEditorStateChange}
                                   editorState={editorState}
                     />

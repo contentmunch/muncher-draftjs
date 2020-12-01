@@ -5,7 +5,7 @@ import {COLORS} from "../draft/DraftUtilities";
 import {ContentBlock, ContentState} from "draft-js";
 
 
-export const convertHtmlToContent = (currentHtml: string): ContentState => {
+export const convertHtmlToContent = (currentHtml: string, docid?: string): ContentState => {
     const contentState: ContentState = convertFromHTML({
         htmlToStyle: (nodeName, node, currentStyle) => {
 
@@ -21,8 +21,12 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
 
                 return createEntity(
                     'LINK',
-                    'MUTABLE',
-                    {url: node.getAttribute('href')}
+                    node.getAttribute('data-useTitle') ? 'IMMUTABLE' : 'MUTABLE',
+                    {
+                        url: node.getAttribute('href'),
+                        docid: node.getAttribute('data-docid'),
+                        useTitle: node.getAttribute('data-useTitle')
+                    }
                 )
             }
             if (nodeName === 'img') {
@@ -51,7 +55,7 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
             if ('h1' === nodeName) {
                 return {
                     type: 'header-one',
-                    data: textAlignData(node.className)
+                    data: {docid: docid ? docid : node.getAttribute('data-docid'), ...textAlignData(node.className)}
                 };
             }
             if ('h2' === nodeName) {
@@ -93,7 +97,7 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
             if ('p' === nodeName) {
                 return {
                     type: 'unstyled',
-                    data: textAlignData(node.className)
+                    data: {docid: docid ? docid : node.getAttribute('data-docid'), ...textAlignData(node.className)}
                 };
             }
             if ('li' === nodeName) {
@@ -136,7 +140,7 @@ export const convertHtmlToContent = (currentHtml: string): ContentState => {
         const blankLine = new ContentBlock({
             text: '',
             type: 'unstyled',
-        } );
+        });
 
         const newBlockArray = contentState
             .getBlockMap()
@@ -191,7 +195,7 @@ export const convertContentToHtml = (currentEditorState: any) => {
                     return <pre className={textAlignClass(block)}/>;
                 case 'header-one':
                     // eslint-disable-next-line jsx-a11y/heading-has-content
-                    return <h1 className={textAlignClass(block)}/>;
+                    return <h1 className={textAlignClass(block)} data-docid={block.data.docid}/>;
                 case 'header-two':
                     // eslint-disable-next-line jsx-a11y/heading-has-content
                     return <h2 className={textAlignClass(block)}/>;
@@ -225,7 +229,7 @@ export const convertContentToHtml = (currentEditorState: any) => {
                         },
                     };
                 case 'unstyled':
-                    return <p className={textAlignClass(block)}/>
+                    return <p className={textAlignClass(block)} data-docid={block.data.docid}/>
                 case 'col':
                     return {
                         element: <div className="col"/>,
@@ -237,7 +241,8 @@ export const convertContentToHtml = (currentEditorState: any) => {
         },
         entityToHTML: (entity, originalText) => {
             if (entity.type === 'LINK') {
-                return <a href={entity.data.url}>{originalText}</a>;
+                return <a href={entity.data.url || entity.data.docid} data-docid={entity.data.docid}
+                          data-useTitle={entity.data.useTitle}>{originalText}</a>;
             }
             if (entity.type === 'IMAGE') {
                 return `<img src="${entity.data.src}" alt="${entity.data.alt}" />`;

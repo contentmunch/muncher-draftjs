@@ -28,11 +28,24 @@ export const getBlock = (editorState: EditorState) => {
 };
 export const getBlockType = (editorState: EditorState) => {
 
-    return getBlock(editorState).getType();
+    return getBlock(editorState)?.getType();
 };
 export const getBlockAlignment = (editorState: EditorState) => {
-    return getBlock(editorState).getData().get('textAlign');
+    return getBlock(editorState)?.getData().get('textAlign');
 };
+
+export const getCurrentInlineStyle = (editorState: EditorState) => {
+    try {
+        return editorState.getCurrentInlineStyle();
+    } catch (e) {
+
+    }
+
+};
+export const moveFocusToEnd = (editorState: EditorState) => {
+    editorState = EditorState.moveSelectionToEnd(editorState);
+    return EditorState.forceSelection(editorState, editorState.getSelection());
+}
 export const COLORS = [
     {label: 'Red', style: 'red'},
     {label: 'Orange', style: 'orange'},

@@ -30,6 +30,7 @@ export const ImageRenderer: React.FC<ImageRendererProps> = (
              onMouseEnter={() => setShowMenu(true)}
              onMouseLeave={() => {
                  setShowMenu(false);
+                 handleShowContent(false);
              }}
         >
             {showMenu ?
@@ -46,8 +47,6 @@ export const ImageRenderer: React.FC<ImageRendererProps> = (
                 </DropdownButton>
                 : ""
             }
-
-
             <img src={src} alt={alt}/>
         </div>
     )

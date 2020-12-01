@@ -2,11 +2,12 @@ import React, {Fragment} from "react";
 import {RichUtils} from "draft-js";
 import {Button} from "@contentmunch/muncher-ui";
 import {EditorStatePropsWithFocus} from "../../Muncher";
+import {getCurrentInlineStyle} from "../../utilities/draft/DraftUtilities";
 
 
 export const InlineControl: React.FC<EditorStatePropsWithFocus> = ({editorState, handleEditorStateChange, focusEditor}) => {
 
-    const currentStyle = editorState.getCurrentInlineStyle();
+    const currentStyle = getCurrentInlineStyle(editorState);
     const onMouseDown = (e: React.MouseEvent<HTMLButtonElement>, style: string) => {
         e.preventDefault();
         handleEditorStateChange(RichUtils.toggleInlineStyle(editorState, style));
@@ -19,7 +20,7 @@ export const InlineControl: React.FC<EditorStatePropsWithFocus> = ({editorState,
                     <Button
                         key={inlineType.style}
                         title={inlineType.label}
-                        active={currentStyle.has(inlineType.style)}
+                        active={currentStyle?.has(inlineType.style)}
                         onMouseDown={(e: React.MouseEvent<HTMLButtonElement>) => onMouseDown(e, inlineType.style)}
                         size="small"
                     >
