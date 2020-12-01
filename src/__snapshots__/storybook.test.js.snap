@@ -15,8 +15,8 @@ exports[`Storyshots Muncher Default 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Html View"
           disabled={false}
+          title="Html View"
           type="button"
         >
           <svg
@@ -44,8 +44,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Undo"
           disabled={false}
+          title="Undo"
           type="button"
         >
           <svg
@@ -68,8 +68,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Redo"
           disabled={false}
+          title="Redo"
           type="button"
         >
           <svg
@@ -97,8 +97,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Ordered List"
           disabled={false}
+          title="Ordered List"
           type="button"
         >
           <svg
@@ -142,8 +142,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Unordered List"
           disabled={false}
+          title="Unordered List"
           type="button"
         >
           <svg
@@ -223,8 +223,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Bold"
           disabled={false}
+          title="Bold"
           type="button"
         >
           <strong>
@@ -233,8 +233,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Italic"
           disabled={false}
+          title="Italic"
           type="button"
         >
           <strong>
@@ -245,8 +245,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Underline"
           disabled={false}
+          title="Underline"
           type="button"
         >
           <strong>
@@ -257,8 +257,8 @@ exports[`Storyshots Muncher Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Monospace"
           disabled={false}
+          title="Monospace"
           type="button"
         >
           <strong>
@@ -273,8 +273,8 @@ exports[`Storyshots Muncher Default 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Settings"
           disabled={false}
+          title="Settings"
           type="button"
         >
           <svg
@@ -391,8 +391,8 @@ exports[`Storyshots Muncher Empty 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Html View"
           disabled={false}
+          title="Html View"
           type="button"
         >
           <svg
@@ -420,8 +420,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Undo"
           disabled={false}
+          title="Undo"
           type="button"
         >
           <svg
@@ -444,8 +444,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Redo"
           disabled={false}
+          title="Redo"
           type="button"
         >
           <svg
@@ -473,8 +473,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Ordered List"
           disabled={false}
+          title="Ordered List"
           type="button"
         >
           <svg
@@ -518,8 +518,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Unordered List"
           disabled={false}
+          title="Unordered List"
           type="button"
         >
           <svg
@@ -599,8 +599,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Bold"
           disabled={false}
+          title="Bold"
           type="button"
         >
           <strong>
@@ -609,8 +609,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Italic"
           disabled={false}
+          title="Italic"
           type="button"
         >
           <strong>
@@ -621,8 +621,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Underline"
           disabled={false}
+          title="Underline"
           type="button"
         >
           <strong>
@@ -633,8 +633,8 @@ exports[`Storyshots Muncher Empty 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Monospace"
           disabled={false}
+          title="Monospace"
           type="button"
         >
           <strong>
@@ -649,8 +649,8 @@ exports[`Storyshots Muncher Empty 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Settings"
           disabled={false}
+          title="Settings"
           type="button"
         >
           <svg
@@ -767,8 +767,8 @@ exports[`Storyshots Muncher With Image 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Html View"
           disabled={false}
+          title="Html View"
           type="button"
         >
           <svg
@@ -796,8 +796,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Undo"
           disabled={false}
+          title="Undo"
           type="button"
         >
           <svg
@@ -820,8 +820,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Redo"
           disabled={false}
+          title="Redo"
           type="button"
         >
           <svg
@@ -849,8 +849,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Ordered List"
           disabled={false}
+          title="Ordered List"
           type="button"
         >
           <svg
@@ -894,8 +894,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Unordered List"
           disabled={false}
+          title="Unordered List"
           type="button"
         >
           <svg
@@ -975,8 +975,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Bold"
           disabled={false}
+          title="Bold"
           type="button"
         >
           <strong>
@@ -985,8 +985,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Italic"
           disabled={false}
+          title="Italic"
           type="button"
         >
           <strong>
@@ -997,8 +997,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Underline"
           disabled={false}
+          title="Underline"
           type="button"
         >
           <strong>
@@ -1009,8 +1009,8 @@ exports[`Storyshots Muncher With Image 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Monospace"
           disabled={false}
+          title="Monospace"
           type="button"
         >
           <strong>
@@ -1025,8 +1025,8 @@ exports[`Storyshots Muncher With Image 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Settings"
           disabled={false}
+          title="Settings"
           type="button"
         >
           <svg
@@ -1143,8 +1143,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Html View"
           disabled={false}
+          title="Html View"
           type="button"
         >
           <svg
@@ -1172,8 +1172,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Undo"
           disabled={false}
+          title="Undo"
           type="button"
         >
           <svg
@@ -1196,8 +1196,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Redo"
           disabled={false}
+          title="Redo"
           type="button"
         >
           <svg
@@ -1225,8 +1225,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Ordered List"
           disabled={false}
+          title="Ordered List"
           type="button"
         >
           <svg
@@ -1270,8 +1270,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Unordered List"
           disabled={false}
+          title="Unordered List"
           type="button"
         >
           <svg
@@ -1351,8 +1351,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </span>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Bold"
           disabled={false}
+          title="Bold"
           type="button"
         >
           <strong>
@@ -1361,8 +1361,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Italic"
           disabled={false}
+          title="Italic"
           type="button"
         >
           <strong>
@@ -1373,8 +1373,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Underline"
           disabled={false}
+          title="Underline"
           type="button"
         >
           <strong>
@@ -1385,8 +1385,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         </button>
         <button
           className="muncher-button muncher-button--small"
-          data-title="Monospace"
           disabled={false}
+          title="Monospace"
           type="button"
         >
           <strong>
@@ -1401,8 +1401,8 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
       >
         <button
           className="muncher-button muncher-button--small"
-          data-title="Settings"
           disabled={false}
+          title="Settings"
           type="button"
         >
           <svg

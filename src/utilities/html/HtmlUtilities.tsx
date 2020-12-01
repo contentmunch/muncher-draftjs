@@ -95,10 +95,19 @@ export const convertHtmlToContent = (currentHtml: string, docid?: string): Conte
                 };
             }
             if ('p' === nodeName) {
-                return {
-                    type: 'unstyled',
-                    data: {docid: docid ? docid : node.getAttribute('data-docid'), ...textAlignData(node.className)}
-                };
+
+                if (node.className.includes('col')) {
+                    return {
+                        type: 'col',
+                        data: textAlignData(node.className)
+                    }
+                } else {
+                    return {
+                        type: 'unstyled',
+                        data: {docid: docid ? docid : node.getAttribute('data-docid'), ...textAlignData(node.className)}
+                    };
+                }
+
             }
             if ('li' === nodeName) {
                 if (lastList === 'ol') {
@@ -119,17 +128,11 @@ export const convertHtmlToContent = (currentHtml: string, docid?: string): Conte
                 };
             }
             if ('div' === nodeName) {
-                if (node.className.includes('col')) {
-                    return {
-                        type: 'col',
-                        data: textAlignData(node.className)
-                    }
-                } else {
-                    return {
-                        type: 'div',
-                        data: textAlignData(node.className)
-                    };
-                }
+                return {
+                    type: 'div',
+                    data: textAlignData(node.className)
+                };
+
             }
         }
 
@@ -232,7 +235,7 @@ export const convertContentToHtml = (currentEditorState: any) => {
                     return <p className={textAlignClass(block)} data-docid={block.data.docid}/>
                 case 'col':
                     return {
-                        element: <div className="col"/>,
+                        element: <p className="col"/>,
                         nest: <section className="row"/>,
                     };
                 default:

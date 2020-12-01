@@ -128,7 +128,7 @@ export const Muncher: React.FC<MuncherProps> = (
 
     const extendedBlockRenderMap = Draft.DefaultDraftBlockRenderMap.merge(Immutable.Map({
             'col': {
-                element: 'div', // or
+                element: 'p', // or
                 wrapper: <Table/>,
             }
         })
