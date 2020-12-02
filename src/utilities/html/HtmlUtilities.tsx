@@ -4,7 +4,6 @@ import {html_beautify} from "js-beautify";
 import {COLORS} from "../draft/DraftUtilities";
 import {ContentBlock, ContentState} from "draft-js";
 
-
 export const convertHtmlToContent = (currentHtml: string, docid?: string): ContentState => {
     const contentState: ContentState = convertFromHTML({
         htmlToStyle: (nodeName, node, currentStyle) => {

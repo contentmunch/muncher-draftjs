@@ -28,6 +28,7 @@ export const Muncher: React.FC<MuncherProps> = (
         readOnly
     }) => {
     const [html, setHtml] = useState("");
+    const [isTyping, setIsTyping] = useState(false);
     const [editorReadOnly, setEditorReadOnly] = useState(readOnly);
     const [showStructure, setShowStructure] = useState(false);
     const [stripPastedStyles, setStripPastedStyles] = useState(false);
@@ -40,6 +41,11 @@ export const Muncher: React.FC<MuncherProps> = (
     const [editorState, setEditorState] = useState(content ?
         EditorState.createWithContent(convertHtmlToContent(content), decorator) :
         EditorState.createEmpty(decorator));
+    const [lastEditorState, setLastEditorState] = useState(editorState);
+    useEffect(() => {
+        setHtml(beautifyHtml(convertContentToHtml(editorState)));
+        setCharacterCount(editorState.getCurrentContent().getPlainText('\u0001').length);
+    }, [editorState]);
 
     const setIsCodeView = (isCodeView: boolean) => {
         setCodeView(isCodeView);
@@ -52,11 +58,20 @@ export const Muncher: React.FC<MuncherProps> = (
     const handleEditorStateChange = (currentEditorState: EditorState) => {
         const currentContent = getPlainText(currentEditorState);
         setCharacterCount(currentContent.length);
-        const currentHtml = beautifyHtml(convertContentToHtml(currentEditorState));
-        if (changeHandler && currentHtml !== html) changeHandler(currentHtml);
-        setHtml(currentHtml);
         setEditorState(currentEditorState);
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (!isTyping && changeHandler && lastEditorState.getCurrentContent() !== editorState.getCurrentContent()) {
+                setLastEditorState(editorState);
+                const currentHtml = beautifyHtml(convertContentToHtml(editorState));
+                changeHandler(currentHtml);
+            }
+
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [isTyping, changeHandler, editorState, lastEditorState]);
 
     const focusEditor = () => {
         //wait for focus, causes stack overflow, otherwise.
@@ -65,12 +80,6 @@ export const Muncher: React.FC<MuncherProps> = (
         }, 100);
 
     };
-    useEffect(() => {
-
-        setHtml(beautifyHtml(convertContentToHtml(editorState)));
-        setCharacterCount(editorState.getCurrentContent().getPlainText('\u0001').length);
-    }, [editorState]);
-
     const getBlockStyle = (block: Draft.ContentBlock) => {
         switch (block.getData().get('textAlign')) {
             case 'ALIGN_LEFT':
@@ -103,8 +112,6 @@ export const Muncher: React.FC<MuncherProps> = (
                 }
             };
         }
-
-
     };
 
     const handleKeyCommand: any = (command: any, editorState: EditorState) => {
@@ -116,6 +123,10 @@ export const Muncher: React.FC<MuncherProps> = (
         return false;
     };
     const mapKeyToEditorCommand: any = (e: any) => {
+        setIsTyping(true);
+        setTimeout(() => {
+            setIsTyping(false);
+        }, 1000);
         if (e.keyCode === 9 /* TAB */) {
             const newEditorState = RichUtils.onTab(e, editorState, 4, /* maxDepth */);
             if (newEditorState !== editorState) {
@@ -124,6 +135,7 @@ export const Muncher: React.FC<MuncherProps> = (
             return false;
         }
         return getDefaultKeyBinding(e);
+
     };
 
     const extendedBlockRenderMap = Draft.DefaultDraftBlockRenderMap.merge(Immutable.Map({
