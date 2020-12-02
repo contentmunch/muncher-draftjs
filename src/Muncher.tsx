@@ -29,7 +29,7 @@ export const Muncher: React.FC<MuncherProps> = (
     }) => {
     const [html, setHtml] = useState("");
     const [isTyping, setIsTyping] = useState(false);
-    const [editorReadOnly, setEditorReadOnly] = useState(readOnly);
+    const [editorReadOnly, setEditorReadOnly] = useState(readOnly ? readOnly : false);
     const [showStructure, setShowStructure] = useState(false);
     const [stripPastedStyles, setStripPastedStyles] = useState(false);
     const [spellCheck, setSpellCheck] = useState(true);
@@ -106,9 +106,14 @@ export const Muncher: React.FC<MuncherProps> = (
                 editable: false,
                 props: {
                     updateImage: (newContentState: ContentState) => {
-                        handleEditorStateChange(EditorState.createWithContent(newContentState));
+                        if (!readOnly)
+                            handleEditorStateChange(EditorState.createWithContent(newContentState));
                     },
-                    setEditorReadOnly
+                    setEditorReadOnly: (value: boolean) => {
+                        if (!readOnly) {
+                            setEditorReadOnly(value);
+                        }
+                    }
                 }
             };
         }
