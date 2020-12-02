@@ -33,7 +33,7 @@ export const Muncher: React.FC<MuncherProps> = (
     const [showStructure, setShowStructure] = useState(false);
     const [stripPastedStyles, setStripPastedStyles] = useState(false);
     const [spellCheck, setSpellCheck] = useState(true);
-    const [characterCount, setCharacterCount] = useState(0);
+    const [showCharacterCount, setShowCharacterCount] = useState(false);
     const [codeView, setCodeView] = useState(false);
     const editor = useRef<Editor>(null);
 
@@ -42,22 +42,18 @@ export const Muncher: React.FC<MuncherProps> = (
         EditorState.createWithContent(convertHtmlToContent(content), decorator) :
         EditorState.createEmpty(decorator));
     const [lastEditorState, setLastEditorState] = useState(editorState);
-    useEffect(() => {
-        setHtml(beautifyHtml(convertContentToHtml(editorState)));
-        setCharacterCount(editorState.getCurrentContent().getPlainText('\u0001').length);
-    }, [editorState]);
 
     const setIsCodeView = (isCodeView: boolean) => {
         setCodeView(isCodeView);
-        if (!isCodeView) {
-            handleEditorStateChange(EditorState.push(editorState, convertHtmlToContent(html),
-                'change-block-data'));
+        if (isCodeView) {
+            setHtml(beautifyHtml(convertContentToHtml(editorState)));
+        } else {
+            handleEditorStateChange(
+                EditorState.push(editorState, convertHtmlToContent(html), 'change-block-data'));
         }
     }
 
     const handleEditorStateChange = (currentEditorState: EditorState) => {
-        const currentContent = getPlainText(currentEditorState);
-        setCharacterCount(currentContent.length);
         setEditorState(currentEditorState);
     };
 
@@ -162,6 +158,8 @@ export const Muncher: React.FC<MuncherProps> = (
                                      stripPastedStyles={stripPastedStyles}
                                      setStripPastedStyles={setStripPastedStyles}
                                      spellCheck={spellCheck} setSpellCheck={setSpellCheck}
+                                     showCharacterCount={showCharacterCount}
+                                     setShowCharacterCount={setShowCharacterCount}
                     />
 
                 </MuncherToolBar>
@@ -185,13 +183,16 @@ export const Muncher: React.FC<MuncherProps> = (
                                 placeholder="Tell a story..."
                                 handleKeyCommand={handleKeyCommand}
                                 keyBindingFn={mapKeyToEditorCommand}
+
                             />
                         </div>
                 }
 
                 <div className="muncher-footer">
-                    <div className="left"><Icon name="muncher" weight={1}/> Muncher Editor</div>
-                    <div className="right">Characters: {characterCount}</div>
+                    <div
+                        className="left">{showCharacterCount ? "Characters: " + getPlainText(editorState).length : ""}</div>
+                    <div className="right"><a href="https://muncher.contentmunch.com" title="Muncher Editor"><Icon
+                        name="muncher" weight={1}/></a></div>
                 </div>
             </div>
 

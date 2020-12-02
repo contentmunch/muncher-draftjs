@@ -6,7 +6,7 @@ export const SettingsControl: React.FC<SettingsControlProps> = (
     {
         showStructure, setShowStructure,
         stripPastedStyles, setStripPastedStyles,
-        spellCheck, setSpellCheck
+        spellCheck, setSpellCheck,showCharacterCount,setShowCharacterCount
     }) => {
     const [showContent, setShowContent] = useState(false);
 
@@ -42,6 +42,15 @@ export const SettingsControl: React.FC<SettingsControlProps> = (
                     </Button>
                 </div>
             </div>
+            <div className="muncher-settings--content">
+                <div className="settings-content--item">
+                    <Button size="small" variant="secondary"
+                            onMouseDown={() => setShowCharacterCount(!showCharacterCount)}>
+                        {showCharacterCount ? <Icon name="toggle-right"/> : <Icon name="toggle-left"/>}
+                        <span className={showCharacterCount ? "on" : "off"}>Show Character Count</span>
+                    </Button>
+                </div>
+            </div>
         </DropdownButton>
     );
 }
@@ -53,5 +62,7 @@ export interface SettingsControlProps {
     setStripPastedStyles: (stripPastedStyles: boolean) => void;
     spellCheck: boolean;
     setSpellCheck: (spellCheck: boolean) => void;
+    showCharacterCount: boolean;
+    setShowCharacterCount: (show: boolean) => void;
 }
 
