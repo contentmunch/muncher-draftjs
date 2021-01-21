@@ -213,6 +213,7 @@ exports[`Storyshots Muncher Default 1`] = `
                 ▼
               </span>
             </span>
+            
           </button>
           
         </div>
@@ -589,6 +590,7 @@ exports[`Storyshots Muncher Empty 1`] = `
                 ▼
               </span>
             </span>
+            
           </button>
           
         </div>
@@ -965,6 +967,7 @@ exports[`Storyshots Muncher Long Document 1`] = `
                 ▼
               </span>
             </span>
+            
           </button>
           
         </div>
@@ -1341,6 +1344,7 @@ exports[`Storyshots Muncher With Image 1`] = `
                 ▼
               </span>
             </span>
+            
           </button>
           
         </div>
@@ -1688,6 +1692,7 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
                 ▼
               </span>
             </span>
+            
           </button>
           
         </div>
@@ -2005,6 +2010,7 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
                 ▼
               </span>
             </span>
+            
           </button>
           
         </div>
@@ -2351,6 +2357,7 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
                 ▼
               </span>
             </span>
+            
           </button>
           
         </div>

@@ -58,6 +58,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
     "@babel/preset-typescript": "^7.12.1",
+    "@contentmunch/muncher-ui": "^0.7.22",
     "@storybook/addon-a11y": "^6.1.0-alpha.34",
     "@storybook/addon-actions": "^6.1.0-alpha.34",
     "@storybook/addon-essentials": "^6.1.0-alpha.34",
@@ -69,12 +70,12 @@
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/draft-js": "^0.10.44",
     "@types/jest": "^26.0.15",
+    "@types/js-beautify": "^1.11.0",
     "@types/node": "^12.19.3",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
-    "@types/draft-js": "^0.10.44",
-    "@types/js-beautify": "^1.11.0",
     "babel-loader": "^8.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -85,7 +86,6 @@
     "typescript": "^4.0.5"
   },
   "dependencies": {
-    "@contentmunch/muncher-ui": "^0.7.22",
     "codemirror": "^5.58.2",
     "draft-convert": "^2.1.10",
     "draft-js": "^0.11.7",
@@ -94,6 +94,9 @@
     "react-codemirror2": "^7.2.1",
     "react-json-tree": "^0.13.0",
     "react-loading-skeleton": "^2.1.1"
+  },
+  "peerDependencies": {
+    "@contentmunch/muncher-ui": "^0.7.22"
   },
   "bugs": {
     "url": "https://github.com/contentmunch/muncher/issues"
