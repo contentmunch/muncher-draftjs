@@ -11,7 +11,7 @@ import "codemirror/addon/fold/foldgutter";
 import "codemirror/addon/fold/brace-fold";
 import "codemirror/addon/fold/comment-fold";
 import "codemirror/addon/fold/foldgutter.css";
-import {Controlled as CodeMirror} from "react-codemirror2";
+import {Controlled as CodeMirror} from "react-codemirror2-react-17";
 
 export const CodeView: React.FC<CodeViewProps> = ({html, setHtml, readOnly}) => {
     return (

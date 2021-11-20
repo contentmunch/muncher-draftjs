@@ -1,1513 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Muncher Default 1`] = `
-<div
-  className="muncher"
->
-  <div
-    className="muncher-main"
-  >
-    <div
-      className="muncher-toolbar"
-    >
-      <div
-        className="muncher-toolbar--left"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Html View"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="16 18 22 12 16 6"
-            />
-            <polyline
-              points="8 6 2 12 8 18"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Undo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="2 10 2 16 8 16"
-            />
-            <path
-              d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Redo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="22 10 22 16 16 16"
-            />
-            <path
-              d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Ordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <polyline
-              points="3 10 5 10 3 13 5 13"
-            />
-            <polyline
-              points="3 3 4 3 4 6"
-            />
-            <path
-              d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Unordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <circle
-              cx="4"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="19"
-              r="1"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <div
-          className="muncher-dropdown"
-        >
-          <button
-            className="muncher-button muncher-button--small muncher-button--active"
-            disabled={false}
-            onMouseDown={[Function]}
-            type="button"
-          >
-            <span>
-              Heading 1 
-              <span
-                className="muncher--small"
-              >
-                ▼
-              </span>
-            </span>
-            
-          </button>
-          
-        </div>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Bold"
-          type="button"
-        >
-          <strong>
-            B
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Italic"
-          type="button"
-        >
-          <strong>
-            <em>
-              I
-            </em>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Underline"
-          type="button"
-        >
-          <strong>
-            <u>
-              U
-            </u>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Monospace"
-          type="button"
-        >
-          <strong>
-            {
-             
-            }
-          </strong>
-        </button>
-      </div>
-      <div
-        className="muncher-toolbar--right"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Settings"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-            />
-            <path
-              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <h2>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 600,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </h2>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 50,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 100,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 70,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Muncher Empty 1`] = `
-<div
-  className="muncher"
->
-  <div
-    className="muncher-main"
-  >
-    <div
-      className="muncher-toolbar"
-    >
-      <div
-        className="muncher-toolbar--left"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Html View"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="16 18 22 12 16 6"
-            />
-            <polyline
-              points="8 6 2 12 8 18"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Undo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="2 10 2 16 8 16"
-            />
-            <path
-              d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Redo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="22 10 22 16 16 16"
-            />
-            <path
-              d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Ordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <polyline
-              points="3 10 5 10 3 13 5 13"
-            />
-            <polyline
-              points="3 3 4 3 4 6"
-            />
-            <path
-              d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Unordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <circle
-              cx="4"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="19"
-              r="1"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <div
-          className="muncher-dropdown"
-        >
-          <button
-            className="muncher-button muncher-button--small muncher-button--active"
-            disabled={false}
-            onMouseDown={[Function]}
-            type="button"
-          >
-            <span>
-              Heading 1 
-              <span
-                className="muncher--small"
-              >
-                ▼
-              </span>
-            </span>
-            
-          </button>
-          
-        </div>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Bold"
-          type="button"
-        >
-          <strong>
-            B
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Italic"
-          type="button"
-        >
-          <strong>
-            <em>
-              I
-            </em>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Underline"
-          type="button"
-        >
-          <strong>
-            <u>
-              U
-            </u>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Monospace"
-          type="button"
-        >
-          <strong>
-            {
-             
-            }
-          </strong>
-        </button>
-      </div>
-      <div
-        className="muncher-toolbar--right"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Settings"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-            />
-            <path
-              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <h2>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 600,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </h2>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 50,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 100,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 70,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Muncher Long Document 1`] = `
-<div
-  className="muncher"
->
-  <div
-    className="muncher-main"
-  >
-    <div
-      className="muncher-toolbar"
-    >
-      <div
-        className="muncher-toolbar--left"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Html View"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="16 18 22 12 16 6"
-            />
-            <polyline
-              points="8 6 2 12 8 18"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Undo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="2 10 2 16 8 16"
-            />
-            <path
-              d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Redo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="22 10 22 16 16 16"
-            />
-            <path
-              d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Ordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <polyline
-              points="3 10 5 10 3 13 5 13"
-            />
-            <polyline
-              points="3 3 4 3 4 6"
-            />
-            <path
-              d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Unordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <circle
-              cx="4"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="19"
-              r="1"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <div
-          className="muncher-dropdown"
-        >
-          <button
-            className="muncher-button muncher-button--small muncher-button--active"
-            disabled={false}
-            onMouseDown={[Function]}
-            type="button"
-          >
-            <span>
-              Heading 1 
-              <span
-                className="muncher--small"
-              >
-                ▼
-              </span>
-            </span>
-            
-          </button>
-          
-        </div>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Bold"
-          type="button"
-        >
-          <strong>
-            B
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Italic"
-          type="button"
-        >
-          <strong>
-            <em>
-              I
-            </em>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Underline"
-          type="button"
-        >
-          <strong>
-            <u>
-              U
-            </u>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Monospace"
-          type="button"
-        >
-          <strong>
-            {
-             
-            }
-          </strong>
-        </button>
-      </div>
-      <div
-        className="muncher-toolbar--right"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Settings"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-            />
-            <path
-              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <h2>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 600,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </h2>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 50,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 100,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 70,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Muncher With Image 1`] = `
-<div
-  className="muncher"
->
-  <div
-    className="muncher-main"
-  >
-    <div
-      className="muncher-toolbar"
-    >
-      <div
-        className="muncher-toolbar--left"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Html View"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="16 18 22 12 16 6"
-            />
-            <polyline
-              points="8 6 2 12 8 18"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Undo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="2 10 2 16 8 16"
-            />
-            <path
-              d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Redo"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="22 10 22 16 16 16"
-            />
-            <path
-              d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Ordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <polyline
-              points="3 10 5 10 3 13 5 13"
-            />
-            <polyline
-              points="3 3 4 3 4 6"
-            />
-            <path
-              d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
-            />
-          </svg>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Unordered List"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <circle
-              cx="4"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="19"
-              r="1"
-            />
-          </svg>
-        </button>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <div
-          className="muncher-dropdown"
-        >
-          <button
-            className="muncher-button muncher-button--small muncher-button--active"
-            disabled={false}
-            onMouseDown={[Function]}
-            type="button"
-          >
-            <span>
-              Heading 1 
-              <span
-                className="muncher--small"
-              >
-                ▼
-              </span>
-            </span>
-            
-          </button>
-          
-        </div>
-        <span
-          className="muncher-separator"
-        >
-          |
-        </span>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Bold"
-          type="button"
-        >
-          <strong>
-            B
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Italic"
-          type="button"
-        >
-          <strong>
-            <em>
-              I
-            </em>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Underline"
-          type="button"
-        >
-          <strong>
-            <u>
-              U
-            </u>
-          </strong>
-        </button>
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Monospace"
-          type="button"
-        >
-          <strong>
-            {
-             
-            }
-          </strong>
-        </button>
-      </div>
-      <div
-        className="muncher-toolbar--right"
-      >
-        <button
-          className="muncher-button muncher-button--small"
-          disabled={false}
-          title="Settings"
-          type="button"
-        >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-            />
-            <path
-              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <h2>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 600,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </h2>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 50,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 100,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "height": 70,
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-    <p>
-      <span>
-        <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
-          style={
-            Object {
-              "width": 800,
-            }
-          }
-        >
-          ‌
-        </span>
-      </span>
-    </p>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Muncher/Simple Default 1`] = `
 <div
   className="muncher"
@@ -1527,23 +19,29 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
           title="Undo"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <polyline
-              points="2 10 2 16 8 16"
-            />
-            <path
-              d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="2 10 2 16 8 16"
+              />
+              <path
+                d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
+              />
+            </svg>
+            
+          </span>
         </button>
         <button
           className="muncher-button muncher-button--small"
@@ -1551,23 +49,29 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
           title="Redo"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <polyline
-              points="22 10 22 16 16 16"
-            />
-            <path
-              d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="22 10 22 16 16 16"
+              />
+              <path
+                d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
+              />
+            </svg>
+            
+          </span>
         </button>
         <span
           className="muncher-separator"
@@ -1580,44 +84,50 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
           title="Ordered List"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <polyline
-              points="3 10 5 10 3 13 5 13"
-            />
-            <polyline
-              points="3 3 4 3 4 6"
-            />
-            <path
-              d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="9"
+                x2="21"
+                y1="5"
+                y2="5"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="19"
+                y2="19"
+              />
+              <polyline
+                points="3 10 5 10 3 13 5 13"
+              />
+              <polyline
+                points="3 3 4 3 4 6"
+              />
+              <path
+                d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
+              />
+            </svg>
+            
+          </span>
         </button>
         <button
           className="muncher-button muncher-button--small"
@@ -1625,50 +135,56 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
           title="Unordered List"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <circle
-              cx="4"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="19"
-              r="1"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="9"
+                x2="21"
+                y1="5"
+                y2="5"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="19"
+                y2="19"
+              />
+              <circle
+                cx="4"
+                cy="12"
+                r="1"
+              />
+              <circle
+                cx="4"
+                cy="5"
+                r="1"
+              />
+              <circle
+                cx="4"
+                cy="19"
+                r="1"
+              />
+            </svg>
+            
+          </span>
         </button>
         <span
           className="muncher-separator"
@@ -1750,9 +266,12 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
       </div>
     </div>
     <h2>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "width": 600,
@@ -1761,12 +280,16 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </h2>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 50,
@@ -1776,12 +299,16 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 100,
@@ -1791,12 +318,16 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 70,
@@ -1806,12 +337,16 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "width": 800,
@@ -1820,6 +355,7 @@ exports[`Storyshots Muncher/Simple Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
   </div>
@@ -1845,23 +381,29 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
           title="Undo"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <polyline
-              points="2 10 2 16 8 16"
-            />
-            <path
-              d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="2 10 2 16 8 16"
+              />
+              <path
+                d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
+              />
+            </svg>
+            
+          </span>
         </button>
         <button
           className="muncher-button muncher-button--small"
@@ -1869,23 +411,29 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
           title="Redo"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <polyline
-              points="22 10 22 16 16 16"
-            />
-            <path
-              d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="22 10 22 16 16 16"
+              />
+              <path
+                d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
+              />
+            </svg>
+            
+          </span>
         </button>
         <span
           className="muncher-separator"
@@ -1898,44 +446,50 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
           title="Ordered List"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <polyline
-              points="3 10 5 10 3 13 5 13"
-            />
-            <polyline
-              points="3 3 4 3 4 6"
-            />
-            <path
-              d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="9"
+                x2="21"
+                y1="5"
+                y2="5"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="19"
+                y2="19"
+              />
+              <polyline
+                points="3 10 5 10 3 13 5 13"
+              />
+              <polyline
+                points="3 3 4 3 4 6"
+              />
+              <path
+                d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
+              />
+            </svg>
+            
+          </span>
         </button>
         <button
           className="muncher-button muncher-button--small"
@@ -1943,50 +497,56 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
           title="Unordered List"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <circle
-              cx="4"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="19"
-              r="1"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="9"
+                x2="21"
+                y1="5"
+                y2="5"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="19"
+                y2="19"
+              />
+              <circle
+                cx="4"
+                cy="12"
+                r="1"
+              />
+              <circle
+                cx="4"
+                cy="5"
+                r="1"
+              />
+              <circle
+                cx="4"
+                cy="19"
+                r="1"
+              />
+            </svg>
+            
+          </span>
         </button>
         <span
           className="muncher-separator"
@@ -2068,9 +628,12 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
       </div>
     </div>
     <h2>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "width": 600,
@@ -2079,12 +642,16 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </h2>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 50,
@@ -2094,12 +661,16 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 100,
@@ -2109,12 +680,16 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 70,
@@ -2124,12 +699,16 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "width": 800,
@@ -2138,6 +717,7 @@ exports[`Storyshots Muncher/SimpleSkeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
   </div>
@@ -2163,23 +743,29 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
           title="Html View"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <polyline
-              points="16 18 22 12 16 6"
-            />
-            <polyline
-              points="8 6 2 12 8 18"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="16 18 22 12 16 6"
+              />
+              <polyline
+                points="8 6 2 12 8 18"
+              />
+            </svg>
+            
+          </span>
         </button>
         <span
           className="muncher-separator"
@@ -2192,23 +778,29 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
           title="Undo"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <polyline
-              points="2 10 2 16 8 16"
-            />
-            <path
-              d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="2 10 2 16 8 16"
+              />
+              <path
+                d="m22 16c-1.8136-6.5424-9.5593-9.4823-15.36-4.36l-4.64 4.36"
+              />
+            </svg>
+            
+          </span>
         </button>
         <button
           className="muncher-button muncher-button--small"
@@ -2216,23 +808,29 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
           title="Redo"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <polyline
-              points="22 10 22 16 16 16"
-            />
-            <path
-              d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="22 10 22 16 16 16"
+              />
+              <path
+                d="m1.9935 16c1.8136-6.5424 9.5593-9.4823 15.36-4.36l4.64 4.36"
+              />
+            </svg>
+            
+          </span>
         </button>
         <span
           className="muncher-separator"
@@ -2245,44 +843,50 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
           title="Ordered List"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <polyline
-              points="3 10 5 10 3 13 5 13"
-            />
-            <polyline
-              points="3 3 4 3 4 6"
-            />
-            <path
-              d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="9"
+                x2="21"
+                y1="5"
+                y2="5"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="19"
+                y2="19"
+              />
+              <polyline
+                points="3 10 5 10 3 13 5 13"
+              />
+              <polyline
+                points="3 3 4 3 4 6"
+              />
+              <path
+                d="M3 17H4H5L4 19C4.55 19 5 19.45 5 20C5 20.55 4.55 21 4 21H3"
+              />
+            </svg>
+            
+          </span>
         </button>
         <button
           className="muncher-button muncher-button--small"
@@ -2290,50 +894,56 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
           title="Unordered List"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <line
-              x1="9"
-              x2="21"
-              y1="5"
-              y2="5"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="12"
-              y2="12"
-            />
-            <line
-              x1="9"
-              x2="21"
-              y1="19"
-              y2="19"
-            />
-            <circle
-              cx="4"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="4"
-              cy="19"
-              r="1"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="9"
+                x2="21"
+                y1="5"
+                y2="5"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="9"
+                x2="21"
+                y1="19"
+                y2="19"
+              />
+              <circle
+                cx="4"
+                cy="12"
+                r="1"
+              />
+              <circle
+                cx="4"
+                cy="5"
+                r="1"
+              />
+              <circle
+                cx="4"
+                cy="19"
+                r="1"
+              />
+            </svg>
+            
+          </span>
         </button>
         <span
           className="muncher-separator"
@@ -2422,32 +1032,41 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
           title="Settings"
           type="button"
         >
-          <svg
-            className="muncher-icon muncher-icon--small"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            className="muncher-icon"
           >
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-            />
-            <path
-              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-            />
-          </svg>
+            
+            <svg
+              className="muncher-icon--small"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+              />
+            </svg>
+            
+          </span>
         </button>
       </div>
     </div>
     <h2>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "width": 600,
@@ -2456,12 +1075,16 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </h2>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 50,
@@ -2471,12 +1094,16 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 100,
@@ -2486,12 +1113,16 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "height": 70,
@@ -2501,12 +1132,16 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
     <p>
-      <span>
+      <span
+        aria-busy={true}
+        aria-live="polite"
+      >
         <span
-          className="react-loading-skeleton css-1vmnjpn-skeletonStyles-Skeleton"
+          className="react-loading-skeleton"
           style={
             Object {
               "width": 800,
@@ -2515,6 +1150,7 @@ exports[`Storyshots Muncher/Skeleton Default 1`] = `
         >
           ‌
         </span>
+        <br />
       </span>
     </p>
   </div>
