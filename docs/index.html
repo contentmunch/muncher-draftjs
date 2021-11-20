@@ -17,7 +17,27 @@
   } catch (e) {
     // eslint-disable-next-line no-console
     console.warn('unable to connect to top frame for connecting dev tools');
-  }</script><link rel="shortcut icon" href="favicon/favicon.png"><link rel="icon" type="image/png" href="favicon/favicon.png" sizes="192x192"><script async src="https://www.googletagmanager.com/gtag/js?id=G-D510S1MG28"></script><script>window.dataLayer = window.dataLayer || [];
+  }
+
+  window.onerror = function onerror(message, source, line, column, err) {
+    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+    // eslint-disable-next-line no-var, vars-on-top
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'manager',
+        /* eslint-enable object-shorthand */
+      })
+    );
+  };</script><link rel="shortcut icon" href="favicon/favicon.png"><link rel="icon" type="image/png" href="favicon/favicon.png" sizes="192x192"><script async src="https://www.googletagmanager.com/gtag/js?id=G-D510S1MG28"></script><script>window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
@@ -36,4 +56,4 @@
             
         
             
-              window['DOCS_MODE'] = false;</script><script src="runtime~main.870e8ee0658e83d05c6b.bundle.js"></script><script src="vendors~main.46a87174eced3f37d85a.bundle.js"></script><script src="main.c4e83ad0047d022a7ef4.bundle.js"></script></body></html>
+              window['DOCS_MODE'] = false;</script><script src="runtime~main.0e91f05b3c213b42530d.manager.bundle.js"></script><script src="vendors~main.7db0737730e2b8cbd196.manager.bundle.js"></script><script src="main.92314f4ebe04dc168bbf.manager.bundle.js"></script></body></html>
